@@ -1,0 +1,4 @@
+#Mon Aug 24 19:31:53 IST 2026
+base.0=Z\:\\Mobile Expense Tracker\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

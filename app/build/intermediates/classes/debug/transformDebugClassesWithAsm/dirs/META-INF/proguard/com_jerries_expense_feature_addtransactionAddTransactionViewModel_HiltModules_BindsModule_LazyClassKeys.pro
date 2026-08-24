@@ -1,0 +1,3 @@
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.accounts.AccountsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.accounts.AccountsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.addtransaction.AddTransactionViewModel

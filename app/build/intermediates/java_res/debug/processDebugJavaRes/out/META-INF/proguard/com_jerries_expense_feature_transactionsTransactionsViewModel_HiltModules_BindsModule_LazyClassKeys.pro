@@ -1,0 +1,15 @@
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.accounts.AccountsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.accounts.AccountsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.addtransaction.AddTransactionViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.addtransaction.AddTransactionViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.analytics.AnalyticsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.analytics.AnalyticsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.budgets.BudgetsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.budgets.BudgetsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.categories.CategoriesViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.categories.CategoriesViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.dashboard.DashboardViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.dashboard.DashboardViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.settings.SettingsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.settings.SettingsViewModel
+-keep,allowobfuscation,allowshrinking class com.jerries.expense.feature.transactions.TransactionsViewModel

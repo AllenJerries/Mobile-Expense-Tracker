@@ -1,0 +1,3110 @@
+Marking string:empty_transactions_title:2131492906 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_transactions_message:2131492905 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:dashboard_total_balance:2131492891 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking bool:workmanager_test_configuration:2130968579 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_on_apply_window_listener:2131230797 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_window_insets_animation_callback:2131230805 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:wrapped_composition_tag:2131230815 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:insights_title:2131492915 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_view_model_store_owner:2131230813 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_lifecycle_owner:2131230810 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_next_month:2131492938 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_previous_month:2131492939 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_calendar_mode:2131492935 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_input_mode:2131492937 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:add_transaction:2131492866 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_dialog:2131492952 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_saved_state_registry_owner:2131230812 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_day_selection:2131492936 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_switch_to_year_selection:2131492940 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking style:DialogWindowTheme:2131558400 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:compose_view_saveable_id_tag:2131230763 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:view_tree_on_back_pressed_dispatcher_owner:2131230811 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:nav_analytics:2131492973 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:is_pooling_container_tag:2131230776 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_generic_title:2131492902 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:insights_empty_message:2131492914 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:androidx_compose_ui_view_composition_context:2131230758 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_year_picker_pane_title:2131492943 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:pooling_container_listener_holder_tag:2131230787 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_goals_title:2131492904 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_screen_reader_focusable:2131230800 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_heading:2131230795 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_pane_title:2131230796 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_state_description:2131230801 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_actions:2131230793 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_action_clickable_span:2131230720 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_accessibility_clickable_spans:2131230794 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:tab:2131493009 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:switch_role:2131493008 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:androidx_startup:2131492870 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:backup_coming_soon:2131492873 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:inspection_slot_table_set:2131230775 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:transaction_type_income:2131493015 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:transaction_type_expense:2131493014 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:add_transaction_title:2131492867 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:back:2131492872 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:recurring_title:2131492986 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:amount_label:2131492868 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:error_invalid_amount:2131492909 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:account_label:2131492864 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:category_label:2131492886 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:note_label:2131492981 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_unhandled_key_listeners:2131230804 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:ok:2131492982 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:cancel:2131492884 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:save:2131492990 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:recurring_empty_message:2131492985 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:reports_empty_message:2131492987 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:hide_in_inspector_tag:2131230771 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:date_label:2131492892 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:dashboard_recent_transactions:2131492890 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_0:2131230721 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_1:2131230722 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_2:2131230733 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_3:2131230744 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_4:2131230747 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_5:2131230748 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_6:2131230749 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_7:2131230750 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_8:2131230751 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_9:2131230752 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_10:2131230723 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_11:2131230724 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_12:2131230725 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_13:2131230726 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_14:2131230727 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_15:2131230728 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_16:2131230729 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_17:2131230730 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_18:2131230731 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_19:2131230732 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_20:2131230734 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_21:2131230735 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_22:2131230736 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_23:2131230737 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_24:2131230738 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_25:2131230739 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_26:2131230740 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_27:2131230741 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_28:2131230742 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_29:2131230743 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_30:2131230745 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:accessibility_custom_action_31:2131230746 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:indeterminate:2131492913 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_off:2131493005 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_on:2131493006 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:selected:2131492991 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:not_selected:2131492979 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:template_percent:2131493010 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:in_progress:2131492912 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:state_empty:2131493004 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:reports_title:2131492988 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_scroll_to_earlier_years:2131492933 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_scroll_to_later_years:2131492934 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:nav_dashboard:2131492975 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:nav_transactions:2131492977 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:nav_budgets:2131492974 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:nav_settings:2131492976 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:tag_unhandled_key_event_manager:2131230803 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:default_error_message:2131492893 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:accounts_title:2131492865 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:default_popup_window_title:2131492894 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:categories_title:2131492885 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:backup_title:2131492875 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_dropdown_menu_expanded:2131492954 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_dropdown_menu_collapsed:2131492953 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_dropdown_menu_toggle:2131492955 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_invalid_for_pattern:2131492923 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_invalid_year_range:2131492925 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_invalid_not_allowed:2131492924 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_label:2131492926 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_goals_message:2131492903 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_navigate_to_year_description:2131492931 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_budgets_title:2131492900 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_budgets_message:2131492899 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:analytics_empty_message:2131492869 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_accounts_title:2131492898 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_accounts_message:2131492897 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:empty_generic_message:2131492901 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:dashboard_greeting:2131492889 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_no_selection_description:2131492932 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_no_input_description:2131492927 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_headline:2131492929 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_headline:2131492921 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_headline_description:2131492930 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_headline_description:2131492922 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_title:2131492941 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_input_title:2131492928 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:backup_description:2131492874 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_title:2131493002 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_dynamic_colors:2131492996 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_dynamic_colors_description:2131492997 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:hide_graphics_layer_in_inspector_tag:2131230769 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:m3c_date_picker_today_description:2131492942 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:consume_window_insets_tag:2131230764 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_appearance:2131492994 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_theme_dark:2131492999 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_theme_light:2131493000 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_theme_system:2131493001 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_general:2131492998 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_about:2131492992 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_about_description:2131492993 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking string:settings_version:2131493003 reachable: referenced from in_memory_r8_base_classes0.dex
+Marking id:report_drawn:2131230788 reachable: referenced from in_memory_r8_base_classes0.dex
+android.content.res.Resources#getIdentifier present: true
+Web content present: false
+Referenced Strings:
+callerContext
+valueCase_
+descriptor
+​
+java.lang.Integer
+schedulers
+work_spec_id
+ACTION_STOP_FOREGROUND
+categoryCount
+TAKEN
+layoutDirection
+preferences_pb
+$this$item
+Rgb565
+Compose:abandons
+Filled.Add
+java.lang.CharSequence
+STOP
+RESTRICT
+requires_device_idle
+requires_battery_not_low
+0
+textSelectionRange
+ACTION_PRESS_AND_HOLD
+left
+kotlinx.coroutines.DefaultExecutor
+notnull
+SEL
+JvmSystemFileSystem
+Strategy.HighQuality
+WorkForegroundRunnable
+S_RESUMING_BY_RCV
+role
+emoji2.text.DefaultEmojiConfig
+Selection
+androidx.compose.foundation.lazy.layo...
+H
+Prefix
+L
+kType
+result
+DeferredAnimation
+category_id
+NumberPassword
+constructor.parameterTypes
+EXTRA_BENCHMARK_OPERATION
+policy
+_
+a
+b
+completedExpandBuffersAndPauseFlag$vo...
+Center
+ACTION_CLEAR_ACCESSIBILITY_FOCUS
+c
+SUCCESS
+address
+Infinity
+Compose:unobserve
+f
+g
+h
+effectiveDirectAddress
+kotlin.String
+RESUMING_BY_EB
+OnClick
+m
+r
+SUSPEND
+java.lang.Module
+TypefaceCompatApi26Impl
+x
+appContext
+ProgressBarRangeInfo
+TRUNCATE
+v5.e
+Start
+reader
+empty
+isTagEnabled
+contentUriTriggers
+transactionContext
+KEY_FOREGROUND_SERVICE_TYPE
+Checkbox
+com.jerries.expense.core.navigation.S...
+Multiply
+ACTION_SCROLL_FORWARD
+compose:lazy:prefetch:compose
+Expanded
+preferencesProto.preferencesMap
+Rgb
+indicatorRipple
+Bottom
+End
+child
+cid
+androidx.view.accessibility.Accessibi...
+COMPLETING_WAITING_CHILDREN
+RESULT_BASELINE_PROFILE_NOT_FOUND
+$this$buildClassSerialDescriptor
+index_budgets_category_id
+RESULT_DELETE_SKIP_FILE_SUCCESS
+WordBreak.None
+SDK_INT
+Filled.Flag
+Filled.PieChart
+unsupported
+provider
+root
+kotlinx.coroutines.main.delay
+NaN
+FIXED32_LIST_PACKED
+navigationBars
+jobscheduler
+DisplaySmall
+kotlin.collections.List
+accountRepository
+ForceStopRunnable$Rcvr
+onNoteChange
+args
+BatteryChrgTracker
+getNextValue
+ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE
+android.view.View$AttachInfo
+java.lang.Float
+Dispatchers.IO
+resolvedTableNames
+aSerializer
+onNavigateUp
+layoutlib
+Filled.DirectionsBus
+InactivePendingWork
+fixups
+SharingStarted.Eagerly
+TransformOriginInterruptionHandling
+autoMigrationSpecs
+BodySmall
+LookaheadLayingOut
+androidx.profileinstaller.action.SAVE...
+android.os.Build$VERSION
+LocalGraphicsContext
+executor
+primitiveSerializer
+block
+Filled.Check
+fullPackage
+Budgets
+write
+Filled.AccountBalance
+NEUTRAL
+StateDescription
+toggleableState
+EmojiSupportMatch.Default
+byte
+TextSubstitution
+$this$Button
+ON_DOWNGRADE
+Square
+Modulate
+618ccb5624b614d4c056233e8cf7b143
+onBackInvoked
+orders
+SystemJobScheduler
+Transport
+long_value
+NothingSerialDescriptor
+index_WorkSpec_schedule_requested_at
+foreignKeys
+ACTION_SCROLL_IN_DIRECTION
+prerequisite_id
+save
+maxTextLength
+ACTION_PAGE_UP
+FloatAnimation
+Filled.Insights
+java.lang.String
+HorizontalScrollAxisRange
+initializeAppData
+index_transactions_date_epoch_day
+Unspecified
+flex_duration
+Default
+AndroidEdgeEffectOverscrollEffect
+LookaheadMeasuring
+CONNECTED
+Lighten
+kotlin.FloatArray
+All
+New
+limit_minor
+MaxTextLength
+workerCtl$volatile
+icon_key
+android.widget.CheckBox
+android.view.accessibility.extra.DATA...
+Plus
+yMMMd
+void
+statusBarStyle
+PrimaryNotEditable
+compose:lazy:prefetch:nested
+REAL
+StructuralEqualityPolicy
+BYTES_LIST
+_id
+kotlin.Throwable
+RequestFocus
+_handled$volatile
+Horizontal
+displayCutout
+NO_VALUE
+sendAccessibilitySemanticsStructureCh...
+WindowWidthSizeClass.
+Companion
+SFIXED64_LIST_PACKED
+times
+kotlin.Annotation
+SkipSubtreeAndContinueTraversal
+input_merger_class_name
+် ဴ ့ ဵ ျ ြ ဳ ွ
+redeem
+trigger_max_content_delay
+Invalid
+Strictness.None
+BITMAP
+mandatorySystemGestures
+SwitchAccess
+newConfig
+health_and_safety
+Array
+intrface
+_size$volatile
+yMMMM
+valueDesc
+UNKNOWN
+AutoMirrored.Filled.ReceiptLong
+initialExtras
+DstOut
+arcSpline
+fileName
+getByte
+_isCompleting$volatile
+Entertainment
+ACTION_STOP_WORK
+accessibility
+Bradford
+z5.c
+UINT32
+STOP_AND_RESET_REPLAY_CACHE
+double_nullable
+onBackCancelled
+directions_bus
+impl
+kotlinx.coroutines.scheduler.keep.ali...
+com.jerries.expense.core.navigation.A...
+DisplayMedium
+state
+CompanionObject
+element
+kindLabel
+ACTION_SCROLL_DOWN
+SelectionHandleInfo
+android.view.ViewRootImpl
+processor
+TextDecoration.
+StorageNotLowTracker
+.class
+input
+vSerializer
+typeArguments
+CollectionInfo
+copyMemory
+TransactionsRoute
+on_delete
+GetTextLayoutResult
+Rtl
+ToggleableState
+AddTransactionRoute
+getThreadSession
+WorkConstraintsTracker
+ComposeInternal
+liveRegion
+DstIn
+receive
+getParent
+internalQueryExecutor
+Normal
+androidx.lifecycle.ViewModelProvider....
+OTHER
+runnable
+dflt_value
+transactionExecutor
+$this$composable
+PaneTitle
+arrayIndexScale
+klass.interfaces
+Hint
+converter
+Dashboard
+source
+SelectionStart
+android.intent.action.BATTERY_CHANGED
+Compose:Composer.dispose
+Container
+Compose
+java.lang.Short
+Search
+android.widget.Button
+Oklab
+androidx.view.accessibility.Accessibi...
+has
+DEFERRED
+Eraser
+INTEGER
+UINT32_LIST_PACKED
+actual
+androidx.datastore.preferences.protob...
+worker_class_name
+tableIds
+UINT64
+DIAGNOSTIC_PROFILE_IS_COMPRESSED
+HandlerCompat
+peekByte
+Medium
+Enter
+connectionWrapper
+INTERRUPTED_RCV
+index_transactions_account_id
+g6.n
+MESSAGE_LIST
+font_variation_settings
+DpAnimation
+libcore.io.Memory
+TextSelectionRange
+Stylus
+SEALED
+kotlin.LongArray
+CREATED
+NO_OWNER
+ContentOrRtl
+GBP
+KEY_NOTIFICATION
+com.jerries.expense.core.navigation.A...
+androidx.content.action.LOAD_EMOJI_FONT
+Password
+Fab
+EXTRA_SKIP_FILE_OPERATION
+captionBar
+pair
+BOOL_LIST
+Paragraph
+KEY_BATTERY_NOT_LOW_PROXY_ENABLED
+BOOL
+SAVINGS
+short
+Sentences
+Filled.Savings
+MINUTES
+HeadlineSmall
+Strategy.Unspecified
+COMPLETING_RETRY
+OrBuilderList
+TypefaceCompat.createFromFontInfo
+android.widget.RadioButton
+android.widget.ImageView
+ACCESSIBILITY_CLICKABLE_SPAN_ID
+KEY_WORKSPEC_ID
+imeAction
+CODENAME
+ACTION_PAGE_LEFT
+CARD
+modelClass.constructors
+FAILED
+pokeLong
+POISONED
+font_ttc_index
+ACTION_SHOW_ON_SCREEN
+AutoMirrored.Filled.ArrowForward
+last_enqueue_time
+PreEnter
+customActions
+CASH
+CustomActions
+robolectric
+onDelete
+Transactions
+BUFFERED
+index_WorkName_work_spec_id
+.apk
+kotlin.collections.LinkedHashSet
+CHANNEL_CLOSED
+SharingStarted.Lazily
+integer_nullable
+kotlin.collections.HashSet
+java.lang.Throwable
+map.entries
+/data/misc/profiles/cur/0/
+Outlined
+className
+migrationContainer
+kotlin.collections.ArrayList
+undefined
+unknown
+android.widget.SeekBar
+INITIALIZED
+DelayedWorkTracker
+REMOVE
+theme
+deqIdx$volatile
+WorkSpec
+LineHeightStyle.Alignment.Bottom
+value.stringSet.stringsList
+ACTION_DRAG_START
+$this$navigate
+FIXED32_LIST
+targetBytes
+.immediate
+char
+None
+onUpdate
+Bevel
+RESULT_INSTALL_SUCCESS
+Send
+internalTransactionExecutor
+Bytes
+onClearFocusForOwner
+Input
+CollectionItemInfo
+ConstraintTracker
+BoundReached
+KEY_COMPONENT_ACTIVITY_REGISTERED_KEYS
+workerParameters
+ALIGN_RIGHT
+CLOSE_HANDLER_INVOKED
+java.lang.Cloneable
+Compose:deactivate
+CAD
+_rootCause$volatile
+kotlin.uuid.Uuid
+Alpha8
+LabelLarge
+ProcessUtils
+openHelper
+targetUnit
+androidx.work.impl.workers.Constraint...
+ACTION_EXECUTION_COMPLETED
+runnableScheduler
+LocalImageVectorCache
+CLOSED
+values
+isContainer
+LocalFocusManager
+INT32_LIST_PACKED
+LineHeightStyle.Trim.None
+findViewByAccessibilityIdTraversal
+1555
+Idle
+HardLight
+SINT64_LIST_PACKED
+userPreferencesRepository
+kotlin.String.Companion
+padding
+process
+LocalDensity
+ActiveParent
+ACTION_SHOW_TOOLTIP
+jClass
+Data
+value_
+addFontFromAssetManager
+third
+DstOver
+mAttachInfo
+value.string
+classes.dex
+_cur$volatile
+categoryId
+content_uri_triggers
+Left
+insertInorderBarrier
+kotlin.Cloneable
+path
+EXTRA_WORK_SPEC_ID
+Decimal
+Button
+string_non_nullable
+kotlin.reflect.jvm.internal.Reflectio...
+transactionCount
+migrationStartAndEndVersions
+PARKING
+CutText
+COLLAPSED
+period_count
+localToScreen
+DEFAULT_TEST_TAG
+addObserver
+ContentQueryWrapper.query
+ClearTextSubstitution
+SFIXED32_LIST
+ON_ANY
+guava.concurrent.generate_cancellatio...
+SINT32
+$serializer
+route
+ON_PAUSE
+KEY_STORAGE_NOT_LOW_PROXY_ENABLED
+groupAnchor
+TraceCompat
+Link
+Recomposer:animation
+context.noBackupFilesDir
+DatePickerDisplayModeAnimation
+getEmojiConsistencySet
+BLOCKED
+DROP_LATEST
+ExitTransition.KeepUntilTransitionsFi...
+startDestination
+onBackInvokedDispatcher
+$token
+composition
+kotlin.Nothing
+ConstrntProxyUpdtRecvr
+RESULT_DESIRED_FORMAT_UNSUPPORTED
+typeParams
+currentView
+EnterTransition.None
+PERMIT
+android.os.SystemProperties
+Recomposer:recompose
+SYSTEM
+CancelTraversal
+listener
+migrationsNotRequiredFrom
+dir
+RescheduleReceiver
+BudgetsRoute
+AwaitContinuation
+Compose:onForgotten
+Filled.Description
+kotlin.Boolean
+Clickable
+RoomCursorUtil
+List
+DORMANT
+parcel
+coordinator
+count
+Weight
+graph
+Role
+budgets
+navigation_bar_height
+kotlin.time.Duration
+java.lang.annotation.Annotation
+font_weight
+AndroidOwner:onMeasure
+TERMINATED
+compositionLocalMap
+bitField0_
+ACTION_SET_SELECTION
+isCtrlPressed
+$this$NavigationBar
+title
+WorkContinuationImpl
+androidx.view.accessibility.Accessibi...
+kotlin.collections.Map
+RecordingIC
+columnNames
+ProfileInstaller
+java.lang.Boolean
+continuation
+Leading
+owner
+strings_
+classSimpleName
+workManager.workDatabase
+EXCLUSIVE
+IconCompat
+TitleMedium
+und
+androidx.work.util.preferences
+home
+Filled
+ACTION_NOTIFY
+nodes
+on_update
+kotlin.collections.MutableIterable
+DEFAULT
+DROP_OLDEST
+SetText
+updateDisplayListIfDirty
+com.jerries.expense.core.backup.Backu...
+SFIXED64_LIST
+index_WorkTag_work_spec_id
+InsertTextAtCursor
+tables
+navigation
+_removedRef$volatile
+androidx.activity.result.contract.ext...
+balance
+w5.p
+androidx.view.accessibility.Accessibi...
+action
+text
+EXTRA_WORK_SPEC_GENERATION
+Captured
+LocalFontFamilyResolver
+blockingTasksInBuffer$volatile
+cookie
+last_force_stop_ms
+primary.prof
+applicationContext
+getResId
+androidx.datastore.preferences.protob...
+status
+arch_disk_io_
+LocalClipboardManager
+ACTION_CLEAR_SELECTION
+TestTagsAsResourceId
+WorkTimer
+Right
+InvisibleToUser
+Off
+DpSize.Unspecified
+file
+BYTE_STRING
+fileHandle
+INCOME
+typeConverters
+traversalIndex
+PHP
+CancellableContinuation
+map
+Final
+accountCount
+ACTION_PAGE_RIGHT
+java.nio.file.Files
+max
+KEY_NOTIFICATION_ID
+required_network_type
+2067
+SaveableStateHolder_BackStackEntryKey
+kotlin.Triple
+menu
+uri
+NO_OP
+getLong
+Italic
+focusManager
+userDataStore
+AccountsRoute
+viewParent
+ACTION_HIDE_TOOLTIP
+onOpenCategories
+WrkMgrInitializer
+EmojiCompat.MetadataRepo.create
+RESUMED
+Groceries
+KEY_COMPONENT_ACTIVITY_PENDING_RESULT
+kotlin.Pair
+consumed$volatile
+Luminosity
+integer
+LineHeightStyle.Trim.FirstLineTop
+mVisibleInsets
+ContinueTraversal
+invalidateOwnerFocusState
+isEditable
+onBackStarted
+com.jerries.expense.core.navigation.D...
+selected
+sendersAndCloseStatus$volatile
+Unreached
+interrupted
+separator
+null
+font_italic
+true
+androidx.datastore.preferences.protob...
+androidx.lifecycle.internal.SavedStat...
+UNDISPATCHED
+NonCancellable
+applicationScope
+Src
+maxIntrinsicHeight
+ACTION_SCROLL_RIGHT
+GetScrollViewportLength
+CalendarModel
+cSerializer
+peekLong
+NOT_ROAMING
+UINT32_LIST
+Clear
+asyncTraceEnd
+systemBarsIgnoringVisibility
+STARTED
+Inactive
+Round
+NeverEqualPolicy
+schemaVersion
+BrdcstRcvrCnstrntTrckr
+DONE_RCV
+navType
+Error
+Trace
+androidx.core.view.inputmethod.Editor...
+bytes
+Closed
+collectionItemInfo
+androidx.datastore.preferences.protob...
+Completed
+UNINITIALIZED
+callback
+RESUME_TOKEN
+writer
+ACTION_PASTE
+android.graphics.FontFamily
+SINT32_LIST
+Vertical
+PUBLICATION
+argumentName
+navigationBarsIgnoringVisibility
+CategoriesRoute
+Dialog:
+constraints
+predicate
+observer
+Unknown
+java.lang.Long
+TRACE_TAG_APP
+goals
+onClosed
+imeAnimationSource
+Butt
+input_method
+defaultCreationExtras
+slopeArray
+unique
+Expand
+setCurrentState
+Retry
+next_schedule_time_override
+components
+kotlin.Function
+0x
+Filled.Category
+long
+timeProvider
+min
+ACTION_PAGE_DOWN
+kotlinx.coroutines.channels.defaultBu...
+classes_to_restore
+isTraversalGroup
+Exclusion
+activity.windowManager.currentWindowM...
+e5.t
+getBoolean
+FIXED64_LIST
+android_metadata
+WrkTimerRunnable
+kotlin.UInt
+SECONDS
+METERED
+WorkProgress
+yyyy
+STRING
+progress
+android.widget.EditText
+PRA
+LocalFontLoader
+ON_CONFIGURE
+float_nullable
+contentDataType
+OnLongClick
+navigator
+ShuttingDown
+PasteText
+DESC
+ACTION_CANCEL_WORK
+FontFamily.Default
+android.intent.action.BATTERY_OKAY
+androidx.profileinstaller.action.INST...
+kSerializer
+nativeCanvas
+ON_START
+KEY_COMPONENT_ACTIVITY_LAUNCHED_KEYS
+reschedule_needed
+getAccessibilityViewId
+kotlinx.coroutines.io.parallelism
+RUNNING
+collection
+SystemJobInfoConverter
+AutoMirrored.Outlined.ReceiptLong
+WARNING
+BOOLEAN
+Filled.ShoppingCart
+eSerializer
+android.view.DisplayInfo
+profileInstalled
+androidx.lifecycle.internal.SavedStat...
+Salary
+IsEditable
+_isTerminated$volatile
+android.intent.action.BATTERY_LOW
+Compose:applyChanges
+keyDesc
+ColorBurn
+androidx.work.util.id
+Empty
+onBackPressedCallback
+android.view.accessibility.extra.EXTR...
+Outlined.PieChart
+pokeByte
+SetProgress
+_connection
+registry
+typeMap
+Freelance
+_decisionAndIndex$volatile
+debug.layout
+LocalResourceIdCache
+deadline_epoch_day
+index_WorkSpec_last_enqueue_time
+comment
+java.lang.Object
+dexopt/baseline.profm
+interval_duration
+kotlinx.coroutines.bufferedChannel.se...
+Strictness.Normal
+prefix
+Filled.CreditCard
+LiveRegion
+state1
+getViewRootImpl
+Outlined.Savings
+onRefreshCompleted
+internalTracker
+superclass
+delimiter
+permissions
+NONE
+last_cancel_all_time_ms
+kotlinx.coroutines.semaphore.maxSpinC...
+ShutDown
+onFetchFocusRect
+work
+java.util.Set
+WorkProgressUpdater
+Suffix
+Switch
+Preference
+M/y
+TopBar
+result_code
+_delayed$volatile
+7d73d21f1bd82c9e5268b6dcf9fde2cb
+DELETE_SKIP_FILE
+Heading
+androidx.compose.ui.semantics.id
+kotlin.collections.MutableMap
+signature
+createFromFamiliesWithDefault
+DisplayLarge
+com.jerries.expense.core.backup.Backu...
+Clip
+ConstraintTrkngWrkr
+savedStateRegistry
+NO_THREAD_ELEMENTS
+INTERRUPTED_SEND
+Visible
+tracker
+velocityVector
+getDisplayInfo
+DOUBLE
+event
+transactionRepository
+DARK
+PENDING
+WorkManagerImpl
+Housing
+kotlin.ULong
+androidx.profileinstaller.action.BENC...
+LabelMedium
+kotlinx.serialization.Polymorphic
+updateSemanticsNodesCopyAndPanes
+Tab
+h6.e
+outState
+kotlin.
+java.lang.Comparable
+ACTION_SET_TEXT
+first
+DstAtop
+UnfocusedEmpty
+BLOB
+Done
+minimum_retention_duration
+hostLifecycleState
+Characters
+float
+Cursor
+reference
+SINT64
+Filled.Payments
+java.lang.Enum
+BodyLarge
+Outlined.Settings
+$this$ExposedDropdownMenuBox
+progressBarRangeInfo
+TextField
+from
+enqIdx$volatile
+kotlin.IntArray
+offset
+Strategy.Balanced
+androidx.work.workdb
+_exceptionsHolder$volatile
+StopInput
+kotlin.collections.MutableList
+Softlight
+com.jerries.expense.core.backup.Backu...
+DATA
+Content
+androidx.core.view.inputmethod.Editor...
+file_id
+file.absoluteFile
+INSERT
+SystemFgService
+$this$ExposedDropdownMenu
+putObject
+replacement
+dataSource
+Filled.Edit
+$onBackInvoked
+AndroidOwner:measureAndLayout
+ime
+androidx.datastore.preferences.protob...
+android.text.EmojiConsistency
+configuration
+producerIndex$volatile
+localRect
+ACTION_CUT
+Strictness.Unspecified
+kotlin.Byte
+network
+_parentHandle$volatile
+array
+sendEvent
+SelectableGroup
+value
+TextMotion.Animated
+REUSABLE_CLAIMED
+0x%08x
+TestTag
+TitleLarge
+resources
+fontMetrics
+Filled.Settings
+int
+command
+uriPattern
+date_epoch_day
+requestedPathSegments
+providers
+stmt
+exception
+STRING_LIST
+_state$volatile
+IsTraversalGroup
+AutoMirrored.Filled.ArrowBack
+CommandHandler
+String
+ExitTransition.None
+CROSSED
+$this$LazyColumn
+Compose:sideeffects
+WordBreak.Unspecified
+androidx.view.accessibility.Accessibi...
+getUncaughtExceptionPreHandler
+UNMETERED
+VerbatimTts
+AndroidOwner:onTouch
+type.enumConstants
+outOfQuotaPolicy
+receiveCatching
+triggers
+SetSelection
+onBackProgressed
+kotlin.jvm.functions.
+kotlinx.coroutines.scheduler.default....
+onMenuKeyEvent
+Xor
+VerticalScrollAxisRange
+DAYS
+end_epoch_day
+keySerializer
+LayingOut
+MESSAGE
+ContentOrLtr
+LocalInputManager
+target_minor
+EmojiCompat.EmojiCompatInitializer.run
+preferences
+RESULT_PARSE_EXCEPTION
+ColorDodge
+Hyphens.None
+Compose:recompose
+androidx.lifecycle.viewmodel.internal...
+androidx.lifecycle.BundlableSavedStat...
+DashboardRoute
+this$0
+Initial
+lastTargetValue
+Startup
+acc
+HeadlineLarge
+Email
+androidx.profileinstaller.action.SKIP...
+Miter
+Gpu
+SFIXED32_LIST_PACKED
+addSuppressed
+ACTION_SET_PROGRESS
+a6.m
+RESULT_OK
+androidx.core.view.inputmethod.Editor...
+_resumed$volatile
+inputMergerClassName
+add
+delegateFactory
+index_
+LIGHT
+RadioButton
+Filled.Work
+stateDescription
+SystemFgDispatcher
+_invoked$volatile
+textSubstitution
+NOT_REQUIRED
+kotlin.collections.MutableCollection
+ACTION_CLEAR_FOCUS
+Em
+stop_reason
+getDouble
+ACTION_SCROLL_BACKWARD
+FIXED32
+WordBreak.Phrase
+onMoveFocusInChildren
+index_Dependency_work_spec_id
+FontProvider.getFontFamilyResult
+next_job_scheduler_id
+oldValue
+Compact
+ACTION_SCHEDULE_WORK
+ACTION_SCROLL_UP
+BITMAP_MASKABLE
+Down
+capabilities
+seqno
+checkForSemanticsChanges
+androidx.view.accessibility.Accessibi...
+BackupRoute
+UserInput
+navigateUp
+label
+minIntrinsicWidth
+message
+amountMinor
+ACTION_DRAG_DROP
+kotlin.BooleanArray
+Mouse
+Offset.Unspecified
+Measuring
+EXPENSE
+Previous
+FontProvider.getProvider
+ImeAction
+DirectExecutor
+START
+PageDown
+ROOM
+tail$volatile
+grantResults
+movie
+UNDEFINED
+Go
+isShowingTextSubstitution
+onCurrencyChange
+PostExit
+ACTION_CONTEXT_CLICK
+dexopt/baseline.prof
+KEY_GENERATION
+kotlinx.coroutines.internal.StackTrac...
+property
+androidx.view.accessibility.Accessibi...
+createSegment
+_isCompleted$volatile
+Settings
+UINT64_LIST_PACKED
+workDatabase
+SettingsRoute
+runningWorkers$volatile
+com.jerries.expense.core.backup.Backu...
+handle
+androidx.compose.ui.input.pointer.Poi...
+long_nullable
+datastore/
+putFloat
+Top
+insertIndex
+FLOA
+RESULT_NOT_WRITABLE
+.dp
+Gifts
+MAP
+navigatorProvider
+Snackbar
+RESULT_INSTALL_SKIP_FILE_SUCCESS
+Strictness.Loose
+other
+x5.c
+LabelSmall
+putDouble
+CASCADE
+ProcessorForegroundLck
+URI
+valueVector
+androidx$room$IMultiInstanceInvalidat...
+LocalViewConfiguration
+androidx.view.accessibility.Accessibi...
+attach_money
+queryExecutor
+Strategy.Simple
+android.intent.action.ACTION_POWER_DI...
+kotlin.Long
+.em
+androidx.view.accessibility.Accessibi...
+Style
+Completing
+networkCallback
+UPDATE
+ALIGN_LEFT
+Focused
+head$volatile
+USD
+Alarms
+Text
+FIXED64
+Lab
+future
+anchor
+Xyz
+DESTROYED
+ATOMIC
+kotlin.collections.Collection
+UTC
+_decision$volatile
+Filled.Restaurant
+paneTitle
+ACTION_RESCHEDULE
+schedule_requested_at
+receivers$volatile
+coroutineScope
+Filled.DateRange
+ResourceFileSystem::class.java.classL...
+InputMerger
+Hyphens.Auto
+0.0..0.0
+MM
+ACTION_START_FOREGROUND
+uriPathSegments
+read
+systemGestures
+MagnifierPositionInRoot
+clock
+LocalAutofillTree
+java.util.List
+unit
+kClass
+lastScheduledTask$volatile
+scrollAxisRange
+imeAnimationTarget
+kotlin.Int
+queryParam
+VOID
+jerries_expense_prefs
+requiredNetworkType
+okio.Okio
+index_transactions_category_id
+FLOAT
+ctx.baseContext
+handleLifecycleEvent
+Indeterminate
+COMPLETING_ALREADY
+serializer
+WMFgUpdater
+My
+java.lang.Iterable
+WakeLocks
+workerClassName
+readException
+kotlinx.coroutines.DefaultExecutor.ke...
+Phone
+TitleSmall
+Modifier
+wakeLock
+Collapse
+arrayBaseOffset
+Keyboard
+next_schedule_time_override_generation
+windowConfiguration
+P:
+getContentCaptureSessionCompat
+Analytics
+android.intent.action.DEVICE_STORAGE_LOW
+application
+backoffPolicy
+AnalyticsRoute
+NetworkStateTracker
+registerOnEndApplyChangesListener
+Main
+On
+SystemAlarmService
+LineHeightStyle.Alignment.Proportional
+notifyInvalidatedObservers
+_prev$volatile
+getAppBounds
+sqLiteDatabase
+layoutResult
+AccessibilityNodeInfo.roleDescription
+NetworkMeteredCtrlr
+android.widget.HorizontalScrollView
+TypefaceCompatApi29Impl
+emojiCompat
+NO_CLOSE_CAUSE
+DelayMetCommandHandler
+androidx.datastore.preferences.protob...
+androidx$room$IMultiInstanceInvalidat...
+ERROR
+KEY_NETWORK_STATE_PROXY_ENABLED
+androidx.compose.ui.platform.AndroidC...
+maxIntrinsicWidth
+kotlin.collections.LinkedHashMap
+maxState
+onOpenBackup
+createdAtEpochMillis
+Dependency
+verticalScrollAxisRange
+targetVector
+kotlin.collections.HashMap
+_closeCause$volatile
+_COROUTINE.
+TaskStackBuilder
+REMOVE_FROZEN
+.tmp
+peekInt
+_Impl
+Processor
+S:
+androidx.savedstate.Restarter
+$this$buildSerialDescriptor
+kotlinx.coroutines.semaphore.segmentSize
+android.view.accessibility.extra.DATA...
+Filled.Storefront
+context.applicationContext
+DROP_SHADER_CACHE
+kotlin.collections.ListIterator
+GROUP
+putByte
+waterfall
+disabled
+objectFieldOffset
+LocalSavedStateRegistryOwner
+ACTION_SELECT
+inputParams
+9223372036854775807
+kotlin.Char
+ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN
+currencyCode
+Sp
+SrcOver
+navigationIcon
+dimen
+onValueChange
+java.util.ListIterator
+room_table_modification_trigger_
+Label
+DefaultDispatcher
+android.view.accessibility.extra.EXTR...
+kotlin.Double
+iconKey
+Filled.Repeat
+GreedyScheduler
+lifecycle
+view
+appId
+segment
+Disabled
+testTag
+unreachable
+WrkDbPathHelper
+androidx.core.view.inputmethod.Editor...
+UINT64_LIST
+finalException
+initial_delay
+byteString
+recentTransactions
+AccessibilityDelegate
+name
+bolt
+Up
+parameters
+getDescriptor
+distance
+string
+kotlin.coroutines.jvm.internal.BaseCo...
+android
+java.lang.module.ModuleDescriptor
+lastInitialValue
+Justify
+SrcIn
+LineThrough
+androidx.view.accessibility.Accessibi...
+Picker
+dynamic_colors
+Saved
+statement
+Outlined.Home
+Shopping
+networkType
+navigationBarStyle
+thisRef
+SUSPEND_NO_WAITER
+Dispatchers.Main
+TraversalIndex
+TREAT_AS_VIEW_TREE_APPEARING
+collectionInfo
+Cancelled
+workSpecId
+getEmptyRegistry
+graphicsLayer
+target
+createSchedulers
+.lck
+HOURS
+WRITE_AHEAD_LOGGING
+addcf290c41d98b3cf76f77a019c3bec
+connectionManager
+KEY_START_ID
+android.view.contentcapture.EventTime...
+window
+$this$TextButton
+Cancelling
+MainContent
+workTaskExecutor.serialTaskExecutor
+sendSegment$volatile
+Filled.Bolt
+.sp
+AutoMirrored.Filled.KeyboardArrowLeft
+WorkerFactory
+getBounds
+EmptyCoroutineContext
+CPU_ACQUIRED
+ACTION_ARGUMENT_SELECTION_END_INT
+Filled.HealthAndSafety
+connectivity
+SINT64_LIST
+generation
+SFIXED64
+item
+kotlinx.coroutines.scheduler.core.poo...
+kotlinx.coroutines.scheduler.max.pool...
+double
+INSTANCE
+Darken
+seeded
+getLocalLifecycleOwner
+kotlin.Short
+android.software.leanback
+mRecreateDisplayList
+BLOCKING
+amount_minor
+ConstraintsCmdHandler
+BOOL_LIST_PACKED
+DiagnosticsRcvr
+tappableElementIgnoringVisibility
+CHAR
+captionBarIgnoringVisibility
+Span
+currency_code
+kotlinx.coroutines.bufferedChannel.ex...
+enabled
+workerFactory
+Filled.Movie
+LAZY
+resuming_sender
+categories
+ENUM_LIST
+java.util.Map$Entry
+onDynamicColorsChange
+KEY_NEEDS_RESCHEDULE
+accounts
+StartInput
+SFIXED32
+Filled.Wallet
+ForceStopRunnable
+BYTES
+indicator
+kotlinx.coroutines.fast.service.loader
+objectInstance
+trackers
+ScrollToIndex
+requires_storage_not_low
+EmojiCompatInitializer
+kotlin.Any
+ACTION_DELAY_MET
+KEY_COMPONENT_ACTIVITY_REGISTERED_RCS
+coroutineContext
+backStackEntryId
+elementDesc
+out_of_quota_policy
+notification
+2
+AnimatedVisibility
+Utilities
+LocalLayoutDirection
+android.view.View
+java.lang.Byte
+keyboardActions
+contentType
+android.view.accessibility.action.ARG...
+UnfocusedNotEmpty
+putInt
+kind
+Yesterday
+updateEnabledCallbacks
+AutoMirrored.Filled.KeyboardArrowRight
+FontFamily.SansSerif
+actionIcons
+com.jerries.expense.core.navigation.B...
+sqlite_
+CANCELLED
+DropdownList
+android.intent.action.ACTION_POWER_CO...
+kotlin.DoubleArray
+editableText
+effect
+kotlin.collections.Iterator
+CLOSED_EMPTY
+job
+SetTextSubstitution
+com.jerries.expense.core.backup.Backu...
+nextFunction
+enumDescriptor
+unexpected
+systemBars
+SupportSQLite
+NO_RECEIVE_RESULT
+PageRight
+Ltr
+Touch
+elementSerializer
+INT
+AUTOMATIC
+kotlin.Enum
+database
+backEvent
+Trailing
+sendSemanticsPropertyChangeEvents
+$this$navOptions
+Size.Unspecified
+ACTION_PREVIOUS_HTML_ELEMENT
+getDeclaredField
+original
+CLOB
+invalidateNodes
+Ellipsis
+$this$DatePickerDialog
+androidx.lifecycle.savedstate.vm.tag
+WindowInsetsCompat
+Today
+INT32_LIST
+TEMP
+HeadlineMedium
+navigateToAddTransaction
+IsPopup
+owner$volatile
+getModule
+TEMPORARILY_UNMETERED
+android.widget.ProgressBar
+index_categories_name_kind
+Filled.AttachMoney
+compose:lazy:prefetch:measure
+popUpTo
+messageType
+PerformImeAction
+androidx.lifecycle.LifecycleDispatche...
+getSuppressed
+boolean_nullable
+DOUBLE_LIST_PACKED
+ACTION_UNKNOWN
+defaultLifecycleObserver
+SHOULD_BUFFER
+LineHeightStyle.Alignment.Center
+traceCounter
+kotlinx.coroutines.scheduler.resoluti...
+kotlin.Unit
+kotlin.jvm.internal.StringCompanionOb...
+SUCCEEDED
+ContentDescription
+DpOffset.Unspecified
+FontProvider.query
+ACTION_CLICK
+view.resources
+$this$Card
+PageLeft
+:memory:
+icon
+_availablePermits$volatile
+java.
+Selected
+seq
+androidx.compose.text.SpanStyle
+androidx.view.accessibility.Accessibi...
+java.io.tmpdir
+set
+ACTION_IME_ENTER
+Blocking
+Strictness.Strict
+com.jerries.expense.core.navigation.T...
+Dp.Unspecified
+account_id
+_reusableCancellableContinuation$vola...
+android.os.action.CHARGING
+DOUB
+REL
+ACTION_NEXT_AT_MOVEMENT_GRANULARITY
+android.support.PARENT_ACTIVITY
+room_fts_content_sync_
+config
+db
+dd
+ADD
+ReferentialEqualityPolicy
+INT64_LIST
+NavController
+WorkTag
+Difference
+ACTION_DRAG_CANCEL
+composable
+androidx.view.accessibility.Accessibi...
+Underline
+preferences_
+Failed
+Color
+NonDisposableHandle
+EnqueueRunnable
+RectangleShape
+beginTransaction
+ShowTextSubstitution
+Dismiss
+WorkName
+ACTION_ACCESSIBILITY_FOCUS
+isDirectory
+frame
+colorArgb
+ACTION_LONG_CLICK
+measureAndLayout
+origin
+getFloat
+paramName
+putLong
+content
+created_at_epoch_millis
+Number
+onRefreshScheduled
+Hue
+PackageManagerHelper
+Dining
+parkedWorkersStack$volatile
+false
+valueSerializer
+getDeclaredMethod
+newArray
+F16
+Middle
+PendingWork
+idGenerator
+referenceColumnNames
+ScrollByOffset
+Ascii
+TREAT_AS_VIEW_TREE_APPEARED
+ACTION_MOVE_WINDOW
+color_argb
+android.support.text.emoji.emojiCompa...
+index_Dependency_prerequisite_id
+modes
+invoke
+TEXT
+Image
+clipboard
+_queue$volatile
+output
+onRequestFocusForOwner
+BottomBar
+androidx.compose.ui.input.nestedscrol...
+yMMMMEEEEd
+java.lang.Character
+TRANSFER
+context
+model
+id
+dispatcher
+%07x
+Exit
+MILLISECONDS
+ENUM
+b6.i
+it
+transactions
+ON_OPEN
+params
+bSerializer
+UNDECIDED
+IndexForKey
+getInt
+$this$SingleChoiceSegmentedButtonRow
+NioSystemFileSystem
+kotlin.jvm.internal.
+Cmyk
+Map
+charset
+Filled.Home
+payments
+extras
+exportedAtEpochMillis
+Uri
+Url
+BatteryNotLowTracker
+delegate
+BodyMedium
+workManagerImpl.trackers
+SystemIdInfo
+bundle
+table
+referenceTable
+fileSystem
+GROUP_LIST
+kotlin.jvm.functions.Function
+restaurant
+receiveSegment$volatile
+android.widget.ScrollView
+/data/misc/profiles/ref/
+Locale
+android:text
+androidx.work.impl.background.systema...
+ACTION_CONSTRAINTS_CHANGED
+backStackEntry
+workTaskExecutor
+suffix
+second
+cleanedAndPointers$volatile
+argName
+TextFieldInputState
+Polite
+kotlin.Number
+pokeInt
+NULL
+TOO_LATE_TO_CANCEL
+EUR
+Dst
+level
+ms
+.preferences_pb
+entry
+focused
+androidx.datastore.preferences.protob...
+ConstraintProxy
+p0
+$this$NavHost
+keys
+navController
+peekByteArray
+KEY_WORKSPEC_GENERATION
+androidx.compose.ui.semantics.testTag
+addFontFromBuffer
+sql
+$this$ElevatedCard
+dialog
+SupportSQLiteLock
+kotlin.UShort
+android.intent.action.DEVICE_STORAGE_OK
+ACTION_SCROLL_LEFT
+inParcel
+kotlin.Comparable
+groupSlotIndex
+baseKey
+android.app.ActivityThread
+currentDisplay
+DOUBLE_LIST
+pokeByteArray
+COROUTINE_SUSPENDED
+android.widget.Spinner
+java.lang.ClassValue
+kotlin.UByte
+_LifecycleAdapter
+LineHeightStyle.Alignment.Top
+pk
+sourceUnit
+onOpenAccounts
+EditableText
+metadata
+createAsync
+.Companion
+iterator
+freeze
+java.util.Map
+/data/misc/profiles/cur/0
+Overlay
+ProcessCommand
+TextDecoration.None
+shopping_cart
+BANK
+getObject
+ACTION_NEXT_HTML_ELEMENT
+insertReorderBarrier
+invoker
+kotlin.Array
+ACTION_COLLAPSE
+node
+DiagnosticsWrkr
+$listenersList
+posArray
+HideKeyboard
+RESULT_CANCELED
+activity
+MICROSECONDS
+primitive
+rw
+INT32
+SystemAlarmDispatcher
+ENUM_LIST_PACKED
+archived
+ASC
+current
+DELETE
+EXTRA_IS_PERIODIC
+ACTION_SCROLL_TO_POSITION
+key
+kotlin.Enum.Companion
+LONG
+RESOURCE
+animator_duration_scale
+profileinstaller_profileWrittenFor_la...
+prerequisiteId
+system_id
+ACTION_EXPAND
+window.decorView
+WRITE_SKIP_FILE
+kotlin.Float
+store
+_next$volatile
+deepLink
+Words
+closed
+to
+compressed
+SINT32_LIST_PACKED
+horizontalScrollAxisRange
+NetworkNotRoamingCtrlr
+ON_UPGRADE
+dest
+IMMEDIATE
+pairs
+Filled.Redeem
+AUD
+ReusedSlotId
+requires_charging
+putBoolean
+BROKEN
+Hyphens.Unspecified
+Dispatchers.Default
+kotlinx.coroutines.flow.defaultConcur...
+sink
+java.util.Collection
+start_epoch_day
+CLOSE_HANDLER_CLOSED
+HIDDEN
+initial_balance_minor
+PreventUserInput
+bufferEndSegment$volatile
+NOT_IN_STACK
+viewModel
+closeHandler$volatile
+storefront
+desc
+com.jerries.expense.core.navigation.B...
+onAmountChange
+trigger_content_update_delay
+removeObserver
+destination
+ON_DESTROY
+NANOSECONDS
+consumerIndex$volatile
+FLOAT_LIST
+abortCreation
+LocalContext
+serialName
+RESULT_ALREADY_INSTALLED
+backing
+FontsProvider
+KEY_BATTERY_CHARGING_PROXY_ENABLED
+workerParams
+EMPTY
+index_accounts_name
+types
+INT64
+Health
+TextLayout:initLayout
+Saturation
+Schedulers
+DropDownMenu
+isRegularFile
+onDateChange
+Dispatchers.Main.immediate
+Compose:onRemembered
+migration
+statusBarsIgnoringVisibility
+REMOVED_TASK
+getInstance
+SrcOut
+ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY
+INT64_LIST_PACKED
+Index:
+run_attempt_count
+initialBalanceMinor
+baseClass
+type
+LocalView
+statusBars
+Argb8888
+connection
+com.jerries.expense.core.navigation.A...
+cont
+currentProcessName
+IsShowingTextSubstitution
+categoryRepository
+Finished
+ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT
+CONSUMED
+refHolder
+3071c8717539de5d5353f4c8cd59a032
+ShowKeyboard
+ACTION_ARGUMENT_SELECTION_START_INT
+android.support.text.emoji.emojiCompa...
+minIntrinsicHeight
+accountId
+input.keyValueMap
+saveableStateHolderRef
+Next
+NOT_CROSSED
+ACTION_FOCUS
+com.jerries.expense.core.navigation.C...
+java.lang.Double
+columns
+range
+ColorAnimation
+out
+get
+power
+java.lang.Number
+next_alarm_manager_id
+DefaultExecutor
+bufferEnd$volatile
+controlState$volatile
+token
+initializer
+android.view.accessibility.extra.DATA...
+LocalTextToolbar
+elements
+backoff_delay_duration
+URI_MASKABLE
+ON_CREATE
+SelectionEnd
+ENQUEUED
+argument
+androidx.graphics.path
+data
+ON_RESUME
+android.os.action.DISCHARGING
+LocalConfiguration
+Filled.ArrowDropDown
+asyncTraceBegin
+IsDialog
+LocalUriHandler
+tag
+FIXED64_LIST_PACKED
+EmojiCompat.FontRequestEmojiCompatCon...
+PageUp
+SYNCHRONIZED
+backoff_policy
+LocalHapticFeedback
+kotlin.jvm.internal.EnumCompanionObject
+TextMotion.Static
+RESULT_UNSUPPORTED_ART_VERSION
+ACTION_COPY
+ACTION_FORCE_STOP_RESCHEDULE
+LineHeightStyle.Trim.Both
+Active
+android.widget.TextView
+kotlin.collections.Iterable
+navDeepLink
+WorkerWrapper
+endVelocityVector
+send
+newState
+note
+WIT
+kotlin.collections.Map.Entry
+ScrollBy
+WindowHeightSizeClass.
+StopWorkRunnable
+Screen
+scale
+CopyText
+kclass
+JPY
+saved_minor
+WALLET
+alarm
+kotlin.collections.Set
+androidx.activity.result.contract.ext...
+factory
+tappableElement
+LineHeightStyle.Trim.LastLineBottom
+java.util.Iterator
+focusProperties
+org.robolectric.Robolectric
+removeIndex
+Supporting
+jar:file:
+SystemJobService
+Parcelizer
+dateEpochDay
+ON_STOP
+kotlin.CharSequence
+RESULT_IO_EXCEPTION
+intent
+.path
+IN_PROGRESS
+boolean
+migrations
+run_in_foreground
+FLOAT_LIST_PACKED
+SrcAtop
+VanillaIceCream
+arguments
+Popup:
+emit
+LocalWindowInfo
+clazz
+Marking string:empty_accounts_message:2131492897 used because it matches string pool constant empty
+Marking string:empty_accounts_title:2131492898 used because it matches string pool constant empty
+Marking string:empty_budgets_message:2131492899 used because it matches string pool constant empty
+Marking string:empty_budgets_title:2131492900 used because it matches string pool constant empty
+Marking string:empty_generic_message:2131492901 used because it matches string pool constant empty
+Marking string:empty_generic_title:2131492902 used because it matches string pool constant empty
+Marking string:empty_goals_message:2131492903 used because it matches string pool constant empty
+Marking string:empty_goals_title:2131492904 used because it matches string pool constant empty
+Marking string:empty_transactions_message:2131492905 used because it matches string pool constant empty
+Marking string:empty_transactions_title:2131492906 used because it matches string pool constant empty
+Marking id:blocking:2131230761 used because it matches string pool constant block
+Marking string:save:2131492990 used because it matches string pool constant save
+Marking id:accessibility_action_clickable_span:2131230720 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_0:2131230721 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_1:2131230722 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_10:2131230723 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_11:2131230724 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_12:2131230725 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_13:2131230726 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_14:2131230727 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_15:2131230728 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_16:2131230729 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_17:2131230730 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_18:2131230731 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_19:2131230732 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_2:2131230733 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_20:2131230734 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_21:2131230735 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_22:2131230736 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_23:2131230737 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_24:2131230738 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_25:2131230739 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_26:2131230740 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_27:2131230741 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_28:2131230742 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_29:2131230743 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_3:2131230744 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_30:2131230745 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_31:2131230746 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_4:2131230747 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_5:2131230748 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_6:2131230749 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_7:2131230750 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_8:2131230751 used because it matches string pool constant accessibility
+Marking id:accessibility_custom_action_9:2131230752 used because it matches string pool constant accessibility
+Marking string:state_empty:2131493004 used because it matches string pool constant state
+Marking string:state_off:2131493005 used because it matches string pool constant state
+Marking string:state_on:2131493006 used because it matches string pool constant state
+Marking attr:shortcutMatchRequired:2130903085 used because it matches string pool constant short
+Marking attr:route:2130903082 used because it matches string pool constant route
+Marking attr:startDestination:2130903090 used because it matches string pool constant startDestination
+Marking attr:graph:2130903066 used because it matches string pool constant graph
+Marking string:budgets_empty_message:2131492876 used because it matches string pool constant budgets
+Marking id:title:2131230809 used because it matches string pool constant title
+Marking string:navigation_menu:2131492978 used because it matches string pool constant navigation
+Marking attr:action:2130903040 used because it matches string pool constant action
+Marking id:action_container:2131230753 used because it matches string pool constant action
+Marking id:action_divider:2131230754 used because it matches string pool constant action
+Marking id:action_image:2131230755 used because it matches string pool constant action
+Marking id:action_text:2131230756 used because it matches string pool constant action
+Marking id:actions:2131230757 used because it matches string pool constant action
+Marking id:text:2131230806 used because it matches string pool constant text
+Marking id:text2:2131230807 used because it matches string pool constant text
+Marking integer:status_bar_notification_info_maxnum:2131296257 used because it matches string pool constant status
+Marking string:status_bar_notification_info_overflow:2131493007 used because it matches string pool constant status
+Marking attr:uri:2130903093 used because it matches string pool constant uri
+Marking string:selected:2131492991 used because it matches string pool constant selected
+Marking attr:nullable:2130903072 used because it matches string pool constant null
+Marking bool:workmanager_test_configuration:2130968579 used because it matches string pool constant work
+Marking layout:ime_base_split_test_activity:2131361793 used because it matches string pool constant ime
+Marking layout:ime_secondary_split_test_activity:2131361794 used because it matches string pool constant ime
+Marking id:accessibility_action_clickable_span:2131230720 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_0:2131230721 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_1:2131230722 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_10:2131230723 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_11:2131230724 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_12:2131230725 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_13:2131230726 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_14:2131230727 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_15:2131230728 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_16:2131230729 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_17:2131230730 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_18:2131230731 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_19:2131230732 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_2:2131230733 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_20:2131230734 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_21:2131230735 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_22:2131230736 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_23:2131230737 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_24:2131230738 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_25:2131230739 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_26:2131230740 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_27:2131230741 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_28:2131230742 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_29:2131230743 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_3:2131230744 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_30:2131230745 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_31:2131230746 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_4:2131230747 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_5:2131230748 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_6:2131230749 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_7:2131230750 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_8:2131230751 used because it matches string pool constant acc
+Marking id:accessibility_custom_action_9:2131230752 used because it matches string pool constant acc
+Marking string:account_label:2131492864 used because it matches string pool constant acc
+Marking string:accounts_title:2131492865 used because it matches string pool constant acc
+Marking string:add_transaction:2131492866 used because it matches string pool constant add
+Marking string:add_transaction_title:2131492867 used because it matches string pool constant add
+Marking style:TextAppearance_Compat_Notification:2131558405 used because it matches string pool constant Text
+Marking style:TextAppearance_Compat_Notification_Info:2131558406 used because it matches string pool constant Text
+Marking style:TextAppearance_Compat_Notification_Line2:2131558407 used because it matches string pool constant Text
+Marking style:TextAppearance_Compat_Notification_Time:2131558408 used because it matches string pool constant Text
+Marking style:TextAppearance_Compat_Notification_Title:2131558409 used because it matches string pool constant Text
+Marking id:view_tree_lifecycle_owner:2131230810 used because it matches string pool constant view
+Marking id:view_tree_on_back_pressed_dispatcher_owner:2131230811 used because it matches string pool constant view
+Marking id:view_tree_saved_state_registry_owner:2131230812 used because it matches string pool constant view
+Marking id:view_tree_view_model_store_owner:2131230813 used because it matches string pool constant view
+Marking color:androidx_core_ripple_material_light:2131034112 used because it matches string pool constant android
+Marking color:androidx_core_secondary_text_default_material_light:2131034113 used because it matches string pool constant android
+Marking id:androidx_compose_ui_view_composition_context:2131230758 used because it matches string pool constant android
+Marking id:androidx_window_activity_scope:2131230759 used because it matches string pool constant android
+Marking string:androidx_startup:2131492870 used because it matches string pool constant android
+Marking attr:targetPackage:2130903091 used because it matches string pool constant target
+Marking string:categories_title:2131492885 used because it matches string pool constant categories
+Marking string:accounts_title:2131492865 used because it matches string pool constant accounts
+Marking color:notification_action_color_filter:2131034117 used because it matches string pool constant notification
+Marking color:notification_icon_bg_color:2131034118 used because it matches string pool constant notification
+Marking dimen:notification_action_icon_size:2131099655 used because it matches string pool constant notification
+Marking dimen:notification_action_text_size:2131099656 used because it matches string pool constant notification
+Marking dimen:notification_big_circle_margin:2131099657 used because it matches string pool constant notification
+Marking dimen:notification_content_margin_start:2131099658 used because it matches string pool constant notification
+Marking dimen:notification_large_icon_height:2131099659 used because it matches string pool constant notification
+Marking dimen:notification_large_icon_width:2131099660 used because it matches string pool constant notification
+Marking dimen:notification_main_column_padding_top:2131099661 used because it matches string pool constant notification
+Marking dimen:notification_media_narrow_margin:2131099662 used because it matches string pool constant notification
+Marking dimen:notification_right_icon_size:2131099663 used because it matches string pool constant notification
+Marking dimen:notification_right_side_padding_top:2131099664 used because it matches string pool constant notification
+Marking dimen:notification_small_icon_background_padding:2131099665 used because it matches string pool constant notification
+Marking dimen:notification_small_icon_size_as_large:2131099666 used because it matches string pool constant notification
+Marking dimen:notification_subtext_size:2131099667 used because it matches string pool constant notification
+Marking dimen:notification_top_pad:2131099668 used because it matches string pool constant notification
+Marking dimen:notification_top_pad_large_text:2131099669 used because it matches string pool constant notification
+Marking drawable:notification_action_background:2131165191 used because it matches string pool constant notification
+Marking drawable:notification_bg:2131165192 used because it matches string pool constant notification
+Marking drawable:notification_bg_low:2131165193 used because it matches string pool constant notification
+Marking drawable:notification_bg_low_normal:2131165194 used because it matches string pool constant notification
+Marking drawable:notification_bg_low_pressed:2131165195 used because it matches string pool constant notification
+Marking drawable:notification_bg_normal:2131165196 used because it matches string pool constant notification
+Marking drawable:notification_bg_normal_pressed:2131165197 used because it matches string pool constant notification
+Marking drawable:notification_icon_background:2131165198 used because it matches string pool constant notification
+Marking drawable:notification_oversize_large_icon_bg:2131165199 used because it matches string pool constant notification
+Marking drawable:notification_template_icon_bg:2131165200 used because it matches string pool constant notification
+Marking drawable:notification_template_icon_low_bg:2131165201 used because it matches string pool constant notification
+Marking drawable:notification_tile_bg:2131165202 used because it matches string pool constant notification
+Marking id:notification_background:2131230784 used because it matches string pool constant notification
+Marking id:notification_main_column:2131230785 used because it matches string pool constant notification
+Marking id:notification_main_column_container:2131230786 used because it matches string pool constant notification
+Marking layout:notification_action:2131361795 used because it matches string pool constant notification
+Marking layout:notification_action_tombstone:2131361796 used because it matches string pool constant notification
+Marking layout:notification_template_custom_big:2131361797 used because it matches string pool constant notification
+Marking layout:notification_template_icon_group:2131361798 used because it matches string pool constant notification
+Marking layout:notification_template_part_chronometer:2131361799 used because it matches string pool constant notification
+Marking layout:notification_template_part_time:2131361800 used because it matches string pool constant notification
+Marking attr:popUpTo:2130903076 used because it matches string pool constant popUpTo
+Marking attr:popUpToInclusive:2130903077 used because it matches string pool constant popUpTo
+Marking attr:popUpToSaveState:2130903078 used because it matches string pool constant popUpTo
+Marking id:icon:2131230772 used because it matches string pool constant icon
+Marking id:icon_group:2131230773 used because it matches string pool constant icon
+Marking string:settings_about:2131492992 used because it matches string pool constant set
+Marking string:settings_about_description:2131492993 used because it matches string pool constant set
+Marking string:settings_appearance:2131492994 used because it matches string pool constant set
+Marking string:settings_currency:2131492995 used because it matches string pool constant set
+Marking string:settings_dynamic_colors:2131492996 used because it matches string pool constant set
+Marking string:settings_dynamic_colors_description:2131492997 used because it matches string pool constant set
+Marking string:settings_general:2131492998 used because it matches string pool constant set
+Marking string:settings_theme_dark:2131492999 used because it matches string pool constant set
+Marking string:settings_theme_light:2131493000 used because it matches string pool constant set
+Marking string:settings_theme_system:2131493001 used because it matches string pool constant set
+Marking string:settings_title:2131493002 used because it matches string pool constant set
+Marking string:settings_version:2131493003 used because it matches string pool constant set
+Marking id:italic:2131230777 used because it matches string pool constant it
+Marking attr:secondaryActivityAction:2130903083 used because it matches string pool constant second
+Marking attr:secondaryActivityName:2130903084 used because it matches string pool constant second
+Marking id:dialog_button:2131230765 used because it matches string pool constant dialog
+Marking attr:activityAction:2130903041 used because it matches string pool constant activity
+Marking attr:activityName:2130903042 used because it matches string pool constant activity
+Marking string:tooltip_description:2131493011 used because it matches string pool constant to
+Marking string:tooltip_label:2131493012 used because it matches string pool constant to
+Marking attr:destination:2130903049 used because it matches string pool constant dest
+Marking attr:destination:2130903049 used because it matches string pool constant destination
+Marking string:range_end:2131492983 used because it matches string pool constant range
+Marking string:range_start:2131492984 used because it matches string pool constant range
+Marking attr:data:2130903047 used because it matches string pool constant data
+Marking attr:dataPattern:2130903048 used because it matches string pool constant data
+Marking id:tag_accessibility_actions:2131230793 used because it matches string pool constant tag
+Marking id:tag_accessibility_clickable_spans:2131230794 used because it matches string pool constant tag
+Marking id:tag_accessibility_heading:2131230795 used because it matches string pool constant tag
+Marking id:tag_accessibility_pane_title:2131230796 used because it matches string pool constant tag
+Marking id:tag_on_apply_window_listener:2131230797 used because it matches string pool constant tag
+Marking id:tag_on_receive_content_listener:2131230798 used because it matches string pool constant tag
+Marking id:tag_on_receive_content_mime_types:2131230799 used because it matches string pool constant tag
+Marking id:tag_screen_reader_focusable:2131230800 used because it matches string pool constant tag
+Marking id:tag_state_description:2131230801 used because it matches string pool constant tag
+Marking id:tag_transition_group:2131230802 used because it matches string pool constant tag
+Marking id:tag_unhandled_key_event_manager:2131230803 used because it matches string pool constant tag
+Marking id:tag_unhandled_key_listeners:2131230804 used because it matches string pool constant tag
+Marking id:tag_window_insets_animation_callback:2131230805 used because it matches string pool constant tag
+Marking string:note_hint:2131492980 used because it matches string pool constant note
+Marking string:note_label:2131492981 used because it matches string pool constant note
+@com.jerries.expense:anim/fragment_fast_out_extra_slow_in : reachable=false
+@com.jerries.expense:animator/fragment_close_enter : reachable=false
+    @com.jerries.expense:anim/fragment_fast_out_extra_slow_in
+@com.jerries.expense:animator/fragment_close_exit : reachable=false
+    @com.jerries.expense:anim/fragment_fast_out_extra_slow_in
+@com.jerries.expense:animator/fragment_fade_enter : reachable=false
+@com.jerries.expense:animator/fragment_fade_exit : reachable=false
+@com.jerries.expense:animator/fragment_open_enter : reachable=false
+    @com.jerries.expense:anim/fragment_fast_out_extra_slow_in
+@com.jerries.expense:animator/fragment_open_exit : reachable=false
+    @com.jerries.expense:anim/fragment_fast_out_extra_slow_in
+@com.jerries.expense:attr/action : reachable=true
+@com.jerries.expense:attr/activityAction : reachable=true
+@com.jerries.expense:attr/activityName : reachable=true
+@com.jerries.expense:attr/alpha : reachable=false
+@com.jerries.expense:attr/alwaysExpand : reachable=false
+@com.jerries.expense:attr/argType : reachable=false
+@com.jerries.expense:attr/clearTop : reachable=false
+@com.jerries.expense:attr/data : reachable=true
+@com.jerries.expense:attr/dataPattern : reachable=true
+@com.jerries.expense:attr/destination : reachable=true
+@com.jerries.expense:attr/enterAnim : reachable=false
+@com.jerries.expense:attr/exitAnim : reachable=false
+@com.jerries.expense:attr/finishPrimaryWithSecondary : reachable=false
+@com.jerries.expense:attr/finishSecondaryWithPrimary : reachable=false
+@com.jerries.expense:attr/font : reachable=false
+@com.jerries.expense:attr/fontProviderAuthority : reachable=false
+@com.jerries.expense:attr/fontProviderCerts : reachable=false
+@com.jerries.expense:attr/fontProviderFallbackQuery : reachable=false
+@com.jerries.expense:attr/fontProviderFetchStrategy : reachable=false
+@com.jerries.expense:attr/fontProviderFetchTimeout : reachable=false
+@com.jerries.expense:attr/fontProviderPackage : reachable=false
+@com.jerries.expense:attr/fontProviderQuery : reachable=false
+@com.jerries.expense:attr/fontProviderSystemFontFamily : reachable=false
+@com.jerries.expense:attr/fontStyle : reachable=false
+@com.jerries.expense:attr/fontVariationSettings : reachable=false
+@com.jerries.expense:attr/fontWeight : reachable=false
+@com.jerries.expense:attr/graph : reachable=true
+@com.jerries.expense:attr/lStar : reachable=false
+@com.jerries.expense:attr/launchSingleTop : reachable=false
+@com.jerries.expense:attr/mimeType : reachable=false
+@com.jerries.expense:attr/navGraph : reachable=false
+@com.jerries.expense:attr/nestedScrollViewStyle : reachable=false
+@com.jerries.expense:attr/nullable : reachable=true
+@com.jerries.expense:attr/placeholderActivityName : reachable=false
+@com.jerries.expense:attr/popEnterAnim : reachable=false
+@com.jerries.expense:attr/popExitAnim : reachable=false
+@com.jerries.expense:attr/popUpTo : reachable=true
+@com.jerries.expense:attr/popUpToInclusive : reachable=true
+@com.jerries.expense:attr/popUpToSaveState : reachable=true
+@com.jerries.expense:attr/primaryActivityName : reachable=false
+@com.jerries.expense:attr/queryPatterns : reachable=false
+@com.jerries.expense:attr/restoreState : reachable=false
+@com.jerries.expense:attr/route : reachable=true
+@com.jerries.expense:attr/secondaryActivityAction : reachable=true
+@com.jerries.expense:attr/secondaryActivityName : reachable=true
+@com.jerries.expense:attr/shortcutMatchRequired : reachable=true
+@com.jerries.expense:attr/splitLayoutDirection : reachable=false
+@com.jerries.expense:attr/splitMinSmallestWidth : reachable=false
+@com.jerries.expense:attr/splitMinWidth : reachable=false
+@com.jerries.expense:attr/splitRatio : reachable=false
+@com.jerries.expense:attr/startDestination : reachable=true
+@com.jerries.expense:attr/targetPackage : reachable=true
+@com.jerries.expense:attr/ttcIndex : reachable=false
+@com.jerries.expense:attr/uri : reachable=true
+@com.jerries.expense:bool/enable_system_alarm_service_default : reachable=true
+@com.jerries.expense:bool/enable_system_foreground_service_default : reachable=true
+@com.jerries.expense:bool/enable_system_job_service_default : reachable=true
+@com.jerries.expense:bool/workmanager_test_configuration : reachable=true
+@com.jerries.expense:color/androidx_core_ripple_material_light : reachable=true
+@com.jerries.expense:color/androidx_core_secondary_text_default_material_light : reachable=true
+@com.jerries.expense:color/call_notification_answer_color : reachable=false
+@com.jerries.expense:color/call_notification_decline_color : reachable=false
+@com.jerries.expense:color/ic_launcher_background : reachable=false
+@com.jerries.expense:color/notification_action_color_filter : reachable=true
+    @com.jerries.expense:color/androidx_core_secondary_text_default_material_light
+@com.jerries.expense:color/notification_icon_bg_color : reachable=true
+@com.jerries.expense:color/vector_tint_color : reachable=false
+@com.jerries.expense:color/vector_tint_theme_color : reachable=false
+@com.jerries.expense:dimen/compat_button_inset_horizontal_material : reachable=false
+@com.jerries.expense:dimen/compat_button_inset_vertical_material : reachable=false
+@com.jerries.expense:dimen/compat_button_padding_horizontal_material : reachable=false
+@com.jerries.expense:dimen/compat_button_padding_vertical_material : reachable=false
+@com.jerries.expense:dimen/compat_control_corner_material : reachable=false
+@com.jerries.expense:dimen/compat_notification_large_icon_max_height : reachable=false
+@com.jerries.expense:dimen/compat_notification_large_icon_max_width : reachable=false
+@com.jerries.expense:dimen/notification_action_icon_size : reachable=true
+@com.jerries.expense:dimen/notification_action_text_size : reachable=true
+@com.jerries.expense:dimen/notification_big_circle_margin : reachable=true
+@com.jerries.expense:dimen/notification_content_margin_start : reachable=true
+@com.jerries.expense:dimen/notification_large_icon_height : reachable=true
+@com.jerries.expense:dimen/notification_large_icon_width : reachable=true
+@com.jerries.expense:dimen/notification_main_column_padding_top : reachable=true
+@com.jerries.expense:dimen/notification_media_narrow_margin : reachable=true
+@com.jerries.expense:dimen/notification_right_icon_size : reachable=true
+@com.jerries.expense:dimen/notification_right_side_padding_top : reachable=true
+@com.jerries.expense:dimen/notification_small_icon_background_padding : reachable=true
+@com.jerries.expense:dimen/notification_small_icon_size_as_large : reachable=true
+@com.jerries.expense:dimen/notification_subtext_size : reachable=true
+@com.jerries.expense:dimen/notification_top_pad : reachable=true
+@com.jerries.expense:dimen/notification_top_pad_large_text : reachable=true
+@com.jerries.expense:drawable/ic_call_answer : reachable=false
+@com.jerries.expense:drawable/ic_call_answer_low : reachable=false
+@com.jerries.expense:drawable/ic_call_answer_video : reachable=false
+@com.jerries.expense:drawable/ic_call_answer_video_low : reachable=false
+@com.jerries.expense:drawable/ic_call_decline : reachable=false
+@com.jerries.expense:drawable/ic_call_decline_low : reachable=false
+@com.jerries.expense:drawable/ic_launcher_foreground : reachable=false
+@com.jerries.expense:drawable/notification_action_background : reachable=true
+    @com.jerries.expense:color/androidx_core_ripple_material_light
+    @com.jerries.expense:dimen/compat_button_inset_horizontal_material
+    @com.jerries.expense:dimen/compat_button_inset_vertical_material
+    @com.jerries.expense:dimen/compat_control_corner_material
+    @com.jerries.expense:dimen/compat_button_padding_vertical_material
+    @com.jerries.expense:dimen/compat_button_padding_horizontal_material
+@com.jerries.expense:drawable/notification_bg : reachable=true
+    @com.jerries.expense:drawable/notification_bg_normal_pressed
+    @com.jerries.expense:drawable/notification_bg_normal
+@com.jerries.expense:drawable/notification_bg_low : reachable=true
+    @com.jerries.expense:drawable/notification_bg_low_pressed
+    @com.jerries.expense:drawable/notification_bg_low_normal
+@com.jerries.expense:drawable/notification_bg_low_normal : reachable=true
+@com.jerries.expense:drawable/notification_bg_low_pressed : reachable=true
+@com.jerries.expense:drawable/notification_bg_normal : reachable=true
+@com.jerries.expense:drawable/notification_bg_normal_pressed : reachable=true
+@com.jerries.expense:drawable/notification_icon_background : reachable=true
+    @com.jerries.expense:color/notification_icon_bg_color
+@com.jerries.expense:drawable/notification_oversize_large_icon_bg : reachable=true
+@com.jerries.expense:drawable/notification_template_icon_bg : reachable=true
+@com.jerries.expense:drawable/notification_template_icon_low_bg : reachable=true
+@com.jerries.expense:drawable/notification_tile_bg : reachable=true
+    @com.jerries.expense:drawable/notify_panel_notification_icon_bg
+@com.jerries.expense:drawable/notify_panel_notification_icon_bg : reachable=false
+@com.jerries.expense:id/accessibility_action_clickable_span : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_0 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_1 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_10 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_11 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_12 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_13 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_14 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_15 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_16 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_17 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_18 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_19 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_2 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_20 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_21 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_22 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_23 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_24 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_25 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_26 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_27 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_28 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_29 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_3 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_30 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_31 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_4 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_5 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_6 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_7 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_8 : reachable=true
+@com.jerries.expense:id/accessibility_custom_action_9 : reachable=true
+@com.jerries.expense:id/action_container : reachable=true
+@com.jerries.expense:id/action_divider : reachable=true
+@com.jerries.expense:id/action_image : reachable=true
+@com.jerries.expense:id/action_text : reachable=true
+@com.jerries.expense:id/actions : reachable=true
+@com.jerries.expense:id/androidx_compose_ui_view_composition_context : reachable=true
+@com.jerries.expense:id/androidx_window_activity_scope : reachable=true
+@com.jerries.expense:id/async : reachable=false
+@com.jerries.expense:id/blocking : reachable=true
+@com.jerries.expense:id/chronometer : reachable=false
+@com.jerries.expense:id/compose_view_saveable_id_tag : reachable=true
+@com.jerries.expense:id/consume_window_insets_tag : reachable=true
+@com.jerries.expense:id/dialog_button : reachable=true
+@com.jerries.expense:id/edit_text_id : reachable=false
+@com.jerries.expense:id/forever : reachable=false
+@com.jerries.expense:id/fragment_container_view_tag : reachable=false
+@com.jerries.expense:id/hide_graphics_layer_in_inspector_tag : reachable=true
+@com.jerries.expense:id/hide_ime_id : reachable=false
+@com.jerries.expense:id/hide_in_inspector_tag : reachable=true
+@com.jerries.expense:id/icon : reachable=true
+@com.jerries.expense:id/icon_group : reachable=true
+@com.jerries.expense:id/info : reachable=false
+@com.jerries.expense:id/inspection_slot_table_set : reachable=true
+@com.jerries.expense:id/is_pooling_container_tag : reachable=true
+@com.jerries.expense:id/italic : reachable=true
+@com.jerries.expense:id/line1 : reachable=false
+@com.jerries.expense:id/line3 : reachable=false
+@com.jerries.expense:id/locale : reachable=false
+@com.jerries.expense:id/ltr : reachable=false
+@com.jerries.expense:id/nav_controller_view_tag : reachable=false
+@com.jerries.expense:id/normal : reachable=false
+@com.jerries.expense:id/notification_background : reachable=true
+@com.jerries.expense:id/notification_main_column : reachable=true
+@com.jerries.expense:id/notification_main_column_container : reachable=true
+@com.jerries.expense:id/pooling_container_listener_holder_tag : reachable=true
+@com.jerries.expense:id/report_drawn : reachable=true
+@com.jerries.expense:id/right_icon : reachable=false
+@com.jerries.expense:id/right_side : reachable=false
+@com.jerries.expense:id/rtl : reachable=false
+@com.jerries.expense:id/special_effects_controller_view_tag : reachable=false
+@com.jerries.expense:id/tag_accessibility_actions : reachable=true
+@com.jerries.expense:id/tag_accessibility_clickable_spans : reachable=true
+@com.jerries.expense:id/tag_accessibility_heading : reachable=true
+@com.jerries.expense:id/tag_accessibility_pane_title : reachable=true
+@com.jerries.expense:id/tag_on_apply_window_listener : reachable=true
+@com.jerries.expense:id/tag_on_receive_content_listener : reachable=true
+@com.jerries.expense:id/tag_on_receive_content_mime_types : reachable=true
+@com.jerries.expense:id/tag_screen_reader_focusable : reachable=true
+@com.jerries.expense:id/tag_state_description : reachable=true
+@com.jerries.expense:id/tag_transition_group : reachable=true
+@com.jerries.expense:id/tag_unhandled_key_event_manager : reachable=true
+@com.jerries.expense:id/tag_unhandled_key_listeners : reachable=true
+@com.jerries.expense:id/tag_window_insets_animation_callback : reachable=true
+@com.jerries.expense:id/text : reachable=true
+@com.jerries.expense:id/text2 : reachable=true
+@com.jerries.expense:id/time : reachable=false
+@com.jerries.expense:id/title : reachable=true
+@com.jerries.expense:id/view_tree_lifecycle_owner : reachable=true
+@com.jerries.expense:id/view_tree_on_back_pressed_dispatcher_owner : reachable=true
+@com.jerries.expense:id/view_tree_saved_state_registry_owner : reachable=true
+@com.jerries.expense:id/view_tree_view_model_store_owner : reachable=true
+@com.jerries.expense:id/visible_removing_fragment_view_tag : reachable=false
+@com.jerries.expense:id/wrapped_composition_tag : reachable=true
+@com.jerries.expense:integer/m3c_window_layout_in_display_cutout_mode : reachable=false
+@com.jerries.expense:integer/status_bar_notification_info_maxnum : reachable=true
+@com.jerries.expense:layout/custom_dialog : reachable=false
+@com.jerries.expense:layout/ime_base_split_test_activity : reachable=true
+@com.jerries.expense:layout/ime_secondary_split_test_activity : reachable=true
+@com.jerries.expense:layout/notification_action : reachable=true
+    @com.jerries.expense:style/Widget_Compat_NotificationActionContainer
+    @com.jerries.expense:dimen/notification_action_icon_size
+    @com.jerries.expense:style/Widget_Compat_NotificationActionText
+@com.jerries.expense:layout/notification_action_tombstone : reachable=true
+    @com.jerries.expense:style/Widget_Compat_NotificationActionContainer
+    @com.jerries.expense:dimen/notification_action_icon_size
+    @com.jerries.expense:style/Widget_Compat_NotificationActionText
+@com.jerries.expense:layout/notification_template_custom_big : reachable=true
+    @com.jerries.expense:layout/notification_template_icon_group
+    @com.jerries.expense:dimen/notification_large_icon_width
+    @com.jerries.expense:dimen/notification_large_icon_height
+    @com.jerries.expense:dimen/notification_right_side_padding_top
+    @com.jerries.expense:layout/notification_template_part_time
+    @com.jerries.expense:layout/notification_template_part_chronometer
+    @com.jerries.expense:style/TextAppearance_Compat_Notification_Info
+@com.jerries.expense:layout/notification_template_icon_group : reachable=true
+    @com.jerries.expense:dimen/notification_large_icon_width
+    @com.jerries.expense:dimen/notification_large_icon_height
+    @com.jerries.expense:dimen/notification_big_circle_margin
+    @com.jerries.expense:dimen/notification_right_icon_size
+@com.jerries.expense:layout/notification_template_part_chronometer : reachable=true
+    @com.jerries.expense:style/TextAppearance_Compat_Notification_Time
+@com.jerries.expense:layout/notification_template_part_time : reachable=true
+    @com.jerries.expense:style/TextAppearance_Compat_Notification_Time
+@com.jerries.expense:mipmap/ic_launcher : reachable=true
+    @com.jerries.expense:color/ic_launcher_background
+    @com.jerries.expense:drawable/ic_launcher_foreground
+@com.jerries.expense:mipmap/ic_launcher_round : reachable=true
+    @com.jerries.expense:color/ic_launcher_background
+    @com.jerries.expense:drawable/ic_launcher_foreground
+@com.jerries.expense:string/account_label : reachable=true
+@com.jerries.expense:string/accounts_title : reachable=true
+@com.jerries.expense:string/add_transaction : reachable=true
+@com.jerries.expense:string/add_transaction_title : reachable=true
+@com.jerries.expense:string/amount_label : reachable=true
+@com.jerries.expense:string/analytics_empty_message : reachable=true
+@com.jerries.expense:string/androidx_startup : reachable=true
+@com.jerries.expense:string/app_name : reachable=true
+@com.jerries.expense:string/back : reachable=true
+@com.jerries.expense:string/backup_coming_soon : reachable=true
+@com.jerries.expense:string/backup_description : reachable=true
+@com.jerries.expense:string/backup_title : reachable=true
+@com.jerries.expense:string/budgets_empty_message : reachable=true
+@com.jerries.expense:string/call_notification_answer_action : reachable=false
+@com.jerries.expense:string/call_notification_answer_video_action : reachable=false
+@com.jerries.expense:string/call_notification_decline_action : reachable=false
+@com.jerries.expense:string/call_notification_hang_up_action : reachable=false
+@com.jerries.expense:string/call_notification_incoming_text : reachable=false
+@com.jerries.expense:string/call_notification_ongoing_text : reachable=false
+@com.jerries.expense:string/call_notification_screening_text : reachable=false
+@com.jerries.expense:string/cancel : reachable=true
+@com.jerries.expense:string/categories_title : reachable=true
+@com.jerries.expense:string/category_label : reachable=true
+@com.jerries.expense:string/close_drawer : reachable=false
+@com.jerries.expense:string/close_sheet : reachable=false
+@com.jerries.expense:string/dashboard_greeting : reachable=true
+@com.jerries.expense:string/dashboard_recent_transactions : reachable=true
+@com.jerries.expense:string/dashboard_total_balance : reachable=true
+@com.jerries.expense:string/date_label : reachable=true
+@com.jerries.expense:string/default_error_message : reachable=true
+@com.jerries.expense:string/default_popup_window_title : reachable=true
+@com.jerries.expense:string/delete : reachable=false
+@com.jerries.expense:string/dropdown_menu : reachable=false
+@com.jerries.expense:string/empty_accounts_message : reachable=true
+@com.jerries.expense:string/empty_accounts_title : reachable=true
+@com.jerries.expense:string/empty_budgets_message : reachable=true
+@com.jerries.expense:string/empty_budgets_title : reachable=true
+@com.jerries.expense:string/empty_generic_message : reachable=true
+@com.jerries.expense:string/empty_generic_title : reachable=true
+@com.jerries.expense:string/empty_goals_message : reachable=true
+@com.jerries.expense:string/empty_goals_title : reachable=true
+@com.jerries.expense:string/empty_transactions_message : reachable=true
+@com.jerries.expense:string/empty_transactions_title : reachable=true
+@com.jerries.expense:string/error_generic_message : reachable=false
+@com.jerries.expense:string/error_generic_title : reachable=false
+@com.jerries.expense:string/error_invalid_amount : reachable=true
+@com.jerries.expense:string/error_missing_account : reachable=false
+@com.jerries.expense:string/error_missing_category : reachable=false
+@com.jerries.expense:string/in_progress : reachable=true
+@com.jerries.expense:string/indeterminate : reachable=true
+@com.jerries.expense:string/insights_empty_message : reachable=true
+@com.jerries.expense:string/insights_title : reachable=true
+@com.jerries.expense:string/m3c_bottom_sheet_collapse_description : reachable=false
+@com.jerries.expense:string/m3c_bottom_sheet_dismiss_description : reachable=false
+@com.jerries.expense:string/m3c_bottom_sheet_drag_handle_description : reachable=false
+@com.jerries.expense:string/m3c_bottom_sheet_expand_description : reachable=false
+@com.jerries.expense:string/m3c_bottom_sheet_pane_title : reachable=false
+@com.jerries.expense:string/m3c_date_input_headline : reachable=true
+@com.jerries.expense:string/m3c_date_input_headline_description : reachable=true
+@com.jerries.expense:string/m3c_date_input_invalid_for_pattern : reachable=true
+@com.jerries.expense:string/m3c_date_input_invalid_not_allowed : reachable=true
+@com.jerries.expense:string/m3c_date_input_invalid_year_range : reachable=true
+@com.jerries.expense:string/m3c_date_input_label : reachable=true
+@com.jerries.expense:string/m3c_date_input_no_input_description : reachable=true
+@com.jerries.expense:string/m3c_date_input_title : reachable=true
+@com.jerries.expense:string/m3c_date_picker_headline : reachable=true
+@com.jerries.expense:string/m3c_date_picker_headline_description : reachable=true
+@com.jerries.expense:string/m3c_date_picker_navigate_to_year_description : reachable=true
+@com.jerries.expense:string/m3c_date_picker_no_selection_description : reachable=true
+@com.jerries.expense:string/m3c_date_picker_scroll_to_earlier_years : reachable=true
+@com.jerries.expense:string/m3c_date_picker_scroll_to_later_years : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_calendar_mode : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_day_selection : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_input_mode : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_next_month : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_previous_month : reachable=true
+@com.jerries.expense:string/m3c_date_picker_switch_to_year_selection : reachable=true
+@com.jerries.expense:string/m3c_date_picker_title : reachable=true
+@com.jerries.expense:string/m3c_date_picker_today_description : reachable=true
+@com.jerries.expense:string/m3c_date_picker_year_picker_pane_title : reachable=true
+@com.jerries.expense:string/m3c_date_range_input_invalid_range_input : reachable=false
+@com.jerries.expense:string/m3c_date_range_input_title : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_day_in_range : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_end_headline : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_scroll_to_next_month : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_scroll_to_previous_month : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_start_headline : reachable=false
+@com.jerries.expense:string/m3c_date_range_picker_title : reachable=false
+@com.jerries.expense:string/m3c_dialog : reachable=true
+@com.jerries.expense:string/m3c_dropdown_menu_collapsed : reachable=true
+@com.jerries.expense:string/m3c_dropdown_menu_expanded : reachable=true
+@com.jerries.expense:string/m3c_dropdown_menu_toggle : reachable=true
+@com.jerries.expense:string/m3c_search_bar_search : reachable=false
+@com.jerries.expense:string/m3c_snackbar_dismiss : reachable=false
+@com.jerries.expense:string/m3c_suggestions_available : reachable=false
+@com.jerries.expense:string/m3c_time_picker_am : reachable=false
+@com.jerries.expense:string/m3c_time_picker_hour : reachable=false
+@com.jerries.expense:string/m3c_time_picker_hour_24h_suffix : reachable=false
+@com.jerries.expense:string/m3c_time_picker_hour_selection : reachable=false
+@com.jerries.expense:string/m3c_time_picker_hour_suffix : reachable=false
+@com.jerries.expense:string/m3c_time_picker_hour_text_field : reachable=false
+@com.jerries.expense:string/m3c_time_picker_minute : reachable=false
+@com.jerries.expense:string/m3c_time_picker_minute_selection : reachable=false
+@com.jerries.expense:string/m3c_time_picker_minute_suffix : reachable=false
+@com.jerries.expense:string/m3c_time_picker_minute_text_field : reachable=false
+@com.jerries.expense:string/m3c_time_picker_period_toggle_description : reachable=false
+@com.jerries.expense:string/m3c_time_picker_pm : reachable=false
+@com.jerries.expense:string/m3c_tooltip_long_press_label : reachable=false
+@com.jerries.expense:string/m3c_tooltip_pane_description : reachable=false
+@com.jerries.expense:string/nav_analytics : reachable=true
+@com.jerries.expense:string/nav_budgets : reachable=true
+@com.jerries.expense:string/nav_dashboard : reachable=true
+@com.jerries.expense:string/nav_settings : reachable=true
+@com.jerries.expense:string/nav_transactions : reachable=true
+@com.jerries.expense:string/navigation_menu : reachable=true
+@com.jerries.expense:string/not_selected : reachable=true
+@com.jerries.expense:string/note_hint : reachable=true
+@com.jerries.expense:string/note_label : reachable=true
+@com.jerries.expense:string/ok : reachable=true
+@com.jerries.expense:string/range_end : reachable=true
+@com.jerries.expense:string/range_start : reachable=true
+@com.jerries.expense:string/recurring_empty_message : reachable=true
+@com.jerries.expense:string/recurring_title : reachable=true
+@com.jerries.expense:string/reports_empty_message : reachable=true
+@com.jerries.expense:string/reports_title : reachable=true
+@com.jerries.expense:string/retry : reachable=false
+@com.jerries.expense:string/save : reachable=true
+@com.jerries.expense:string/selected : reachable=true
+@com.jerries.expense:string/settings_about : reachable=true
+@com.jerries.expense:string/settings_about_description : reachable=true
+@com.jerries.expense:string/settings_appearance : reachable=true
+@com.jerries.expense:string/settings_currency : reachable=true
+@com.jerries.expense:string/settings_dynamic_colors : reachable=true
+@com.jerries.expense:string/settings_dynamic_colors_description : reachable=true
+@com.jerries.expense:string/settings_general : reachable=true
+@com.jerries.expense:string/settings_theme_dark : reachable=true
+@com.jerries.expense:string/settings_theme_light : reachable=true
+@com.jerries.expense:string/settings_theme_system : reachable=true
+@com.jerries.expense:string/settings_title : reachable=true
+@com.jerries.expense:string/settings_version : reachable=true
+@com.jerries.expense:string/state_empty : reachable=true
+@com.jerries.expense:string/state_off : reachable=true
+@com.jerries.expense:string/state_on : reachable=true
+@com.jerries.expense:string/status_bar_notification_info_overflow : reachable=true
+@com.jerries.expense:string/switch_role : reachable=true
+@com.jerries.expense:string/tab : reachable=true
+@com.jerries.expense:string/template_percent : reachable=true
+@com.jerries.expense:string/tooltip_description : reachable=true
+@com.jerries.expense:string/tooltip_label : reachable=true
+@com.jerries.expense:string/transaction_saved : reachable=false
+@com.jerries.expense:string/transaction_type_expense : reachable=true
+@com.jerries.expense:string/transaction_type_income : reachable=true
+@com.jerries.expense:style/DialogWindowTheme : reachable=true
+@com.jerries.expense:style/EdgeToEdgeFloatingDialogTheme : reachable=false
+    @com.jerries.expense:integer/m3c_window_layout_in_display_cutout_mode
+@com.jerries.expense:style/EdgeToEdgeFloatingDialogWindowTheme : reachable=false
+    @com.jerries.expense:style/EdgeToEdgeFloatingDialogTheme
+@com.jerries.expense:style/FloatingDialogTheme : reachable=false
+@com.jerries.expense:style/FloatingDialogWindowTheme : reachable=false
+    @com.jerries.expense:style/FloatingDialogTheme
+@com.jerries.expense:style/TextAppearance_Compat_Notification : reachable=true
+@com.jerries.expense:style/TextAppearance_Compat_Notification_Info : reachable=true
+@com.jerries.expense:style/TextAppearance_Compat_Notification_Line2 : reachable=true
+    @com.jerries.expense:style/TextAppearance_Compat_Notification_Info
+@com.jerries.expense:style/TextAppearance_Compat_Notification_Time : reachable=true
+@com.jerries.expense:style/TextAppearance_Compat_Notification_Title : reachable=true
+@com.jerries.expense:style/Theme_JerriesExpense : reachable=true
+@com.jerries.expense:style/Widget_Compat_NotificationActionContainer : reachable=false
+    @com.jerries.expense:drawable/notification_action_background
+@com.jerries.expense:style/Widget_Compat_NotificationActionText : reachable=false
+    @com.jerries.expense:color/androidx_core_secondary_text_default_material_light
+    @com.jerries.expense:dimen/notification_action_text_size
+
+The root reachable resources are:
+ attr:action:2130903040
+ attr:activityAction:2130903041
+ attr:activityName:2130903042
+ attr:data:2130903047
+ attr:dataPattern:2130903048
+ attr:destination:2130903049
+ attr:graph:2130903066
+ attr:nullable:2130903072
+ attr:popUpTo:2130903076
+ attr:popUpToInclusive:2130903077
+ attr:popUpToSaveState:2130903078
+ attr:route:2130903082
+ attr:secondaryActivityAction:2130903083
+ attr:secondaryActivityName:2130903084
+ attr:shortcutMatchRequired:2130903085
+ attr:startDestination:2130903090
+ attr:targetPackage:2130903091
+ attr:uri:2130903093
+ bool:enable_system_alarm_service_default:2130968576
+ bool:enable_system_foreground_service_default:2130968577
+ bool:enable_system_job_service_default:2130968578
+ bool:workmanager_test_configuration:2130968579
+ color:androidx_core_ripple_material_light:2131034112
+ color:androidx_core_secondary_text_default_material_light:2131034113
+ color:notification_action_color_filter:2131034117
+ color:notification_icon_bg_color:2131034118
+ dimen:notification_action_icon_size:2131099655
+ dimen:notification_action_text_size:2131099656
+ dimen:notification_big_circle_margin:2131099657
+ dimen:notification_content_margin_start:2131099658
+ dimen:notification_large_icon_height:2131099659
+ dimen:notification_large_icon_width:2131099660
+ dimen:notification_main_column_padding_top:2131099661
+ dimen:notification_media_narrow_margin:2131099662
+ dimen:notification_right_icon_size:2131099663
+ dimen:notification_right_side_padding_top:2131099664
+ dimen:notification_small_icon_background_padding:2131099665
+ dimen:notification_small_icon_size_as_large:2131099666
+ dimen:notification_subtext_size:2131099667
+ dimen:notification_top_pad:2131099668
+ dimen:notification_top_pad_large_text:2131099669
+ drawable:notification_action_background:2131165191
+ drawable:notification_bg:2131165192
+ drawable:notification_bg_low:2131165193
+ drawable:notification_bg_low_normal:2131165194
+ drawable:notification_bg_low_pressed:2131165195
+ drawable:notification_bg_normal:2131165196
+ drawable:notification_bg_normal_pressed:2131165197
+ drawable:notification_icon_background:2131165198
+ drawable:notification_oversize_large_icon_bg:2131165199
+ drawable:notification_template_icon_bg:2131165200
+ drawable:notification_template_icon_low_bg:2131165201
+ drawable:notification_tile_bg:2131165202
+ id:accessibility_action_clickable_span:2131230720
+ id:accessibility_custom_action_0:2131230721
+ id:accessibility_custom_action_1:2131230722
+ id:accessibility_custom_action_10:2131230723
+ id:accessibility_custom_action_11:2131230724
+ id:accessibility_custom_action_12:2131230725
+ id:accessibility_custom_action_13:2131230726
+ id:accessibility_custom_action_14:2131230727
+ id:accessibility_custom_action_15:2131230728
+ id:accessibility_custom_action_16:2131230729
+ id:accessibility_custom_action_17:2131230730
+ id:accessibility_custom_action_18:2131230731
+ id:accessibility_custom_action_19:2131230732
+ id:accessibility_custom_action_2:2131230733
+ id:accessibility_custom_action_20:2131230734
+ id:accessibility_custom_action_21:2131230735
+ id:accessibility_custom_action_22:2131230736
+ id:accessibility_custom_action_23:2131230737
+ id:accessibility_custom_action_24:2131230738
+ id:accessibility_custom_action_25:2131230739
+ id:accessibility_custom_action_26:2131230740
+ id:accessibility_custom_action_27:2131230741
+ id:accessibility_custom_action_28:2131230742
+ id:accessibility_custom_action_29:2131230743
+ id:accessibility_custom_action_3:2131230744
+ id:accessibility_custom_action_30:2131230745
+ id:accessibility_custom_action_31:2131230746
+ id:accessibility_custom_action_4:2131230747
+ id:accessibility_custom_action_5:2131230748
+ id:accessibility_custom_action_6:2131230749
+ id:accessibility_custom_action_7:2131230750
+ id:accessibility_custom_action_8:2131230751
+ id:accessibility_custom_action_9:2131230752
+ id:action_container:2131230753
+ id:action_divider:2131230754
+ id:action_image:2131230755
+ id:action_text:2131230756
+ id:actions:2131230757
+ id:androidx_compose_ui_view_composition_context:2131230758
+ id:androidx_window_activity_scope:2131230759
+ id:blocking:2131230761
+ id:compose_view_saveable_id_tag:2131230763
+ id:consume_window_insets_tag:2131230764
+ id:dialog_button:2131230765
+ id:hide_graphics_layer_in_inspector_tag:2131230769
+ id:hide_in_inspector_tag:2131230771
+ id:icon:2131230772
+ id:icon_group:2131230773
+ id:inspection_slot_table_set:2131230775
+ id:is_pooling_container_tag:2131230776
+ id:italic:2131230777
+ id:notification_background:2131230784
+ id:notification_main_column:2131230785
+ id:notification_main_column_container:2131230786
+ id:pooling_container_listener_holder_tag:2131230787
+ id:report_drawn:2131230788
+ id:tag_accessibility_actions:2131230793
+ id:tag_accessibility_clickable_spans:2131230794
+ id:tag_accessibility_heading:2131230795
+ id:tag_accessibility_pane_title:2131230796
+ id:tag_on_apply_window_listener:2131230797
+ id:tag_on_receive_content_listener:2131230798
+ id:tag_on_receive_content_mime_types:2131230799
+ id:tag_screen_reader_focusable:2131230800
+ id:tag_state_description:2131230801
+ id:tag_transition_group:2131230802
+ id:tag_unhandled_key_event_manager:2131230803
+ id:tag_unhandled_key_listeners:2131230804
+ id:tag_window_insets_animation_callback:2131230805
+ id:text:2131230806
+ id:text2:2131230807
+ id:title:2131230809
+ id:view_tree_lifecycle_owner:2131230810
+ id:view_tree_on_back_pressed_dispatcher_owner:2131230811
+ id:view_tree_saved_state_registry_owner:2131230812
+ id:view_tree_view_model_store_owner:2131230813
+ id:wrapped_composition_tag:2131230815
+ integer:status_bar_notification_info_maxnum:2131296257
+ layout:ime_base_split_test_activity:2131361793
+ layout:ime_secondary_split_test_activity:2131361794
+ layout:notification_action:2131361795
+ layout:notification_action_tombstone:2131361796
+ layout:notification_template_custom_big:2131361797
+ layout:notification_template_icon_group:2131361798
+ layout:notification_template_part_chronometer:2131361799
+ layout:notification_template_part_time:2131361800
+ mipmap:ic_launcher:2131427328
+ mipmap:ic_launcher_round:2131427329
+ string:account_label:2131492864
+ string:accounts_title:2131492865
+ string:add_transaction:2131492866
+ string:add_transaction_title:2131492867
+ string:amount_label:2131492868
+ string:analytics_empty_message:2131492869
+ string:androidx_startup:2131492870
+ string:app_name:2131492871
+ string:back:2131492872
+ string:backup_coming_soon:2131492873
+ string:backup_description:2131492874
+ string:backup_title:2131492875
+ string:budgets_empty_message:2131492876
+ string:cancel:2131492884
+ string:categories_title:2131492885
+ string:category_label:2131492886
+ string:dashboard_greeting:2131492889
+ string:dashboard_recent_transactions:2131492890
+ string:dashboard_total_balance:2131492891
+ string:date_label:2131492892
+ string:default_error_message:2131492893
+ string:default_popup_window_title:2131492894
+ string:empty_accounts_message:2131492897
+ string:empty_accounts_title:2131492898
+ string:empty_budgets_message:2131492899
+ string:empty_budgets_title:2131492900
+ string:empty_generic_message:2131492901
+ string:empty_generic_title:2131492902
+ string:empty_goals_message:2131492903
+ string:empty_goals_title:2131492904
+ string:empty_transactions_message:2131492905
+ string:empty_transactions_title:2131492906
+ string:error_invalid_amount:2131492909
+ string:in_progress:2131492912
+ string:indeterminate:2131492913
+ string:insights_empty_message:2131492914
+ string:insights_title:2131492915
+ string:m3c_date_input_headline:2131492921
+ string:m3c_date_input_headline_description:2131492922
+ string:m3c_date_input_invalid_for_pattern:2131492923
+ string:m3c_date_input_invalid_not_allowed:2131492924
+ string:m3c_date_input_invalid_year_range:2131492925
+ string:m3c_date_input_label:2131492926
+ string:m3c_date_input_no_input_description:2131492927
+ string:m3c_date_input_title:2131492928
+ string:m3c_date_picker_headline:2131492929
+ string:m3c_date_picker_headline_description:2131492930
+ string:m3c_date_picker_navigate_to_year_description:2131492931
+ string:m3c_date_picker_no_selection_description:2131492932
+ string:m3c_date_picker_scroll_to_earlier_years:2131492933
+ string:m3c_date_picker_scroll_to_later_years:2131492934
+ string:m3c_date_picker_switch_to_calendar_mode:2131492935
+ string:m3c_date_picker_switch_to_day_selection:2131492936
+ string:m3c_date_picker_switch_to_input_mode:2131492937
+ string:m3c_date_picker_switch_to_next_month:2131492938
+ string:m3c_date_picker_switch_to_previous_month:2131492939
+ string:m3c_date_picker_switch_to_year_selection:2131492940
+ string:m3c_date_picker_title:2131492941
+ string:m3c_date_picker_today_description:2131492942
+ string:m3c_date_picker_year_picker_pane_title:2131492943
+ string:m3c_dialog:2131492952
+ string:m3c_dropdown_menu_collapsed:2131492953
+ string:m3c_dropdown_menu_expanded:2131492954
+ string:m3c_dropdown_menu_toggle:2131492955
+ string:nav_analytics:2131492973
+ string:nav_budgets:2131492974
+ string:nav_dashboard:2131492975
+ string:nav_settings:2131492976
+ string:nav_transactions:2131492977
+ string:navigation_menu:2131492978
+ string:not_selected:2131492979
+ string:note_hint:2131492980
+ string:note_label:2131492981
+ string:ok:2131492982
+ string:range_end:2131492983
+ string:range_start:2131492984
+ string:recurring_empty_message:2131492985
+ string:recurring_title:2131492986
+ string:reports_empty_message:2131492987
+ string:reports_title:2131492988
+ string:save:2131492990
+ string:selected:2131492991
+ string:settings_about:2131492992
+ string:settings_about_description:2131492993
+ string:settings_appearance:2131492994
+ string:settings_currency:2131492995
+ string:settings_dynamic_colors:2131492996
+ string:settings_dynamic_colors_description:2131492997
+ string:settings_general:2131492998
+ string:settings_theme_dark:2131492999
+ string:settings_theme_light:2131493000
+ string:settings_theme_system:2131493001
+ string:settings_title:2131493002
+ string:settings_version:2131493003
+ string:state_empty:2131493004
+ string:state_off:2131493005
+ string:state_on:2131493006
+ string:status_bar_notification_info_overflow:2131493007
+ string:switch_role:2131493008
+ string:tab:2131493009
+ string:template_percent:2131493010
+ string:tooltip_description:2131493011
+ string:tooltip_label:2131493012
+ string:transaction_type_expense:2131493014
+ string:transaction_type_income:2131493015
+ style:DialogWindowTheme:2131558400
+ style:TextAppearance_Compat_Notification:2131558405
+ style:TextAppearance_Compat_Notification_Info:2131558406
+ style:TextAppearance_Compat_Notification_Line2:2131558407
+ style:TextAppearance_Compat_Notification_Time:2131558408
+ style:TextAppearance_Compat_Notification_Title:2131558409
+ style:Theme_JerriesExpense:2131558410
+Unused resources are: 
+ anim:fragment_fast_out_extra_slow_in:2130771968
+ animator:fragment_close_enter:2130837504
+ animator:fragment_close_exit:2130837505
+ animator:fragment_fade_enter:2130837506
+ animator:fragment_fade_exit:2130837507
+ animator:fragment_open_enter:2130837508
+ animator:fragment_open_exit:2130837509
+ color:call_notification_answer_color:2131034114
+ color:call_notification_decline_color:2131034115
+ color:vector_tint_color:2131034119
+ color:vector_tint_theme_color:2131034120
+ dimen:compat_notification_large_icon_max_height:2131099653
+ dimen:compat_notification_large_icon_max_width:2131099654
+ drawable:ic_call_answer:2131165184
+ drawable:ic_call_answer_low:2131165185
+ drawable:ic_call_answer_video:2131165186
+ drawable:ic_call_answer_video_low:2131165187
+ drawable:ic_call_decline:2131165188
+ drawable:ic_call_decline_low:2131165189
+ id:async:2131230760
+ id:chronometer:2131230762
+ id:edit_text_id:2131230766
+ id:forever:2131230767
+ id:fragment_container_view_tag:2131230768
+ id:hide_ime_id:2131230770
+ id:info:2131230774
+ id:line1:2131230778
+ id:line3:2131230779
+ id:locale:2131230780
+ id:ltr:2131230781
+ id:nav_controller_view_tag:2131230782
+ id:normal:2131230783
+ id:right_icon:2131230789
+ id:right_side:2131230790
+ id:rtl:2131230791
+ id:special_effects_controller_view_tag:2131230792
+ id:time:2131230808
+ id:visible_removing_fragment_view_tag:2131230814
+ integer:m3c_window_layout_in_display_cutout_mode:2131296256
+ layout:custom_dialog:2131361792
+ string:call_notification_answer_action:2131492877
+ string:call_notification_answer_video_action:2131492878
+ string:call_notification_decline_action:2131492879
+ string:call_notification_hang_up_action:2131492880
+ string:call_notification_incoming_text:2131492881
+ string:call_notification_ongoing_text:2131492882
+ string:call_notification_screening_text:2131492883
+ string:close_drawer:2131492887
+ string:close_sheet:2131492888
+ string:delete:2131492895
+ string:dropdown_menu:2131492896
+ string:error_generic_message:2131492907
+ string:error_generic_title:2131492908
+ string:error_missing_account:2131492910
+ string:error_missing_category:2131492911
+ string:m3c_bottom_sheet_collapse_description:2131492916
+ string:m3c_bottom_sheet_dismiss_description:2131492917
+ string:m3c_bottom_sheet_drag_handle_description:2131492918
+ string:m3c_bottom_sheet_expand_description:2131492919
+ string:m3c_bottom_sheet_pane_title:2131492920
+ string:m3c_date_range_input_invalid_range_input:2131492944
+ string:m3c_date_range_input_title:2131492945
+ string:m3c_date_range_picker_day_in_range:2131492946
+ string:m3c_date_range_picker_end_headline:2131492947
+ string:m3c_date_range_picker_scroll_to_next_month:2131492948
+ string:m3c_date_range_picker_scroll_to_previous_month:2131492949
+ string:m3c_date_range_picker_start_headline:2131492950
+ string:m3c_date_range_picker_title:2131492951
+ string:m3c_search_bar_search:2131492956
+ string:m3c_snackbar_dismiss:2131492957
+ string:m3c_suggestions_available:2131492958
+ string:m3c_time_picker_am:2131492959
+ string:m3c_time_picker_hour:2131492960
+ string:m3c_time_picker_hour_24h_suffix:2131492961
+ string:m3c_time_picker_hour_selection:2131492962
+ string:m3c_time_picker_hour_suffix:2131492963
+ string:m3c_time_picker_hour_text_field:2131492964
+ string:m3c_time_picker_minute:2131492965
+ string:m3c_time_picker_minute_selection:2131492966
+ string:m3c_time_picker_minute_suffix:2131492967
+ string:m3c_time_picker_minute_text_field:2131492968
+ string:m3c_time_picker_period_toggle_description:2131492969
+ string:m3c_time_picker_pm:2131492970
+ string:m3c_tooltip_long_press_label:2131492971
+ string:m3c_tooltip_pane_description:2131492972
+ string:retry:2131492989
+ string:transaction_saved:2131493013
+ style:EdgeToEdgeFloatingDialogTheme:2131558401
+ style:EdgeToEdgeFloatingDialogWindowTheme:2131558402
+ style:FloatingDialogTheme:2131558403
+ style:FloatingDialogWindowTheme:2131558404
