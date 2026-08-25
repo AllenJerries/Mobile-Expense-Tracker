@@ -1,6 +1,6 @@
 package com.jerries.expense.domain.model
 
-enum class AccountType { CASH, BANK, CARD, WALLET, SAVINGS, OTHER }
+enum class AccountType { CASH, BANK, UPI, CREDIT_CARD, DEBIT_CARD, SAVINGS, OTHER }
 
 data class Account(
     val id: String,
@@ -10,4 +10,6 @@ data class Account(
     val currencyCode: String,
     val colorArgb: Long,
     val archived: Boolean,
+    val createdAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long,
 )

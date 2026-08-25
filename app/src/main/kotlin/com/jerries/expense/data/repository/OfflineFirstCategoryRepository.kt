@@ -25,4 +25,8 @@ class OfflineFirstCategoryRepository @Inject constructor(
     override suspend fun upsert(category: Category) {
         categoryDao.upsert(category.toEntity())
     }
+
+    override suspend fun deleteById(id: String) {
+        categoryDao.deleteById(id)
+    }
 }

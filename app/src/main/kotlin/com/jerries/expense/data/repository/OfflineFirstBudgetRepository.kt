@@ -16,6 +16,11 @@ class OfflineFirstBudgetRepository @Inject constructor(
     override fun observeAll(): Flow<List<Budget>> =
         budgetDao.observeAll().map { list -> list.map { it.toDomain() } }
 
+    override fun observeActive(epochDay: Long, categoryId: String?): Flow<List<Budget>> =
+        budgetDao.observeActive(epochDay, categoryId).map { list -> list.map { it.toDomain() } }
+
+    override suspend fun getById(id: String): Budget? = budgetDao.getById(id)?.toDomain()
+
     override suspend fun upsert(budget: Budget) {
         budgetDao.upsert(budget.toEntity())
     }

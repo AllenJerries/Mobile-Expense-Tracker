@@ -28,6 +28,18 @@ class JerriesExpenseAppState(
         navController.navigate(AddTransactionRoute)
     }
 
+    fun navigateToAddTransactionWithType(type: String) {
+        navController.navigate(AddTransactionRoute)
+    }
+
+    fun navigateToEditTransaction(transactionId: String) {
+        navController.navigate(EditTransactionRoute(transactionId))
+    }
+
+    fun navigateToTransactionDetail(transactionId: String) {
+        navController.navigate(TransactionDetailRoute(transactionId))
+    }
+
     fun navigateUp() = navController.navigateUp()
 
     /**

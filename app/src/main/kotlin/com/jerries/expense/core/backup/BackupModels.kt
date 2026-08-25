@@ -2,13 +2,8 @@ package com.jerries.expense.core.backup
 
 import kotlinx.serialization.Serializable
 
-/**
- * Schema for portable backup files. The file is a single JSON document
- * produced with kotlinx.serialization; bump [SCHEMA_VERSION] whenever the
- * format changes so future migrations can detect old exports.
- */
 object BackupSchema {
-    const val SCHEMA_VERSION = 1
+    const val SCHEMA_VERSION = 2
     const val FILE_EXTENSION = "jebak"
     const val APP_ID = "com.jerries.expense"
 }
@@ -32,6 +27,8 @@ data class BackupAccount(
     val currencyCode: String,
     val colorArgb: Long,
     val archived: Boolean,
+    val createdAtEpochMillis: Long = 0L,
+    val updatedAtEpochMillis: Long = 0L,
 )
 
 @Serializable
@@ -41,6 +38,8 @@ data class BackupCategory(
     val kind: String,
     val iconKey: String? = null,
     val colorArgb: Long,
+    val isDefault: Boolean = false,
+    val isArchived: Boolean = false,
 )
 
 @Serializable
@@ -51,8 +50,13 @@ data class BackupTransaction(
     val amountMinor: Long,
     val type: String,
     val dateEpochDay: Long,
+    val title: String? = null,
     val note: String? = null,
     val createdAtEpochMillis: Long,
+    val updatedAtEpochMillis: Long = 0L,
+    val paymentMethod: String? = null,
+    val destinationAccountId: String? = null,
+    val isDeleted: Boolean = false,
 )
 
 @Serializable

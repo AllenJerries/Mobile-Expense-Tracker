@@ -11,6 +11,8 @@ import androidx.compose.material.icons.filled.HealthAndSafety
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.Payments
+import androidx.compose.material.icons.filled.QrCode
+import androidx.compose.material.icons.filled.Receipt
 import androidx.compose.material.icons.filled.Redeem
 import androidx.compose.material.icons.filled.Restaurant
 import androidx.compose.material.icons.filled.Savings
@@ -21,10 +23,6 @@ import androidx.compose.material.icons.filled.Work
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.jerries.expense.domain.model.AccountType
 
-/**
- * Maps persisted string keys (categories/accounts store plain strings so the
- * data layer stays Compose-free) onto Material icons.
- */
 object JeIcons {
 
     val Fallback: ImageVector = Icons.Filled.Category
@@ -50,9 +48,10 @@ object JeIcons {
     fun account(type: AccountType): ImageVector = when (type) {
         AccountType.CASH -> Icons.Filled.Payments
         AccountType.BANK -> Icons.Filled.AccountBalance
-        AccountType.CARD -> Icons.Filled.CreditCard
-        AccountType.WALLET -> Icons.Filled.Wallet
+        AccountType.UPI -> Icons.Filled.QrCode
+        AccountType.CREDIT_CARD -> Icons.Filled.CreditCard
+        AccountType.DEBIT_CARD -> Icons.Filled.Receipt
         AccountType.SAVINGS -> Icons.Filled.Savings
-        AccountType.OTHER -> Icons.Filled.Category
+        AccountType.OTHER -> Icons.Filled.Wallet
     }
 }

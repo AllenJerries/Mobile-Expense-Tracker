@@ -6,6 +6,10 @@ import kotlinx.coroutines.flow.Flow
 interface BudgetRepository {
     fun observeAll(): Flow<List<Budget>>
 
+    fun observeActive(epochDay: Long, categoryId: String? = null): Flow<List<Budget>>
+
+    suspend fun getById(id: String): Budget?
+
     suspend fun upsert(budget: Budget)
 
     suspend fun deleteById(id: String)

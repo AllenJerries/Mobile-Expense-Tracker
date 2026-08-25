@@ -26,6 +26,8 @@ import androidx.room.PrimaryKey
         Index("account_id"),
         Index("category_id"),
         Index("date_epoch_day"),
+        Index("is_deleted"),
+        Index("destination_account_id"),
     ],
 )
 data class TransactionEntity(
@@ -35,6 +37,13 @@ data class TransactionEntity(
     @ColumnInfo(name = "amount_minor") val amountMinor: Long,
     val type: String,
     @ColumnInfo(name = "date_epoch_day") val dateEpochDay: Long,
+    val title: String?,
     val note: String?,
     @ColumnInfo(name = "created_at_epoch_millis") val createdAtEpochMillis: Long,
+    @ColumnInfo(name = "updated_at_epoch_millis") val updatedAtEpochMillis: Long,
+    @ColumnInfo(name = "payment_method") val paymentMethod: String?,
+    @ColumnInfo(name = "destination_account_id") val destinationAccountId: String?,
+    @ColumnInfo(name = "recurring_transaction_id") val recurringTransactionId: String?,
+    @ColumnInfo(name = "attachment_uri") val attachmentUri: String?,
+    @ColumnInfo(name = "is_deleted") val isDeleted: Boolean,
 )

@@ -12,4 +12,6 @@ interface CategoryRepository {
     suspend fun getById(id: String): Category?
 
     suspend fun upsert(category: Category)
+
+    suspend fun deleteById(id: String)
 }

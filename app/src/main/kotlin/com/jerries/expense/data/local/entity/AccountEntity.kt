@@ -17,4 +17,6 @@ data class AccountEntity(
     @ColumnInfo(name = "currency_code") val currencyCode: String,
     @ColumnInfo(name = "color_argb") val colorArgb: Long,
     val archived: Boolean,
+    @ColumnInfo(name = "created_at_epoch_millis") val createdAtEpochMillis: Long,
+    @ColumnInfo(name = "updated_at_epoch_millis") val updatedAtEpochMillis: Long,
 )

@@ -1,6 +1,5 @@
 package com.jerries.expense.domain.model
 
-/** User-controlled appearance and locale preferences. */
 enum class ThemeSetting { SYSTEM, LIGHT, DARK }
 
 data class AppPreferences(

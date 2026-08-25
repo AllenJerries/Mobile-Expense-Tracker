@@ -11,10 +11,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 
-/**
- * Offline-first account repository. Account balances combine each account's
- * opening balance with the signed sum of its recorded transactions.
- */
 @Singleton
 class OfflineFirstAccountRepository @Inject constructor(
     private val accountDao: AccountDao,
@@ -24,17 +20,23 @@ class OfflineFirstAccountRepository @Inject constructor(
     override fun observeAll(): Flow<List<Account>> =
         accountDao.observeAll().map { list -> list.map { it.toDomain() } }
 
+    override fun observeAllIncludingArchived(): Flow<List<Account>> =
+        accountDao.observeAllIncludingArchived().map { list -> list.map { it.toDomain() } }
+
     override fun observeBalances(): Flow<List<AccountBalance>> =
         combine(
             accountDao.observeAll(),
             transactionDao.observeNetMovementByAccount(),
-        ) { accounts, movements ->
+            transactionDao.observeTransferInflows(),
+        ) { accounts, movements, inflows ->
             val movementByAccount = movements.associate { it.accountId to it.netMovementMinor }
+            val inflowByAccount = inflows.associate { it.accountId to it.netMovementMinor }
             accounts.map { account ->
                 AccountBalance(
                     accountId = account.id,
                     balanceMinor = account.initialBalanceMinor +
-                        (movementByAccount[account.id] ?: 0L),
+                        (movementByAccount[account.id] ?: 0L) +
+                        (inflowByAccount[account.id] ?: 0L),
                 )
             }
         }
@@ -51,5 +53,9 @@ class OfflineFirstAccountRepository @Inject constructor(
 
     override suspend fun upsert(account: Account) {
         accountDao.upsert(account.toEntity())
+    }
+
+    override suspend fun deleteById(id: String) {
+        accountDao.deleteById(id)
     }
 }

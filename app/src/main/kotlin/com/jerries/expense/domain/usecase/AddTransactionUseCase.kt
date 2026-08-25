@@ -10,12 +10,6 @@ import com.jerries.expense.domain.repository.CategoryRepository
 import com.jerries.expense.domain.repository.TransactionRepository
 import javax.inject.Inject
 
-/**
- * Validates and persists a new transaction. Validation rules:
- *  - amount must be strictly positive;
- *  - the referenced account must exist;
- *  - EXPENSE/INCOME transactions must reference an existing category.
- */
 class AddTransactionUseCase @Inject constructor(
     private val transactionRepository: TransactionRepository,
     private val accountRepository: AccountRepository,
@@ -25,15 +19,37 @@ class AddTransactionUseCase @Inject constructor(
         if (transaction.amountMinor <= 0) {
             return Result.Failure(AppError.Validation(AMOUNT_MESSAGE))
         }
-        if (accountRepository.getById(transaction.accountId) == null) {
+        if (transaction.dateEpochDay <= 0) {
+            return Result.Failure(AppError.Validation(DATE_MESSAGE))
+        }
+        val account = accountRepository.getById(transaction.accountId)
+        if (account == null) {
             return Result.Failure(AppError.Validation(ACCOUNT_MESSAGE))
         }
-        val categoryId = transaction.categoryId
-        if (transaction.type != TransactionType.TRANSFER && categoryId == null) {
-            return Result.Failure(AppError.Validation(CATEGORY_MESSAGE))
+        if (account.archived) {
+            return Result.Failure(AppError.Validation(ARCHIVED_ACCOUNT_MESSAGE))
         }
-        if (categoryId != null && categoryRepository.getById(categoryId) == null) {
-            return Result.Failure(AppError.Validation(CATEGORY_MESSAGE))
+        if (transaction.type == TransactionType.TRANSFER) {
+            val destAccountId = transaction.destinationAccountId
+            if (destAccountId == null || destAccountId == transaction.accountId) {
+                return Result.Failure(AppError.Validation(TRANSFER_DEST_MESSAGE))
+            }
+            val destAccount = accountRepository.getById(destAccountId)
+            if (destAccount == null || destAccount.archived) {
+                return Result.Failure(AppError.Validation(TRANSFER_DEST_INVALID_MESSAGE))
+            }
+        } else {
+            val categoryId = transaction.categoryId
+            if (categoryId == null) {
+                return Result.Failure(AppError.Validation(CATEGORY_MESSAGE))
+            }
+            val category = categoryRepository.getById(categoryId)
+            if (category == null) {
+                return Result.Failure(AppError.Validation(CATEGORY_MESSAGE))
+            }
+            if (category.isArchived) {
+                return Result.Failure(AppError.Validation(ARCHIVED_CATEGORY_MESSAGE))
+            }
         }
         return runCatchingResult {
             transactionRepository.add(transaction)
@@ -42,7 +58,12 @@ class AddTransactionUseCase @Inject constructor(
 
     companion object {
         const val AMOUNT_MESSAGE = "Amount must be greater than zero"
+        const val DATE_MESSAGE = "Invalid date"
         const val ACCOUNT_MESSAGE = "Unknown account"
+        const val ARCHIVED_ACCOUNT_MESSAGE = "Cannot use an archived account"
         const val CATEGORY_MESSAGE = "Select a valid category"
+        const val ARCHIVED_CATEGORY_MESSAGE = "Cannot use an archived category"
+        const val TRANSFER_DEST_MESSAGE = "Transfer requires a different destination account"
+        const val TRANSFER_DEST_INVALID_MESSAGE = "Invalid destination account"
     }
 }

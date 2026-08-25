@@ -3,7 +3,8 @@ package com.jerries.expense.data.repository
 import com.jerries.expense.domain.repository.AccountRepository
 import com.jerries.expense.domain.repository.BudgetRepository
 import com.jerries.expense.domain.repository.CategoryRepository
-import com.jerries.expense.domain.repository.GoalRepository
+import com.jerries.expense.domain.repository.RecurringTransactionRepository
+import com.jerries.expense.domain.repository.SavingsGoalRepository
 import com.jerries.expense.domain.repository.TransactionRepository
 import com.jerries.expense.domain.repository.UserPreferencesRepository
 import dagger.Binds
@@ -40,7 +41,15 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindGoalRepository(impl: OfflineFirstGoalRepository): GoalRepository
+    abstract fun bindSavingsGoalRepository(
+        impl: OfflineFirstSavingsGoalRepository,
+    ): SavingsGoalRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindRecurringTransactionRepository(
+        impl: OfflineFirstRecurringTransactionRepository,
+    ): RecurringTransactionRepository
 
     @Binds
     @Singleton

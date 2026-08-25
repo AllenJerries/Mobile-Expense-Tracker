@@ -2,6 +2,7 @@
 .gradle
 /local.properties
 /.idea
+.vscode/
 .DS_Store
 /build
 /app/build/
@@ -9,3 +10,4 @@
 .externalNativeBuild
 .cxx
 local.properties.bak
+nul

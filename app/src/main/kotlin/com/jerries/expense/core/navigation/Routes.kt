@@ -17,6 +17,12 @@ data object TransactionsRoute
 data object AddTransactionRoute
 
 @Serializable
+data class EditTransactionRoute(val transactionId: String)
+
+@Serializable
+data class TransactionDetailRoute(val transactionId: String)
+
+@Serializable
 data object BudgetsRoute
 
 @Serializable

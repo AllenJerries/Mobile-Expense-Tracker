@@ -15,4 +15,6 @@ data class CategoryEntity(
     val kind: String,
     @ColumnInfo(name = "icon_key") val iconKey: String?,
     @ColumnInfo(name = "color_argb") val colorArgb: Long,
+    @ColumnInfo(name = "is_default") val isDefault: Boolean,
+    @ColumnInfo(name = "is_archived") val isArchived: Boolean,
 )

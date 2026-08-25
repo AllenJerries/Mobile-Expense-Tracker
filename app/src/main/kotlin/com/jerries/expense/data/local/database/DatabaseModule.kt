@@ -5,7 +5,8 @@ import androidx.room.Room
 import com.jerries.expense.data.local.dao.AccountDao
 import com.jerries.expense.data.local.dao.BudgetDao
 import com.jerries.expense.data.local.dao.CategoryDao
-import com.jerries.expense.data.local.dao.GoalDao
+import com.jerries.expense.data.local.dao.RecurringTransactionDao
+import com.jerries.expense.data.local.dao.SavingsGoalDao
 import com.jerries.expense.data.local.dao.TransactionDao
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,7 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): ExpenseDatabase =
         Room.databaseBuilder(context, ExpenseDatabase::class.java, ExpenseDatabase.DATABASE_NAME)
+            .addMigrations(DatabaseMigrations.MIGRATION_1_2)
             .build()
 
     @Provides
@@ -37,5 +39,9 @@ object DatabaseModule {
     fun provideBudgetDao(database: ExpenseDatabase): BudgetDao = database.budgetDao()
 
     @Provides
-    fun provideGoalDao(database: ExpenseDatabase): GoalDao = database.goalDao()
+    fun provideSavingsGoalDao(database: ExpenseDatabase): SavingsGoalDao = database.savingsGoalDao()
+
+    @Provides
+    fun provideRecurringTransactionDao(database: ExpenseDatabase): RecurringTransactionDao =
+        database.recurringTransactionDao()
 }
