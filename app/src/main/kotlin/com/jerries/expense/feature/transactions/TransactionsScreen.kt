@@ -8,15 +8,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Search
@@ -30,13 +27,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarDuration
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -53,8 +44,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.TransactionRow
+import com.jerries.expense.core.designsystem.component.glassConfig
 import com.jerries.expense.core.designsystem.icon.JeIcons
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.domain.model.TransactionType
@@ -69,63 +63,48 @@ fun TransactionsScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
-    val snackbarHostState = remember { SnackbarHostState() }
+    val config = glassConfig()
+    var showDeleteDialog by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     val deletedMessage = stringResource(R.string.transaction_deleted)
     val undoLabel = stringResource(R.string.undo)
 
-    LaunchedEffect(Unit) {
-        viewModel.events.collect { event ->
-            when (event) {
-                is TransactionsEvent.TransactionDeleted -> {
-                    val result = snackbarHostState.showSnackbar(
-                        message = deletedMessage,
-                        actionLabel = undoLabel,
-                        duration = SnackbarDuration.Short,
-                    )
-                    if (result == SnackbarResult.ActionPerformed) {
-                        // Undo not implemented since we do hard delete for simplicity
-                    }
-                }
-            }
-        }
-    }
-
-    Scaffold(
+    Column(
         modifier = modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.nav_transactions)) },
-                actions = {
-                    IconButton(onClick = { viewModel.onToggleFilters() }) {
-                        Icon(
-                            imageVector = Icons.Filled.FilterList,
-                            contentDescription = stringResource(R.string.label_filters),
-                            tint = if (state.hasActiveFilters) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
-                    }
-                },
-            )
-        },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        Column(
+    ) {
+        GlassTopBar(
+            title = {
+                Text(
+                    text = stringResource(R.string.nav_transactions),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+            },
+            actions = {
+                IconButton(onClick = { viewModel.onToggleFilters() }) {
+                    Icon(
+                        imageVector = Icons.Filled.FilterList,
+                        contentDescription = stringResource(R.string.label_filters),
+                        tint = if (state.hasActiveFilters) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.onSurface
+                        },
+                    )
+                }
+            },
+        )
+
+        // Search bar with glass style
+        GlassCard(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(padding),
+                .fillMaxWidth()
+                .padding(horizontal = spacing.screenPadding, vertical = spacing.small),
         ) {
-            // Search bar
             OutlinedTextField(
                 value = state.searchQuery,
                 onValueChange = viewModel::onSearchQueryChange,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = spacing.screenPadding, vertical = spacing.small)
                     .semantics { contentDescription = "Search transactions" },
                 placeholder = { Text(stringResource(R.string.search_transactions_hint)) },
                 leadingIcon = {
@@ -135,67 +114,67 @@ fun TransactionsScreen(
                     )
                 },
                 singleLine = true,
-                shape = MaterialTheme.shapes.large,
+                shape = RoundedCornerShape(config.cornerRadius),
+            )
+        }
+
+        // Filter panel
+        AnimatedVisibility(
+            visible = state.showFilters,
+            modifier = Modifier.animateContentSize(),
+        ) {
+            FilterPanel(
+                state = state,
+                onTypeFilterChange = viewModel::onTypeFilterChange,
+                onCategoryFilterChange = viewModel::onCategoryFilterChange,
+                onAccountFilterChange = viewModel::onAccountFilterChange,
+                onPaymentMethodFilterChange = viewModel::onPaymentMethodFilterChange,
+                onSortOrderChange = viewModel::onSortOrderChange,
+                onClearFilters = viewModel::onClearFilters,
+            )
+        }
+
+        // Active filter chips
+        if (state.hasActiveFilters && !state.showFilters) {
+            ActiveFilterChips(
+                state = state,
+                onTypeFilterChange = viewModel::onTypeFilterChange,
+                onCategoryFilterChange = viewModel::onCategoryFilterChange,
+                onAccountFilterChange = viewModel::onAccountFilterChange,
+                onPaymentMethodFilterChange = viewModel::onPaymentMethodFilterChange,
+                onClearFilters = viewModel::onClearFilters,
+            )
+        }
+
+        when {
+            state.isLoading -> LoadingContent()
+
+            state.isEmpty -> EmptyContent(
+                icon = JeIcons.Fallback,
+                title = stringResource(R.string.empty_transactions_title),
+                message = stringResource(R.string.empty_transactions_message),
             )
 
-            // Filter panel
-            AnimatedVisibility(
-                visible = state.showFilters,
-                modifier = Modifier.animateContentSize(),
+            state.isFilteredEmpty -> EmptyContent(
+                icon = JeIcons.Fallback,
+                title = stringResource(R.string.empty_search_title),
+                message = stringResource(R.string.empty_search_message),
+            )
+
+            else -> LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(bottom = spacing.large),
+                verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
             ) {
-                FilterPanel(
-                    state = state,
-                    onTypeFilterChange = viewModel::onTypeFilterChange,
-                    onCategoryFilterChange = viewModel::onCategoryFilterChange,
-                    onAccountFilterChange = viewModel::onAccountFilterChange,
-                    onPaymentMethodFilterChange = viewModel::onPaymentMethodFilterChange,
-                    onSortOrderChange = viewModel::onSortOrderChange,
-                    onClearFilters = viewModel::onClearFilters,
-                )
-            }
-
-            // Active filter chips
-            if (state.hasActiveFilters && !state.showFilters) {
-                ActiveFilterChips(
-                    state = state,
-                    onTypeFilterChange = viewModel::onTypeFilterChange,
-                    onCategoryFilterChange = viewModel::onCategoryFilterChange,
-                    onAccountFilterChange = viewModel::onAccountFilterChange,
-                    onPaymentMethodFilterChange = viewModel::onPaymentMethodFilterChange,
-                    onClearFilters = viewModel::onClearFilters,
-                )
-            }
-
-            when {
-                state.isLoading -> LoadingContent()
-
-                state.isEmpty -> EmptyContent(
-                    icon = JeIcons.Fallback,
-                    title = stringResource(R.string.empty_transactions_title),
-                    message = stringResource(R.string.empty_transactions_message),
-                )
-
-                state.isFilteredEmpty -> EmptyContent(
-                    icon = JeIcons.Fallback,
-                    title = stringResource(R.string.empty_search_title),
-                    message = stringResource(R.string.empty_search_message),
-                )
-
-                else -> LazyColumn(
-                    modifier = Modifier.fillMaxSize(),
-                    contentPadding = PaddingValues(bottom = spacing.large),
-                    verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
-                ) {
-                    items(state.filteredTransactions, key = { it.id }) { row ->
-                        TransactionRow(
-                            model = row,
-                            currencyCode = state.currencyCode,
-                            todayEpochDay = state.todayEpochDay,
-                            modifier = Modifier.clickable {
-                                onNavigateToDetail(row.id)
-                            },
-                        )
-                    }
+                items(state.filteredTransactions, key = { it.id }) { row ->
+                    TransactionRow(
+                        model = row,
+                        currencyCode = state.currencyCode,
+                        todayEpochDay = state.todayEpochDay,
+                        modifier = Modifier.clickable {
+                            onNavigateToDetail(row.id)
+                        },
+                    )
                 }
             }
         }

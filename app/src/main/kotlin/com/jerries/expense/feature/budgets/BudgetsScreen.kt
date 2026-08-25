@@ -2,6 +2,7 @@ package com.jerries.expense.feature.budgets
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -28,13 +29,11 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -51,13 +50,13 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
-import com.jerries.expense.core.designsystem.component.JeElevatedCard
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.core.util.CurrencyFormatter
 import com.jerries.expense.domain.model.BudgetPeriod
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BudgetsScreen(
     modifier: Modifier = Modifier,
@@ -94,40 +93,40 @@ fun BudgetsScreen(
         )
     }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.nav_budgets)) }) },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_budget))
-            }
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        when {
-            state.isLoading -> LoadingContent(Modifier.padding(padding))
-            state.isEmpty -> EmptyContent(
-                icon = Icons.Filled.Savings,
-                title = stringResource(R.string.empty_budgets_title),
-                message = stringResource(R.string.empty_budgets_message),
-                modifier = Modifier.padding(padding),
-            )
-            else -> LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(bottom = 80.dp),
-                verticalArrangement = Arrangement.spacedBy(spacing.small),
-            ) {
-                items(state.budgetSpendings, key = { it.budget.id }) { spending ->
-                    BudgetCard(
-                        spending = spending,
-                        currencyCode = state.currencyCode,
-                        onEdit = { viewModel.onEditBudget(spending.budget) },
-                        onDelete = { viewModel.onDeleteBudget(spending.budget.id) },
-                    )
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            GlassTopBar(title = { Text(stringResource(R.string.nav_budgets), style = MaterialTheme.typography.titleLarge) })
+            when {
+                state.isLoading -> LoadingContent(Modifier.weight(1f))
+                state.isEmpty -> EmptyContent(
+                    icon = Icons.Filled.Savings,
+                    title = stringResource(R.string.empty_budgets_title),
+                    message = stringResource(R.string.empty_budgets_message),
+                    modifier = Modifier.weight(1f),
+                )
+                else -> LazyColumn(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    contentPadding = PaddingValues(bottom = 80.dp),
+                    verticalArrangement = Arrangement.spacedBy(spacing.small),
+                ) {
+                    items(state.budgetSpendings, key = { it.budget.id }) { spending ->
+                        BudgetCard(
+                            spending = spending,
+                            currencyCode = state.currencyCode,
+                            onEdit = { viewModel.onEditBudget(spending.budget) },
+                            onDelete = { viewModel.onDeleteBudget(spending.budget.id) },
+                        )
+                    }
                 }
             }
         }
+        FloatingActionButton(
+            onClick = { viewModel.onShowForm(true) },
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+        ) {
+            Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_budget))
+        }
+        SnackbarHost(hostState = snackbarHostState, modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
 
@@ -143,7 +142,7 @@ private fun BudgetCard(
     val isExceeded = spending.percentage > 1.0
     val isApproaching = spending.percentage >= 0.8 && !isExceeded
 
-    JeElevatedCard(modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
+    GlassCard(modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
         Column(modifier = Modifier.padding(spacing.cardPadding).animateContentSize()) {
             Row(
                 modifier = Modifier.fillMaxWidth(),

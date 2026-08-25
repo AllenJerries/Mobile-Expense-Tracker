@@ -1,5 +1,8 @@
 package com.jerries.expense.feature.transactiondetail
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,16 +24,11 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -48,6 +46,9 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.CategoryIcon
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
+import com.jerries.expense.core.designsystem.component.glassConfig
 import com.jerries.expense.core.designsystem.icon.JeIcons
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.domain.model.TransactionType
@@ -62,7 +63,6 @@ fun TransactionDetailScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
-    val snackbarHostState = remember { SnackbarHostState() }
     var showDeleteDialog by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
@@ -101,53 +101,49 @@ fun TransactionDetailScreen(
         )
     }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.transaction_detail_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.back),
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { viewModel.navigateToEdit() }) {
-                        Icon(
-                            imageVector = Icons.Filled.Edit,
-                            contentDescription = stringResource(R.string.edit),
-                        )
-                    }
-                    IconButton(onClick = { showDeleteDialog = true }) {
-                        Icon(
-                            imageVector = Icons.Filled.Delete,
-                            contentDescription = stringResource(R.string.delete),
-                            tint = MaterialTheme.colorScheme.error,
-                        )
-                    }
-                },
-            )
-        },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
+    Column(modifier = modifier.fillMaxSize()) {
+        GlassTopBar(
+            title = {
+                Text(
+                    text = stringResource(R.string.transaction_detail_title),
+                    style = MaterialTheme.typography.titleLarge,
+                )
+            },
+            navigationIcon = {
+                IconButton(onClick = onNavigateUp) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.back),
+                    )
+                }
+            },
+            actions = {
+                IconButton(onClick = { viewModel.navigateToEdit() }) {
+                    Icon(
+                        imageVector = Icons.Filled.Edit,
+                        contentDescription = stringResource(R.string.edit),
+                    )
+                }
+                IconButton(onClick = { showDeleteDialog = true }) {
+                    Icon(
+                        imageVector = Icons.Filled.Delete,
+                        contentDescription = stringResource(R.string.delete),
+                        tint = MaterialTheme.colorScheme.error,
+                    )
+                }
+            },
+        )
+
         when {
             state.isLoading -> Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
                 CircularProgressIndicator()
             }
 
             state.isEmpty || state.transaction == null -> Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
+                modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
@@ -160,7 +156,6 @@ fun TransactionDetailScreen(
             else -> Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(padding)
                     .verticalScroll(rememberScrollState())
                     .padding(horizontal = spacing.screenPadding),
                 verticalArrangement = Arrangement.spacedBy(spacing.medium),
@@ -168,106 +163,127 @@ fun TransactionDetailScreen(
                 Spacer(modifier = Modifier.height(spacing.small))
 
                 // Header with icon and amount
-                Column(
+                GlassCard(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
+                    elevated = true,
                 ) {
-                    CategoryIcon(
-                        icon = JeIcons.category(null),
-                        contentDescription = state.typeText,
-                        modifier = Modifier.size(56.dp),
-                    )
-                    Spacer(modifier = Modifier.height(spacing.medium))
-                    Text(
-                        text = state.title,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Spacer(modifier = Modifier.height(spacing.extraSmall))
-                    AmountText(
-                        amountMinor = state.transaction!!.amountMinor,
-                        currencyCode = state.currencyCode,
-                        tint = when (state.type) {
-                            TransactionType.INCOME -> AmountTint.INCOME
-                            TransactionType.EXPENSE -> AmountTint.EXPENSE
-                            TransactionType.TRANSFER -> AmountTint.NEUTRAL
-                        },
-                        style = MaterialTheme.typography.headlineLarge,
-                    )
-                }
-
-                HorizontalDivider()
-
-                // Details
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_type),
-                    value = state.typeText,
-                )
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_account),
-                    value = state.accountName,
-                )
-                if (state.type == TransactionType.TRANSFER) {
-                    DetailRow(
-                        label = stringResource(R.string.transaction_detail_destination),
-                        value = state.destinationAccountName,
-                    )
-                } else {
-                    DetailRow(
-                        label = stringResource(R.string.transaction_detail_category),
-                        value = state.categoryName,
-                    )
-                }
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_date),
-                    value = state.dateText,
-                )
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_time),
-                    value = state.timeText,
-                )
-                if (state.paymentMethod.isNotBlank() && state.paymentMethod != "—") {
-                    DetailRow(
-                        label = stringResource(R.string.transaction_detail_payment_method),
-                        value = state.paymentMethod,
-                    )
-                }
-                if (state.note.isNotBlank()) {
-                    DetailRow(
-                        label = stringResource(R.string.transaction_detail_note),
-                        value = state.note,
-                    )
-                }
-                if (state.hasAttachment) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(vertical = spacing.extraSmall),
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(spacing.cardPadding),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
                     ) {
-                        Icon(
-                            imageVector = Icons.Filled.CameraAlt,
-                            contentDescription = stringResource(R.string.transaction_detail_receipt),
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(20.dp),
+                        CategoryIcon(
+                            icon = JeIcons.category(null),
+                            contentDescription = state.typeText,
+                            modifier = Modifier.size(56.dp),
                         )
-                        Spacer(modifier = Modifier.width(spacing.small))
                         Text(
-                            text = stringResource(R.string.transaction_detail_receipt),
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            text = state.title,
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontWeight = FontWeight.Bold,
+                        )
+                        AmountText(
+                            amountMinor = state.transaction!!.amountMinor,
+                            currencyCode = state.currencyCode,
+                            tint = when (state.type) {
+                                TransactionType.INCOME -> AmountTint.INCOME
+                                TransactionType.EXPENSE -> AmountTint.EXPENSE
+                                TransactionType.TRANSFER -> AmountTint.NEUTRAL
+                            },
+                            style = MaterialTheme.typography.headlineLarge,
                         )
                     }
                 }
 
-                HorizontalDivider()
+                // Details in glass card
+                GlassCard(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(spacing.medium),
+                        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                    ) {
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_type),
+                            value = state.typeText,
+                        )
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_account),
+                            value = state.accountName,
+                        )
+                        if (state.type == TransactionType.TRANSFER) {
+                            DetailRow(
+                                label = stringResource(R.string.transaction_detail_destination),
+                                value = state.destinationAccountName,
+                            )
+                        } else {
+                            DetailRow(
+                                label = stringResource(R.string.transaction_detail_category),
+                                value = state.categoryName,
+                            )
+                        }
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_date),
+                            value = state.dateText,
+                        )
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_time),
+                            value = state.timeText,
+                        )
+                        if (state.paymentMethod.isNotBlank() && state.paymentMethod != "—") {
+                            DetailRow(
+                                label = stringResource(R.string.transaction_detail_payment_method),
+                                value = state.paymentMethod,
+                            )
+                        }
+                        if (state.note.isNotBlank()) {
+                            DetailRow(
+                                label = stringResource(R.string.transaction_detail_note),
+                                value = state.note,
+                            )
+                        }
+                        if (state.hasAttachment) {
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.padding(vertical = spacing.extraSmall),
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.CameraAlt,
+                                    contentDescription = stringResource(R.string.transaction_detail_receipt),
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(20.dp),
+                                )
+                                Spacer(modifier = Modifier.width(spacing.small))
+                                Text(
+                                    text = stringResource(R.string.transaction_detail_receipt),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        }
+                    }
+                }
 
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_created),
-                    value = state.createdText,
-                )
-                DetailRow(
-                    label = stringResource(R.string.transaction_detail_updated),
-                    value = state.updatedText,
-                )
+                // Timestamps in glass card
+                GlassCard(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(spacing.medium),
+                        verticalArrangement = Arrangement.spacedBy(spacing.extraSmall),
+                    ) {
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_created),
+                            value = state.createdText,
+                        )
+                        DetailRow(
+                            label = stringResource(R.string.transaction_detail_updated),
+                            value = state.updatedText,
+                        )
+                    }
+                }
 
                 Spacer(modifier = Modifier.height(spacing.large))
             }

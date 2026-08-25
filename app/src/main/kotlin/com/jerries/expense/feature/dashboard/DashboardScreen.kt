@@ -1,5 +1,10 @@
 package com.jerries.expense.feature.dashboard
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,35 +22,32 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Savings
 import androidx.compose.material.icons.automirrored.filled.TrendingDown
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
-import androidx.compose.material.icons.filled.Wallet
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -55,11 +57,15 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
-import com.jerries.expense.core.designsystem.component.JeElevatedCard
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassSurface
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.component.TransactionRow
+import com.jerries.expense.core.designsystem.component.glassConfig
 import com.jerries.expense.core.designsystem.icon.JeIcons
+import com.jerries.expense.core.designsystem.theme.GlassColors
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.core.util.CurrencyFormatter
 import java.time.format.DateTimeFormatter
@@ -79,21 +85,26 @@ fun DashboardScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val selectedMonth by viewModel.selectedMonth.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
+    val config = glassConfig()
 
-    Scaffold(
+    Column(
         modifier = modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(title = { Text(stringResource(R.string.dashboard_greeting)) })
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
+    ) {
+        GlassTopBar(
+            title = {
+                Text(
+                    text = stringResource(R.string.dashboard_greeting),
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+            },
+        )
+
         when {
-            state.isLoading -> LoadingContent(Modifier.padding(padding))
+            state.isLoading -> LoadingContent(Modifier.weight(1f))
 
             else -> LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
+                modifier = Modifier.weight(1f),
                 contentPadding = PaddingValues(bottom = spacing.huge),
                 verticalArrangement = Arrangement.spacedBy(spacing.medium),
             ) {
@@ -223,27 +234,43 @@ private fun BalanceCard(
     currencyCode: String,
 ) {
     val spacing = LocalSpacing.current
-    JeElevatedCard(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = spacing.screenPadding),
+    var appeared by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) { appeared = true }
+
+    AnimatedVisibility(
+        visible = appeared,
+        enter = fadeIn(spring(stiffness = Spring.StiffnessLow)) +
+            slideInVertically(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioNoBouncy,
+                    stiffness = Spring.StiffnessLow,
+                ),
+                initialOffsetY = { it / 4 },
+            ),
     ) {
-        Column(
+        GlassCard(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(spacing.cardPadding),
-            verticalArrangement = Arrangement.spacedBy(spacing.small),
+                .padding(horizontal = spacing.screenPadding),
+            elevated = true,
         ) {
-            Text(
-                text = stringResource(R.string.dashboard_total_balance),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            AmountText(
-                amountMinor = balanceMinor,
-                currencyCode = currencyCode,
-                style = MaterialTheme.typography.headlineMedium,
-            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(spacing.cardPadding),
+                verticalArrangement = Arrangement.spacedBy(spacing.small),
+            ) {
+                Text(
+                    text = stringResource(R.string.dashboard_total_balance),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                AmountText(
+                    amountMinor = balanceMinor,
+                    currencyCode = currencyCode,
+                    style = MaterialTheme.typography.headlineMedium,
+                )
+            }
         }
     }
 }
@@ -296,7 +323,7 @@ private fun MonthSummaryRow(
             .padding(horizontal = spacing.screenPadding),
         horizontalArrangement = Arrangement.spacedBy(spacing.small),
     ) {
-        SummaryMiniCard(
+        GlassSummaryCard(
             title = stringResource(R.string.dashboard_income_this_month),
             amountMinor = incomeMinor,
             currencyCode = currencyCode,
@@ -304,7 +331,7 @@ private fun MonthSummaryRow(
             icon = Icons.AutoMirrored.Filled.TrendingUp,
             modifier = Modifier.weight(1f),
         )
-        SummaryMiniCard(
+        GlassSummaryCard(
             title = stringResource(R.string.dashboard_expenses_this_month),
             amountMinor = expenseMinor,
             currencyCode = currencyCode,
@@ -312,7 +339,7 @@ private fun MonthSummaryRow(
             icon = Icons.AutoMirrored.Filled.TrendingDown,
             modifier = Modifier.weight(1f),
         )
-        SummaryMiniCard(
+        GlassSummaryCard(
             title = stringResource(R.string.dashboard_savings_this_month),
             amountMinor = savingsMinor,
             currencyCode = currencyCode,
@@ -324,7 +351,7 @@ private fun MonthSummaryRow(
 }
 
 @Composable
-private fun SummaryMiniCard(
+private fun GlassSummaryCard(
     title: String,
     amountMinor: Long,
     currencyCode: String,
@@ -333,12 +360,8 @@ private fun SummaryMiniCard(
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
-    Card(
+    GlassSurface(
         modifier = modifier,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
-        ),
-        shape = MaterialTheme.shapes.medium,
     ) {
         Column(
             modifier = Modifier
@@ -375,14 +398,10 @@ private fun MonthComparisonCard(
     expenseChange: Float,
 ) {
     val spacing = LocalSpacing.current
-    Card(
+    GlassCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = spacing.screenPadding),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
-        ),
-        shape = MaterialTheme.shapes.medium,
     ) {
         Column(
             modifier = Modifier
@@ -502,8 +521,8 @@ private fun QuickActionButton(
     text: String,
     icon: ImageVector,
     onClick: () -> Unit,
-    containerColor: androidx.compose.ui.graphics.Color,
-    contentColor: androidx.compose.ui.graphics.Color,
+    containerColor: Color,
+    contentColor: Color,
 ) {
     val spacing = LocalSpacing.current
     FilledTonalButton(

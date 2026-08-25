@@ -1,6 +1,5 @@
 package com.jerries.expense.feature.analytics
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.TrendingDown
@@ -23,17 +21,13 @@ import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.automirrored.filled.ShowChart
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -54,9 +48,11 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
-import com.jerries.expense.core.designsystem.component.JeElevatedCard
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
+import com.jerries.expense.core.designsystem.component.glassConfig
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.core.util.CurrencyFormatter
 import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
@@ -74,7 +70,6 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AnalyticsScreen(
     modifier: Modifier = Modifier,
@@ -83,76 +78,75 @@ fun AnalyticsScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.analytics_title)) }) },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        when {
-            state.isLoading -> LoadingContent(Modifier.padding(padding))
-            state.isEmpty -> EmptyContent(
-                icon = Icons.AutoMirrored.Filled.ShowChart,
-                title = stringResource(R.string.empty_generic_title),
-                message = stringResource(R.string.analytics_empty_message),
-                modifier = Modifier.padding(padding),
-            )
-            else -> LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(bottom = spacing.huge),
-                verticalArrangement = Arrangement.spacedBy(spacing.medium),
-            ) {
-                item("month-selector") {
-                    MonthSelector(
-                        month = state.currentMonth,
-                        onPrevious = viewModel::onPreviousMonth,
-                        onNext = viewModel::onNextMonth,
-                    )
-                }
-                item("overview-cards") {
-                    OverviewCards(
-                        income = state.incomeThisMonth,
-                        expense = state.expensesThisMonth,
-                        savingsRate = state.savingsRate,
-                        currencyCode = state.currencyCode,
-                    )
-                }
-                if (state.monthIncomeValues.isNotEmpty()) {
-                    item("income-expense-chart") {
-                        SectionHeader(stringResource(R.string.analytics_income_vs_expenses))
-                        IncomeExpenseChart(
-                            incomeValues = state.monthIncomeValues,
-                            expenseValues = state.monthExpenseValues,
-                            labels = state.monthLabels,
-                            modifier = Modifier.padding(horizontal = spacing.screenPadding),
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            GlassTopBar(title = { Text(stringResource(R.string.analytics_title), style = MaterialTheme.typography.titleLarge) })
+            when {
+                state.isLoading -> LoadingContent(Modifier.weight(1f))
+                state.isEmpty -> EmptyContent(
+                    icon = Icons.AutoMirrored.Filled.ShowChart,
+                    title = stringResource(R.string.empty_generic_title),
+                    message = stringResource(R.string.analytics_empty_message),
+                    modifier = Modifier.weight(1f),
+                )
+                else -> LazyColumn(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    contentPadding = PaddingValues(bottom = spacing.huge),
+                    verticalArrangement = Arrangement.spacedBy(spacing.medium),
+                ) {
+                    item("month-selector") {
+                        MonthSelector(
+                            month = state.currentMonth,
+                            onPrevious = viewModel::onPreviousMonth,
+                            onNext = viewModel::onNextMonth,
                         )
                     }
-                }
-                if (state.expensesByCategory.isNotEmpty()) {
-                    item("category-header") {
-                        SectionHeader(stringResource(R.string.analytics_category_breakdown))
-                    }
-                    items(state.expensesByCategory, key = { it.name }) { slice ->
-                        CategoryBar(
-                            name = slice.name,
-                            amountMinor = slice.amountMinor,
-                            percentage = slice.percentage,
-                            colorArgb = slice.colorArgb,
+                    item("overview-cards") {
+                        OverviewCards(
+                            income = state.incomeThisMonth,
+                            expense = state.expensesThisMonth,
+                            savingsRate = state.savingsRate,
                             currencyCode = state.currencyCode,
                         )
                     }
-                }
-                item("stats-header") {
-                    SectionHeader(stringResource(R.string.analytics_overview))
-                }
-                item("stats") {
-                    StatsGrid(
-                        avgDaily = state.avgDailySpending,
-                        highestCategoryName = state.highestCategoryName,
-                        highestCategoryAmount = state.highestCategoryAmount,
-                        highestTxTitle = state.highestTransactionTitle,
-                        highestTxAmount = state.highestTransactionAmount,
-                        currencyCode = state.currencyCode,
-                    )
+                    if (state.monthIncomeValues.isNotEmpty()) {
+                        item("income-expense-chart") {
+                            SectionHeader(stringResource(R.string.analytics_income_vs_expenses))
+                            IncomeExpenseChart(
+                                incomeValues = state.monthIncomeValues,
+                                expenseValues = state.monthExpenseValues,
+                                labels = state.monthLabels,
+                                modifier = Modifier.padding(horizontal = spacing.screenPadding),
+                            )
+                        }
+                    }
+                    if (state.expensesByCategory.isNotEmpty()) {
+                        item("category-header") {
+                            SectionHeader(stringResource(R.string.analytics_category_breakdown))
+                        }
+                        items(state.expensesByCategory, key = { it.name }) { slice ->
+                            CategoryBar(
+                                name = slice.name,
+                                amountMinor = slice.amountMinor,
+                                percentage = slice.percentage,
+                                colorArgb = slice.colorArgb,
+                                currencyCode = state.currencyCode,
+                            )
+                        }
+                    }
+                    item("stats-header") {
+                        SectionHeader(stringResource(R.string.analytics_overview))
+                    }
+                    item("stats") {
+                        StatsGrid(
+                            avgDaily = state.avgDailySpending,
+                            highestCategoryName = state.highestCategoryName,
+                            highestCategoryAmount = state.highestCategoryAmount,
+                            highestTxTitle = state.highestTransactionTitle,
+                            highestTxAmount = state.highestTransactionAmount,
+                            currencyCode = state.currencyCode,
+                        )
+                    }
                 }
             }
         }
@@ -197,42 +191,30 @@ private fun OverviewCards(
         modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding),
         horizontalArrangement = Arrangement.spacedBy(spacing.small),
     ) {
-        Card(
-            modifier = Modifier.weight(1f),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-            shape = MaterialTheme.shapes.medium,
+        GlassCard(
+            modifier = Modifier.weight(1f).padding(spacing.small),
         ) {
-            Column(modifier = Modifier.padding(spacing.small)) {
-                Icon(Icons.AutoMirrored.Filled.TrendingUp, contentDescription = null, tint = MaterialTheme.colorScheme.onPrimaryContainer, modifier = Modifier.size(16.dp))
-                Text(stringResource(R.string.label_income), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
-                AmountText(amountMinor = income, currencyCode = currencyCode, tint = AmountTint.INCOME, style = MaterialTheme.typography.titleSmall)
-            }
+            Icon(Icons.AutoMirrored.Filled.TrendingUp, contentDescription = null, tint = MaterialTheme.colorScheme.onPrimaryContainer, modifier = Modifier.size(16.dp))
+            Text(stringResource(R.string.label_income), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
+            AmountText(amountMinor = income, currencyCode = currencyCode, tint = AmountTint.INCOME, style = MaterialTheme.typography.titleSmall)
         }
-        Card(
-            modifier = Modifier.weight(1f),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
-            shape = MaterialTheme.shapes.medium,
+        GlassCard(
+            modifier = Modifier.weight(1f).padding(spacing.small),
         ) {
-            Column(modifier = Modifier.padding(spacing.small)) {
-                Icon(Icons.AutoMirrored.Filled.TrendingDown, contentDescription = null, tint = MaterialTheme.colorScheme.onErrorContainer, modifier = Modifier.size(16.dp))
-                Text(stringResource(R.string.label_expenses), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onErrorContainer)
-                AmountText(amountMinor = expense, currencyCode = currencyCode, tint = AmountTint.EXPENSE, style = MaterialTheme.typography.titleSmall)
-            }
+            Icon(Icons.AutoMirrored.Filled.TrendingDown, contentDescription = null, tint = MaterialTheme.colorScheme.onErrorContainer, modifier = Modifier.size(16.dp))
+            Text(stringResource(R.string.label_expenses), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onErrorContainer)
+            AmountText(amountMinor = expense, currencyCode = currencyCode, tint = AmountTint.EXPENSE, style = MaterialTheme.typography.titleSmall)
         }
-        Card(
-            modifier = Modifier.weight(1f),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
-            shape = MaterialTheme.shapes.medium,
+        GlassCard(
+            modifier = Modifier.weight(1f).padding(spacing.small),
         ) {
-            Column(modifier = Modifier.padding(spacing.small)) {
-                Text(stringResource(R.string.label_savings), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
-                Text(
-                    text = "${(savingsRate * 100).toInt()}%",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                )
-            }
+            Text(stringResource(R.string.label_savings), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+            Text(
+                text = "${(savingsRate * 100).toInt()}%",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
         }
     }
 }
@@ -259,9 +241,8 @@ private fun IncomeExpenseChart(
         }
     }
 
-    Card(
+    GlassCard(
         modifier = modifier.fillMaxWidth(),
-        shape = MaterialTheme.shapes.medium,
     ) {
         CartesianChartHost(
             chart = rememberCartesianChart(
@@ -325,7 +306,7 @@ private fun StatsGrid(
     currencyCode: String,
 ) {
     val spacing = LocalSpacing.current
-    JeElevatedCard(modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
+    GlassCard(modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
         Column(
             modifier = Modifier.padding(spacing.cardPadding),
             verticalArrangement = Arrangement.spacedBy(spacing.medium),

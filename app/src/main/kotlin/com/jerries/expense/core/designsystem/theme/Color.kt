@@ -1,5 +1,6 @@
 package com.jerries.expense.core.designsystem.theme
 
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 // Brand palette
@@ -19,8 +20,73 @@ val IncomeGreenDark = Color(0xFF6DD58C)
 val ExpenseRed = Color(0xFFBA1A1A)
 val ExpenseRedDark = Color(0xFFFFB4AB)
 
-val LightBackground = Color(0xFFF9F9FF)
-val DarkBackground = Color(0xFF101418)
+val LightBackground = Color(0xFFF2F3F7)
+val DarkBackground = Color(0xFF0D1117)
+
+// ── Glass surface tokens ─────────────────────────────────────────────
+object GlassColors {
+    // Light mode
+    val LightSurface = Color(0xFFFFFFFF).copy(alpha = 0.72f)
+    val LightSurfaceElevated = Color(0xFFFFFFFF).copy(alpha = 0.82f)
+    val LightSurfaceHigh = Color(0xFFFFFFFF).copy(alpha = 0.90f)
+    val LightBorder = Color(0xFFFFFFFF).copy(alpha = 0.50f)
+    val LightBorderSubtle = Color(0xFF000000).copy(alpha = 0.06f)
+    val LightScrim = Color(0xFFFFFFFF).copy(alpha = 0.45f)
+    val LightNavBar = Color(0xFFF2F3F7).copy(alpha = 0.78f)
+    val LightTopBar = Color(0xFFF2F3F7).copy(alpha = 0.82f)
+    val LightGradientStart = Color(0xFFFFFFFF).copy(alpha = 0.60f)
+    val LightGradientEnd = Color(0xFFF0F0F5).copy(alpha = 0.40f)
+
+    // Dark mode
+    val DarkSurface = Color(0xFF1C2028).copy(alpha = 0.72f)
+    val DarkSurfaceElevated = Color(0xFF1C2028).copy(alpha = 0.82f)
+    val DarkSurfaceHigh = Color(0xFF222730).copy(alpha = 0.90f)
+    val DarkBorder = Color(0xFFFFFFFF).copy(alpha = 0.08f)
+    val DarkBorderSubtle = Color(0xFFFFFFFF).copy(alpha = 0.05f)
+    val DarkScrim = Color(0xFF000000).copy(alpha = 0.40f)
+    val DarkNavBar = Color(0xFF161B22).copy(alpha = 0.80f)
+    val DarkTopBar = Color(0xFF161B22).copy(alpha = 0.85f)
+    val DarkGradientStart = Color(0xFF1C2028).copy(alpha = 0.50f)
+    val DarkGradientEnd = Color(0xFF0D1117).copy(alpha = 0.35f)
+
+    // Accent gradients
+    val IncomeBrushLight = Brush.verticalGradient(
+        listOf(
+            Color(0xFF1E8E3E).copy(alpha = 0.12f),
+            Color(0xFF1E8E3E).copy(alpha = 0.04f),
+        ),
+    )
+    val IncomeBrushDark = Brush.verticalGradient(
+        listOf(
+            Color(0xFF6DD58C).copy(alpha = 0.14f),
+            Color(0xFF6DD58C).copy(alpha = 0.04f),
+        ),
+    )
+    val ExpenseBrushLight = Brush.verticalGradient(
+        listOf(
+            Color(0xFFBA1A1A).copy(alpha = 0.10f),
+            Color(0xFFBA1A1A).copy(alpha = 0.03f),
+        ),
+    )
+    val ExpenseBrushDark = Brush.verticalGradient(
+        listOf(
+            Color(0xFFFFB4AB).copy(alpha = 0.12f),
+            Color(0xFFFFB4AB).copy(alpha = 0.03f),
+        ),
+    )
+    val NeutralBrushLight = Brush.verticalGradient(
+        listOf(
+            JerriesBlue30.copy(alpha = 0.08f),
+            JerriesBlue30.copy(alpha = 0.02f),
+        ),
+    )
+    val NeutralBrushDark = Brush.verticalGradient(
+        listOf(
+            JerriesBlue80.copy(alpha = 0.10f),
+            JerriesBlue80.copy(alpha = 0.03f),
+        ),
+    )
+}
 
 internal val LightColorScheme = androidx.compose.material3.lightColorScheme(
     primary = JerriesBlue30,

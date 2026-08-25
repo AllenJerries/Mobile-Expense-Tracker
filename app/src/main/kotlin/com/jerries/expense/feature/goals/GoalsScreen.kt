@@ -1,6 +1,7 @@
 package com.jerries.expense.feature.goals
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -21,8 +22,6 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Flag
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -30,12 +29,10 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -51,13 +48,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
 import com.jerries.expense.core.util.CurrencyFormatter
 import com.jerries.expense.domain.model.SavingsGoal
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GoalsScreen(
     modifier: Modifier = Modifier,
@@ -101,57 +99,57 @@ fun GoalsScreen(
         )
     }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.empty_goals_title)) }) },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_goal))
-            }
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        when {
-            state.isLoading -> LoadingContent(Modifier.padding(padding))
-            state.isEmpty -> EmptyContent(
-                icon = Icons.Filled.Flag,
-                title = stringResource(R.string.empty_goals_title),
-                message = stringResource(R.string.empty_goals_message),
-                modifier = Modifier.padding(padding),
-            )
-            else -> LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(bottom = 80.dp),
-                verticalArrangement = Arrangement.spacedBy(spacing.small),
-            ) {
-                if (state.activeGoals.isNotEmpty()) {
-                    items(state.activeGoals, key = { it.id }) { goal ->
-                        GoalCard(
-                            goal = goal,
-                            currencyCode = state.currencyCode,
-                            onContribute = { viewModel.onShowContribution(goal.id, goal.name, false) },
-                            onWithdraw = { viewModel.onShowContribution(goal.id, goal.name, true) },
-                            onEdit = { viewModel.onEditGoal(goal) },
-                            onDelete = { viewModel.onDeleteGoal(goal.id) },
-                        )
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            GlassTopBar(title = { Text(stringResource(R.string.empty_goals_title), style = MaterialTheme.typography.titleLarge) })
+            when {
+                state.isLoading -> LoadingContent(Modifier.weight(1f))
+                state.isEmpty -> EmptyContent(
+                    icon = Icons.Filled.Flag,
+                    title = stringResource(R.string.empty_goals_title),
+                    message = stringResource(R.string.empty_goals_message),
+                    modifier = Modifier.weight(1f),
+                )
+                else -> LazyColumn(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    contentPadding = PaddingValues(bottom = 80.dp),
+                    verticalArrangement = Arrangement.spacedBy(spacing.small),
+                ) {
+                    if (state.activeGoals.isNotEmpty()) {
+                        items(state.activeGoals, key = { it.id }) { goal ->
+                            GoalCard(
+                                goal = goal,
+                                currencyCode = state.currencyCode,
+                                onContribute = { viewModel.onShowContribution(goal.id, goal.name, false) },
+                                onWithdraw = { viewModel.onShowContribution(goal.id, goal.name, true) },
+                                onEdit = { viewModel.onEditGoal(goal) },
+                                onDelete = { viewModel.onDeleteGoal(goal.id) },
+                            )
+                        }
                     }
-                }
-                if (state.completedGoals.isNotEmpty()) {
-                    item { SectionHeader(stringResource(R.string.label_completed)) }
-                    items(state.completedGoals, key = { it.id }) { goal ->
-                        GoalCard(
-                            goal = goal,
-                            currencyCode = state.currencyCode,
-                            onContribute = {},
-                            onWithdraw = {},
-                            onEdit = {},
-                            onDelete = { viewModel.onDeleteGoal(goal.id) },
-                        )
+                    if (state.completedGoals.isNotEmpty()) {
+                        item { SectionHeader(stringResource(R.string.label_completed)) }
+                        items(state.completedGoals, key = { it.id }) { goal ->
+                            GoalCard(
+                                goal = goal,
+                                currencyCode = state.currencyCode,
+                                onContribute = {},
+                                onWithdraw = {},
+                                onEdit = {},
+                                onDelete = { viewModel.onDeleteGoal(goal.id) },
+                            )
+                        }
                     }
                 }
             }
         }
+        FloatingActionButton(
+            onClick = { viewModel.onShowForm(true) },
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+        ) {
+            Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_goal))
+        }
+        SnackbarHost(hostState = snackbarHostState, modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
 
@@ -166,10 +164,8 @@ private fun GoalCard(
 ) {
     val spacing = LocalSpacing.current
 
-    Card(
+    GlassCard(
         modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding),
-        colors = if (goal.completed) CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f))
-        else CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
     ) {
         Column(modifier = Modifier.padding(spacing.cardPadding)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {

@@ -3,6 +3,7 @@ package com.jerries.expense.feature.reports
 import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -21,8 +22,6 @@ import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.FileDownload
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,12 +31,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -58,7 +54,9 @@ import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
 import com.jerries.expense.core.designsystem.component.ErrorContent
-import com.jerries.expense.core.designsystem.component.JeElevatedCard
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassSurface
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
@@ -69,7 +67,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReportsScreen(
     modifier: Modifier = Modifier,
@@ -82,14 +79,10 @@ fun ReportsScreen(
     val context = LocalContext.current
     var showExportMenu by remember { mutableStateOf(false) }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.reports_title)) },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                ),
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            GlassTopBar(
+                title = { Text(stringResource(R.string.reports_title), style = MaterialTheme.typography.titleLarge) },
                 actions = {
                     IconButton(onClick = { showExportMenu = true }) {
                         Icon(
@@ -146,15 +139,6 @@ fun ReportsScreen(
                     }
                 },
             )
-        },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding),
-        ) {
             ReportTypeSelector(
                 selectedType = state.reportType,
                 onTypeSelected = viewModel::onReportTypeChange,
@@ -187,6 +171,7 @@ fun ReportsScreen(
                 )
             }
         }
+        SnackbarHost(hostState = snackbarHostState, modifier = Modifier.align(Alignment.BottomCenter))
     }
 }
 
@@ -338,7 +323,7 @@ private fun ReportContent(
 
             ReportType.INCOME -> {
                 item(key = "income-total") {
-                    JeElevatedCard(
+                    GlassCard(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = spacing.screenPadding),
@@ -380,7 +365,7 @@ private fun ReportContent(
 
             ReportType.EXPENSE -> {
                 item(key = "expense-total") {
-                    JeElevatedCard(
+                    GlassCard(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(horizontal = spacing.screenPadding),
@@ -527,12 +512,8 @@ private fun SummaryMiniCard(
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
-    Card(
+    GlassSurface(
         modifier = modifier,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
-        ),
-        shape = MaterialTheme.shapes.medium,
     ) {
         Column(
             modifier = Modifier
@@ -610,7 +591,7 @@ private fun AccountRow(
     currencyCode: String,
 ) {
     val spacing = LocalSpacing.current
-    JeElevatedCard(
+    GlassCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = spacing.screenPadding),
@@ -648,7 +629,7 @@ private fun BudgetRow(
     val progress = percentage.coerceIn(0f, 1f)
     val isExceeded = percentage > 1f
 
-    JeElevatedCard(
+    GlassCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = spacing.screenPadding),
@@ -707,7 +688,7 @@ private fun GoalRow(
     val spacing = LocalSpacing.current
     val progressClamped = progress.coerceIn(0f, 1f)
 
-    JeElevatedCard(
+    GlassCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = spacing.screenPadding),

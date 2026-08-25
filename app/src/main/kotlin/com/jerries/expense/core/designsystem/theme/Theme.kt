@@ -10,6 +10,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalContext
+import com.jerries.expense.core.designsystem.component.ProvideGlassConfig
 
 /**
  * Root theme for JERRIES EXPENSE. Supports the in-app light/dark/system setting,
@@ -33,12 +34,14 @@ fun JerriesExpenseTheme(
     }
 
     CompositionLocalProvider(LocalSpacing provides Spacing()) {
-        MaterialTheme(
-            colorScheme = colorScheme,
-            typography = JerriesTypography,
-            shapes = JerriesShapes,
-            content = content,
-        )
+        ProvideGlassConfig(isDark = darkTheme) {
+            MaterialTheme(
+                colorScheme = colorScheme,
+                typography = JerriesTypography,
+                shapes = JerriesShapes,
+                content = content,
+            )
+        }
     }
 }
 

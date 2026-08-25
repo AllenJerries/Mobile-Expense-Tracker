@@ -1,6 +1,7 @@
 package com.jerries.expense.feature.recurring
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,8 +18,6 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Repeat
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -30,7 +29,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
@@ -38,7 +36,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -55,6 +52,8 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
@@ -103,53 +102,55 @@ fun RecurringScreen(
         )
     }
 
-    Scaffold(
-        modifier = modifier.fillMaxSize(),
-        topBar = { TopAppBar(title = { Text(stringResource(R.string.recurring_title)) }) },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
-        floatingActionButton = {
-            FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_recurring))
-            }
-        },
-        containerColor = MaterialTheme.colorScheme.background,
-    ) { padding ->
-        when {
-            state.isLoading -> LoadingContent(Modifier.padding(padding))
-            state.isEmpty -> EmptyContent(
-                icon = Icons.Filled.Repeat,
-                title = stringResource(R.string.empty_generic_title),
-                message = stringResource(R.string.recurring_empty_message),
-                modifier = Modifier.padding(padding),
-            )
-            else -> LazyColumn(
-                modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(bottom = 80.dp),
-                verticalArrangement = Arrangement.spacedBy(spacing.small),
-            ) {
-                if (state.activeList.isNotEmpty()) {
-                    item { SectionHeader(stringResource(R.string.recurring_active)) }
-                    items(state.activeList, key = { it.id }) { item ->
-                        RecurringCard(
-                            item = item,
-                            currencyCode = state.currencyCode,
-                            onDelete = { viewModel.onDeleteRecurring(item.id) },
-                            onToggle = { viewModel.onToggleActive(item.id, false) },
-                        )
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            GlassTopBar(title = { Text(stringResource(R.string.recurring_title), style = MaterialTheme.typography.titleLarge) })
+            when {
+                state.isLoading -> LoadingContent()
+                state.isEmpty -> EmptyContent(
+                    icon = Icons.Filled.Repeat,
+                    title = stringResource(R.string.empty_generic_title),
+                    message = stringResource(R.string.recurring_empty_message),
+                )
+                else -> LazyColumn(
+                    modifier = Modifier.fillMaxSize(),
+                    contentPadding = PaddingValues(bottom = 80.dp),
+                    verticalArrangement = Arrangement.spacedBy(spacing.small),
+                ) {
+                    if (state.activeList.isNotEmpty()) {
+                        item { SectionHeader(stringResource(R.string.recurring_active)) }
+                        items(state.activeList, key = { it.id }) { item ->
+                            RecurringCard(
+                                item = item,
+                                currencyCode = state.currencyCode,
+                                onDelete = { viewModel.onDeleteRecurring(item.id) },
+                                onToggle = { viewModel.onToggleActive(item.id, false) },
+                            )
+                        }
                     }
-                }
-                if (state.inactiveList.isNotEmpty()) {
-                    item { SectionHeader(stringResource(R.string.recurring_inactive)) }
-                    items(state.inactiveList, key = { it.id }) { item ->
-                        RecurringCard(
-                            item = item,
-                            currencyCode = state.currencyCode,
-                            onDelete = { viewModel.onDeleteRecurring(item.id) },
-                            onToggle = { viewModel.onToggleActive(item.id, true) },
-                        )
+                    if (state.inactiveList.isNotEmpty()) {
+                        item { SectionHeader(stringResource(R.string.recurring_inactive)) }
+                        items(state.inactiveList, key = { it.id }) { item ->
+                            RecurringCard(
+                                item = item,
+                                currencyCode = state.currencyCode,
+                                onDelete = { viewModel.onDeleteRecurring(item.id) },
+                                onToggle = { viewModel.onToggleActive(item.id, true) },
+                            )
+                        }
                     }
                 }
             }
+        }
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier.align(androidx.compose.ui.Alignment.BottomCenter),
+        )
+        FloatingActionButton(
+            onClick = { viewModel.onShowForm(true) },
+            modifier = Modifier.align(androidx.compose.ui.Alignment.BottomEnd).padding(16.dp),
+        ) {
+            Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_recurring))
         }
     }
 }
@@ -162,9 +163,8 @@ private fun RecurringCard(
     onToggle: () -> Unit,
 ) {
     val spacing = LocalSpacing.current
-    Card(
+    GlassCard(
         modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding),
-        colors = if (item.active) CardDefaults.cardColors() else CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(spacing.cardPadding),
