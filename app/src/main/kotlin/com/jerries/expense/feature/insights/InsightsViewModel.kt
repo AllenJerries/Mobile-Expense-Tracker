@@ -21,6 +21,7 @@ import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -71,13 +72,18 @@ class InsightsViewModel @Inject constructor(
                 observeExpensesByCategory(currentStart, currentEnd),
                 observeBudgetSpending(today.toEpochDay()),
                 observeDailyTotals(currentStart, currentEnd),
-            ) { currentTx, lastTx, categoryBreakdown, budgetSpendings, dailyTotals ->
+            ) { currentTx: List<Transaction>,
+                lastTx: List<Transaction>,
+                categoryBreakdown: List<SpendingByCategory>,
+                budgetSpendings: List<BudgetSpending>,
+                dailyTotals: List<DailyTotal> ->
+
                 val currentExpenses = currentTx.filter { it.isExpense }.sumOf { it.amountMinor }
                 val currentIncome = currentTx.filter { it.isIncome }.sumOf { it.amountMinor }
                 val lastExpenses = lastTx.filter { it.isExpense }.sumOf { it.amountMinor }
                 val lastIncome = lastTx.filter { it.isIncome }.sumOf { it.amountMinor }
 
-                val context = InsightContext(
+                val insightCtx = InsightContext(
                     currentMonth = currentMonth,
                     currentMonthExpenses = currentExpenses,
                     currentMonthIncome = currentIncome,
@@ -90,7 +96,7 @@ class InsightsViewModel @Inject constructor(
                     today = today,
                 )
 
-                val insights = insightEngine.generateInsights(context)
+                val insights = insightEngine.generateInsights(insightCtx)
                 InsightsUiState(isLoading = false, insights = insights)
             }.collect { state ->
                 _uiState.value = state

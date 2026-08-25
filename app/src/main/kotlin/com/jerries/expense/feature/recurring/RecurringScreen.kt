@@ -58,6 +58,7 @@ import com.jerries.expense.core.designsystem.component.EmptyContent
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
+import com.jerries.expense.domain.model.CategoryKind
 import com.jerries.expense.domain.model.RecurrenceFrequency
 import com.jerries.expense.domain.model.TransactionType
 import java.time.LocalDate

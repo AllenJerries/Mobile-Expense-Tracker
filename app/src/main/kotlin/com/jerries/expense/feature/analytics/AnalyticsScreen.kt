@@ -35,7 +35,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,7 +48,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jerries.expense.R
@@ -62,13 +63,13 @@ import com.patrykandpatrick.vico.compose.cartesian.CartesianChartHost
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberBottom
 import com.patrykandpatrick.vico.compose.cartesian.axis.rememberStart
 import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineCartesianLayer
-import com.patrykandpatrick.vico.compose.cartesian.layer.rememberLineSpec
 import com.patrykandpatrick.vico.compose.cartesian.rememberCartesianChart
 import com.patrykandpatrick.vico.core.cartesian.axis.HorizontalAxis
 import com.patrykandpatrick.vico.core.cartesian.axis.VerticalAxis
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import com.patrykandpatrick.vico.core.cartesian.layer.LineCartesianLayer
+import com.patrykandpatrick.vico.core.common.Fill
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
@@ -249,7 +250,7 @@ private fun IncomeExpenseChart(
 
     val modelProducer = remember { CartesianChartModelProducer() }
 
-    androidx.compose.runtime.LaunchedEffect(incomeValues, expenseValues) {
+    LaunchedEffect(incomeValues, expenseValues) {
         modelProducer.runTransaction {
             lineSeries {
                 series(incomeValues)
@@ -265,12 +266,12 @@ private fun IncomeExpenseChart(
         CartesianChartHost(
             chart = rememberCartesianChart(
                 rememberLineCartesianLayer(
-                    lineProvider = LineCartesianLayer.LineProvider.series(
-                        LineCartesianLayer.rememberLine(
-                            fill = LineCartesianLayer.rememberLineFill { incomeColor },
+                    LineCartesianLayer.LineProvider.series(
+                        LineCartesianLayer.Line(
+                            LineCartesianLayer.LineFill.single(Fill(incomeColor.toArgb())),
                         ),
-                        LineCartesianLayer.rememberLine(
-                            fill = LineCartesianLayer.rememberLineFill { expenseColor },
+                        LineCartesianLayer.Line(
+                            LineCartesianLayer.LineFill.single(Fill(expenseColor.toArgb())),
                         ),
                     ),
                 ),
@@ -348,8 +349,4 @@ private fun StatRow(label: String, value: String) {
         Text(label, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
         Text(value, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Medium, textAlign = TextAlign.End, modifier = Modifier.width(180.dp))
     }
-}
-
-private fun <T> remember(block: () -> T): T {
-    return androidx.compose.runtime.remember { block() }
 }
