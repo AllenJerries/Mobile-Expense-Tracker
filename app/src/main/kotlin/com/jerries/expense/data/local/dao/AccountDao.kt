@@ -35,4 +35,7 @@ interface AccountDao {
 
     @Query("SELECT * FROM accounts WHERE archived = 1 ORDER BY name")
     fun observeArchived(): Flow<List<AccountEntity>>
+
+    @Query("DELETE FROM accounts")
+    suspend fun deleteAll()
 }

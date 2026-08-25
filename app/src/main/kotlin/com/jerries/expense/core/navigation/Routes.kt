@@ -22,3 +22,5 @@ import kotlinx.serialization.Serializable
 @Serializable data object ReportsRoute
 @Serializable data object BackupRoute
 @Serializable data object SettingsRoute
+@Serializable data object PinEntryRoute
+@Serializable data object SecurityRoute

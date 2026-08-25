@@ -29,4 +29,7 @@ interface SavingsGoalDao {
 
     @Query("SELECT COUNT(*) FROM goals")
     suspend fun count(): Int
+
+    @Query("DELETE FROM goals")
+    suspend fun deleteAll()
 }

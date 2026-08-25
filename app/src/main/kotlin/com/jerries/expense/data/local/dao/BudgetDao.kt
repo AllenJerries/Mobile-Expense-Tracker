@@ -32,4 +32,7 @@ interface BudgetDao {
 
     @Query("SELECT COUNT(*) FROM budgets")
     suspend fun count(): Int
+
+    @Query("DELETE FROM budgets")
+    suspend fun deleteAll()
 }

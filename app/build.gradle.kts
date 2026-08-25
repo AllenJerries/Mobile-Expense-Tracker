@@ -97,6 +97,9 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.datastore.preferences)
 
+    // Security (biometric/device credential auth)
+    implementation(libs.androidx.biometric)
+
     // Background work
     implementation(libs.work.runtime.ktx)
 

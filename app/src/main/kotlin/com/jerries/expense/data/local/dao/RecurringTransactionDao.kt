@@ -38,4 +38,7 @@ interface RecurringTransactionDao {
 
     @Query("SELECT COUNT(*) FROM recurring_transactions WHERE active = 1")
     suspend fun countActive(): Int
+
+    @Query("DELETE FROM recurring_transactions")
+    suspend fun deleteAll()
 }

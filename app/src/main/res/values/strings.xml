@@ -216,4 +216,54 @@
     <string name="insight_lower_spending">Your spending is %1$s%% lower than last month. Great job!</string>
     <string name="insight_savings_declined">Your savings decreased compared to last month.</string>
     <string name="insight_no_data">Start tracking expenses to see insights.</string>
+
+    <!-- Reports -->
+    <string name="reports_monthly">Monthly</string>
+    <string name="reports_yearly">Yearly</string>
+    <string name="reports_income">Income</string>
+    <string name="reports_expense">Expense</string>
+    <string name="reports_category">Category</string>
+    <string name="reports_budget">Budget</string>
+    <string name="reports_savings">Savings</string>
+    <string name="reports_total_income">Total income</string>
+    <string name="reports_total_expenses">Total expenses</string>
+    <string name="reports_total_savings">Total savings</string>
+    <string name="reports_date_range">Date range</string>
+    <string name="reports_account_summary">Account summary</string>
+    <string name="reports_budget_summary">Budget summary</string>
+    <string name="reports_export_csv">Export CSV</string>
+    <string name="reports_exported">Report exported</string>
+    <string name="reports_period_format">%1$s – %2$s</string>
+    <string name="reports_no_data">No data for this period</string>
+    <string name="reports_savings_goals">Savings goals</string>
+    <string name="reports_category_breakdown">Category breakdown</string>
+    <string name="reports_budget_name">Budget</string>
+    <string name="reports_spent">Spent</string>
+    <string name="reports_limit">Limit</string>
+    <string name="reports_progress">Progress</string>
+
+    <!-- Security -->
+    <string name="pin_setup_title">Set up PIN</string>
+    <string name="pin_setup_confirm">Confirm PIN</string>
+    <string name="pin_setup_error">PINs don\'t match</string>
+    <string name="pin_verify_title">Enter PIN</string>
+    <string name="pin_verify_error">Wrong PIN</string>
+    <string name="pin_use_biometric">Use biometrics</string>
+    <string name="pin_use_device_credentials">Use device credentials</string>
+    <string name="security_title">Security</string>
+    <string name="security_pin_lock">PIN lock</string>
+    <string name="security_pin_lock_description">Require PIN to open the app</string>
+    <string name="security_biometric">Biometric unlock</string>
+    <string name="security_biometric_description">Use fingerprint or face to unlock</string>
+    <string name="security_auto_lock">Auto-lock timeout</string>
+    <string name="security_hide_sensitive">Hide sensitive information</string>
+    <string name="security_hide_sensitive_description">Mask amounts on dashboard and notifications</string>
+    <string name="security_timeout_none">Never</string>
+    <string name="security_timeout_1">1 minute</string>
+    <string name="security_timeout_5">5 minutes</string>
+    <string name="security_timeout_15">15 minutes</string>
+    <string name="security_timeout_30">30 minutes</string>
+    <string name="security_biometric_not_available">Biometrics not available on this device</string>
+    <string name="pin_success">PIN set successfully</string>
+    <string name="pin_removed">PIN removed</string>
 </resources>

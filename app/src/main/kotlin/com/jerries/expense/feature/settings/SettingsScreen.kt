@@ -41,6 +41,7 @@ fun SettingsScreen(
     onOpenAccounts: () -> Unit,
     onOpenCategories: () -> Unit,
     onOpenBackup: () -> Unit,
+    onOpenSecurity: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = hiltViewModel(),
 ) {
@@ -121,6 +122,7 @@ fun SettingsScreen(
             NavigationRow(label = stringResource(R.string.accounts_title), onClick = onOpenAccounts)
             NavigationRow(label = stringResource(R.string.categories_title), onClick = onOpenCategories)
             NavigationRow(label = stringResource(R.string.backup_title), onClick = onOpenBackup)
+            NavigationRow(label = stringResource(R.string.security_title), onClick = onOpenSecurity)
 
             HorizontalDivider(modifier = Modifier.padding(vertical = spacing.small))
 

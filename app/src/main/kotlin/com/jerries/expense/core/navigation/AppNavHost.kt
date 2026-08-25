@@ -17,6 +17,8 @@ import com.jerries.expense.feature.goals.GoalsScreen
 import com.jerries.expense.feature.insights.InsightsScreen
 import com.jerries.expense.feature.recurring.RecurringScreen
 import com.jerries.expense.feature.reports.ReportsScreen
+import com.jerries.expense.feature.security.PinEntryScreen
+import com.jerries.expense.feature.security.SecurityScreen
 import com.jerries.expense.feature.settings.SettingsScreen
 import com.jerries.expense.feature.transactiondetail.TransactionDetailScreen
 import com.jerries.expense.feature.transactions.TransactionsScreen
@@ -105,11 +107,22 @@ fun AppNavHost(
         composable<BackupRoute> {
             BackupScreen()
         }
+        composable<SecurityRoute> {
+            SecurityScreen(
+                onNavigateUp = navController::navigateUp,
+            )
+        }
+        composable<PinEntryRoute> {
+            PinEntryScreen(
+                onUnlocked = navController::navigateUp,
+            )
+        }
         composable<SettingsRoute> {
             SettingsScreen(
                 onOpenAccounts = { navController.navigate(AccountsRoute) },
                 onOpenCategories = { navController.navigate(CategoriesRoute) },
                 onOpenBackup = { navController.navigate(BackupRoute) },
+                onOpenSecurity = { navController.navigate(SecurityRoute) },
             )
         }
     }
