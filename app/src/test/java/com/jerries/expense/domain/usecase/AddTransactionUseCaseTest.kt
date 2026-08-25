@@ -216,6 +216,8 @@ class FakeTransactionRepository : TransactionRepository {
         if (idx >= 0) transactions[idx] = transactions[idx].copy(isDeleted = true)
     }
     override suspend fun getDueRecurringTransactions(todayEpochDay: Long) = emptyList<Transaction>()
+    override fun observeSpendingForBudget(categoryId: String, startEpochDay: Long, endEpochDay: Long) = flowOf(0L)
+    override fun observeSpendingForBudgetByAccount(accountId: String, startEpochDay: Long, endEpochDay: Long) = flowOf(0L)
 }
 
 class FakeAccountRepository : AccountRepository {

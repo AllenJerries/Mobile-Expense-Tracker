@@ -336,4 +336,20 @@
     <string name="first_day_sunday">Sunday</string>
     <string name="first_day_monday">Monday</string>
     <string name="first_day_saturday">Saturday</string>
+
+    <!-- Common UI labels -->
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="label_income">Income</string>
+    <string name="label_expenses">Expenses</string>
+    <string name="label_savings">Savings</string>
+    <string name="label_filters">Filters</string>
+    <string name="label_completed">Completed</string>
+    <string name="label_left">%1$s left</string>
+    <string name="next_occurrence_format">Next: %1$s</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="receipt_attached">Receipt attached</string>
+    <string name="transaction_not_found">Transaction not found</string>
+    <string name="security_timeout_format">%1$d minutes</string>
 </resources>

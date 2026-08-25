@@ -9,13 +9,13 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.jerries.expense.core.common.IdGenerator
 import com.jerries.expense.core.common.TimeProvider
+import com.jerries.expense.domain.model.RecurrenceFrequency
 import com.jerries.expense.domain.model.Transaction
 import com.jerries.expense.domain.model.TransactionType
 import com.jerries.expense.domain.repository.RecurringTransactionRepository
 import com.jerries.expense.domain.usecase.AddTransactionUseCase
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import java.time.temporal.ChronoUnit
 import java.util.concurrent.TimeUnit
 
 @HiltWorker
@@ -66,15 +66,15 @@ class RecurringWorker @AssistedInject constructor(
         return Result.success()
     }
 
-    private fun computeNextOccurrence(currentEpochDay: Long, frequency: com.jerries.expense.domain.model.RecurrenceFrequency): Long {
+    private fun computeNextOccurrence(currentEpochDay: Long, frequency: RecurrenceFrequency): Long {
         val current = java.time.LocalDate.ofEpochDay(currentEpochDay)
         val next = when (frequency) {
-            com.jerries.expense.domain.model.RecurrenceFrequency.DAILY -> current.plusDays(1)
-            com.jerries.expense.domain.model.RecurrenceFrequency.WEEKLY -> current.plusWeeks(1)
-            com.jerries.expense.domain.model.RecurrenceFrequency.BIWEEKLY -> current.plusWeeks(2)
-            com.jerries.expense.domain.model.RecurrenceFrequency.MONTHLY -> current.plusMonths(1)
-            com.jerries.expense.domain.model.RecurrenceFrequency.QUARTERLY -> current.plusMonths(3)
-            com.jerries.expense.domain.model.RecurrenceFrequency.YEARLY -> current.plusYears(1)
+            RecurrenceFrequency.DAILY -> current.plusDays(1)
+            RecurrenceFrequency.WEEKLY -> current.plusWeeks(1)
+            RecurrenceFrequency.BIWEEKLY -> current.plusWeeks(2)
+            RecurrenceFrequency.MONTHLY -> current.plusMonths(1)
+            RecurrenceFrequency.QUARTERLY -> current.plusMonths(3)
+            RecurrenceFrequency.YEARLY -> current.plusYears(1)
         }
         return next.toEpochDay()
     }

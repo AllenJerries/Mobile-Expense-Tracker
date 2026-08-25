@@ -18,12 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.CategoryIcon
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.theme.LocalSpacing
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -32,6 +32,7 @@ fun CategoriesScreen(
     viewModel: CategoriesViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val spacing = LocalSpacing.current
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -52,7 +53,7 @@ fun CategoriesScreen(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding),
-                contentPadding = PaddingValues(bottom = 24.dp),
+                contentPadding = PaddingValues(bottom = spacing.large),
             ) {
                 items(state.categories, key = { it.id }) { category ->
                     ListItem(

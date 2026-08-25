@@ -542,7 +542,7 @@ private fun ReceiptAttachment(
                 fontWeight = FontWeight.Medium,
             )
             Text(
-                text = if (hasAttachment) "Receipt attached" else stringResource(R.string.add_receipt),
+                text = if (hasAttachment) stringResource(R.string.receipt_attached) else stringResource(R.string.add_receipt),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

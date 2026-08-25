@@ -71,14 +71,16 @@ fun TransactionsScreen(
     val spacing = LocalSpacing.current
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+    val deletedMessage = stringResource(R.string.transaction_deleted)
+    val undoLabel = stringResource(R.string.undo)
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is TransactionsEvent.TransactionDeleted -> {
                     val result = snackbarHostState.showSnackbar(
-                        message = "Transaction deleted",
-                        actionLabel = "Undo",
+                        message = deletedMessage,
+                        actionLabel = undoLabel,
                         duration = SnackbarDuration.Short,
                     )
                     if (result == SnackbarResult.ActionPerformed) {
@@ -98,7 +100,7 @@ fun TransactionsScreen(
                     IconButton(onClick = { viewModel.onToggleFilters() }) {
                         Icon(
                             imageVector = Icons.Filled.FilterList,
-                            contentDescription = "Filters",
+                            contentDescription = stringResource(R.string.label_filters),
                             tint = if (state.hasActiveFilters) {
                                 MaterialTheme.colorScheme.primary
                             } else {

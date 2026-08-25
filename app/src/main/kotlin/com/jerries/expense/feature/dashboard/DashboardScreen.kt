@@ -25,6 +25,7 @@ import androidx.compose.material.icons.filled.Savings
 import androidx.compose.material.icons.automirrored.filled.TrendingDown
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.Wallet
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -264,7 +265,7 @@ private fun MonthSelector(
         IconButton(onClick = onPrevious) {
             Icon(
                 imageVector = Icons.Filled.ChevronLeft,
-                contentDescription = "Previous month",
+                contentDescription = stringResource(R.string.previous_month),
             )
         }
         Text(
@@ -275,7 +276,7 @@ private fun MonthSelector(
         IconButton(onClick = onNext) {
             Icon(
                 imageVector = Icons.Filled.ChevronRight,
-                contentDescription = "Next month",
+                contentDescription = stringResource(R.string.next_month),
             )
         }
     }
@@ -400,7 +401,7 @@ private fun MonthComparisonCard(
             ) {
                 Column {
                     Text(
-                        text = "Income",
+                        text = stringResource(R.string.label_income),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -418,7 +419,7 @@ private fun MonthComparisonCard(
                 }
                 Column(horizontalAlignment = Alignment.End) {
                     Text(
-                        text = "Expenses",
+                        text = stringResource(R.string.label_expenses),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -507,7 +508,7 @@ private fun QuickActionButton(
     val spacing = LocalSpacing.current
     FilledTonalButton(
         onClick = onClick,
-        colors = androidx.compose.material3.ButtonDefaults.filledTonalButtonColors(
+        colors = ButtonDefaults.filledTonalButtonColors(
             containerColor = containerColor,
             contentColor = contentColor,
         ),

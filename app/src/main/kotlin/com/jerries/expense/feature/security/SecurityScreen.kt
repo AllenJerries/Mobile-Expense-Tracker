@@ -66,8 +66,8 @@ fun SecurityScreen(
     if (showDisablePinDialog) {
         AlertDialog(
             onDismissRequest = { showDisablePinDialog = false },
-            title = { Text("Disable PIN lock?") },
-            text = { Text("You will no longer need to enter a PIN to open the app.") },
+            title = { Text(stringResource(R.string.security_disable_pin_title)) },
+            text = { Text(stringResource(R.string.security_disable_pin_message)) },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -75,7 +75,7 @@ fun SecurityScreen(
                         showDisablePinDialog = false
                     },
                 ) {
-                    Text("Disable")
+                    Text(stringResource(R.string.security_disable))
                 }
             },
             dismissButton = {

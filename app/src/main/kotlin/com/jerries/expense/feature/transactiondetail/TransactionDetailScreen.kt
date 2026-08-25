@@ -151,7 +151,7 @@ fun TransactionDetailScreen(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Transaction not found",
+                    text = stringResource(R.string.transaction_not_found),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

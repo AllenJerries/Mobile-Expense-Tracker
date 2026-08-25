@@ -41,6 +41,7 @@ class BudgetWarningWorker @AssistedInject constructor(
         val todayEpochDay = today.toEpochDay()
         val startOfMonth = today.withDayOfMonth(1).toEpochDay()
 
+        val currencyCode = prefs.currencyCode
         val activeBudgets = budgetRepository.observeActive(todayEpochDay).first()
 
         for (budget in activeBudgets) {
@@ -65,7 +66,7 @@ class BudgetWarningWorker @AssistedInject constructor(
             } else 0.0
 
             if (percentage >= budget.alertThreshold) {
-                showBudgetNotification(budget.limitMinor, spent, percentage)
+                showBudgetNotification(budget.limitMinor, spent, percentage, currencyCode)
             }
         }
 
@@ -84,11 +85,11 @@ class BudgetWarningWorker @AssistedInject constructor(
         }
     }
 
-    private fun showBudgetNotification(limitMinor: Long, spentMinor: Long, percentage: Double) {
+    private fun showBudgetNotification(limitMinor: Long, spentMinor: Long, percentage: Double, currencyCode: String) {
         val manager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        val limitFormatted = com.jerries.expense.core.util.CurrencyFormatter.formatMinorUnits(limitMinor, "USD")
-        val spentFormatted = com.jerries.expense.core.util.CurrencyFormatter.formatMinorUnits(spentMinor, "USD")
+        val limitFormatted = com.jerries.expense.core.util.CurrencyFormatter.formatMinorUnits(limitMinor, currencyCode)
+        val spentFormatted = com.jerries.expense.core.util.CurrencyFormatter.formatMinorUnits(spentMinor, currencyCode)
 
         val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)

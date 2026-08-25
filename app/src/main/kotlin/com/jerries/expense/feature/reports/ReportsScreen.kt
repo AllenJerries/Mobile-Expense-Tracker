@@ -21,6 +21,8 @@ import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Description
 import androidx.compose.material.icons.filled.FileDownload
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -525,9 +527,9 @@ private fun SummaryMiniCard(
     modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
-    androidx.compose.material3.Card(
+    Card(
         modifier = modifier,
-        colors = androidx.compose.material3.CardDefaults.cardColors(
+        colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
         ),
         shape = MaterialTheme.shapes.medium,
@@ -763,22 +765,19 @@ private fun GoalRow(
 
 private suspend fun shareTextFile(context: Context, content: String, fileName: String, mimeType: String) {
     withContext(Dispatchers.IO) {
-        try {
-            val file = java.io.File(context.cacheDir, fileName).apply {
-                writeText(content)
-            }
-            val uri = androidx.core.content.FileProvider.getUriForFile(
-                context,
-                "${context.packageName}.fileprovider",
-                file,
-            )
-            val sendIntent = Intent(Intent.ACTION_SEND).apply {
-                type = mimeType
-                putExtra(Intent.EXTRA_STREAM, uri)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            }
-            context.startActivity(Intent.createChooser(sendIntent, null))
-        } catch (_: Exception) {
+        val file = java.io.File(context.cacheDir, fileName).apply {
+            writeText(content)
         }
+        val uri = androidx.core.content.FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.fileprovider",
+            file,
+        )
+        val sendIntent = Intent(Intent.ACTION_SEND).apply {
+            type = mimeType
+            putExtra(Intent.EXTRA_STREAM, uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        }
+        context.startActivity(Intent.createChooser(sendIntent, null))
     }
 }

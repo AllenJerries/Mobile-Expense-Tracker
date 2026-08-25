@@ -66,13 +66,15 @@ fun BudgetsScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
     val snackbarHostState = remember { SnackbarHostState() }
+    val budgetSavedMessage = stringResource(R.string.budget_saved)
+    val budgetDeletedMessage = stringResource(R.string.budget_deleted)
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is BudgetEvent.Error -> snackbarHostState.showSnackbar(event.message)
-                BudgetEvent.Saved -> snackbarHostState.showSnackbar("Budget saved")
-                BudgetEvent.Deleted -> snackbarHostState.showSnackbar("Budget deleted")
+                BudgetEvent.Saved -> snackbarHostState.showSnackbar(budgetSavedMessage)
+                BudgetEvent.Deleted -> snackbarHostState.showSnackbar(budgetDeletedMessage)
             }
         }
     }
@@ -98,7 +100,7 @@ fun BudgetsScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = "Add budget")
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_budget))
             }
         },
         containerColor = MaterialTheme.colorScheme.background,
@@ -192,7 +194,7 @@ private fun BudgetCard(
                     },
                 )
                 Text(
-                    text = "${CurrencyFormatter.formatMinorUnits(remaining, currencyCode)} left",
+                    text = stringResource(R.string.label_left, CurrencyFormatter.formatMinorUnits(remaining, currencyCode)),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

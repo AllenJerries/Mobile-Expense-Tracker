@@ -22,7 +22,7 @@ import androidx.compose.material.icons.automirrored.filled.TrendingDown
 import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
-import androidx.compose.material.icons.filled.ShowChart
+import androidx.compose.material.icons.automirrored.filled.ShowChart
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -91,7 +91,7 @@ fun AnalyticsScreen(
         when {
             state.isLoading -> LoadingContent(Modifier.padding(padding))
             state.isEmpty -> EmptyContent(
-                icon = Icons.Filled.ShowChart,
+                icon = Icons.AutoMirrored.Filled.ShowChart,
                 title = stringResource(R.string.empty_generic_title),
                 message = stringResource(R.string.analytics_empty_message),
                 modifier = Modifier.padding(padding),
@@ -172,7 +172,7 @@ private fun MonthSelector(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(onClick = onPrevious) {
-            Icon(Icons.Filled.ChevronLeft, contentDescription = "Previous month")
+            Icon(Icons.Filled.ChevronLeft, contentDescription = stringResource(R.string.previous_month))
         }
         Text(
             text = month.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
@@ -180,7 +180,7 @@ private fun MonthSelector(
             fontWeight = FontWeight.SemiBold,
         )
         IconButton(onClick = onNext) {
-            Icon(Icons.Filled.ChevronRight, contentDescription = "Next month")
+            Icon(Icons.Filled.ChevronRight, contentDescription = stringResource(R.string.next_month))
         }
     }
 }
@@ -204,7 +204,7 @@ private fun OverviewCards(
         ) {
             Column(modifier = Modifier.padding(spacing.small)) {
                 Icon(Icons.AutoMirrored.Filled.TrendingUp, contentDescription = null, tint = MaterialTheme.colorScheme.onPrimaryContainer, modifier = Modifier.size(16.dp))
-                Text("Income", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
+                Text(stringResource(R.string.label_income), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onPrimaryContainer)
                 AmountText(amountMinor = income, currencyCode = currencyCode, tint = AmountTint.INCOME, style = MaterialTheme.typography.titleSmall)
             }
         }
@@ -215,7 +215,7 @@ private fun OverviewCards(
         ) {
             Column(modifier = Modifier.padding(spacing.small)) {
                 Icon(Icons.AutoMirrored.Filled.TrendingDown, contentDescription = null, tint = MaterialTheme.colorScheme.onErrorContainer, modifier = Modifier.size(16.dp))
-                Text("Expenses", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onErrorContainer)
+                Text(stringResource(R.string.label_expenses), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onErrorContainer)
                 AmountText(amountMinor = expense, currencyCode = currencyCode, tint = AmountTint.EXPENSE, style = MaterialTheme.typography.titleSmall)
             }
         }
@@ -225,7 +225,7 @@ private fun OverviewCards(
             shape = MaterialTheme.shapes.medium,
         ) {
             Column(modifier = Modifier.padding(spacing.small)) {
-                Text("Savings", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
+                Text(stringResource(R.string.label_savings), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSecondaryContainer)
                 Text(
                     text = "${(savingsRate * 100).toInt()}%",
                     style = MaterialTheme.typography.titleMedium,

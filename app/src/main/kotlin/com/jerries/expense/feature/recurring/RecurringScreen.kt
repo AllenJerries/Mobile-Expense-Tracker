@@ -73,13 +73,15 @@ fun RecurringScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
     val snackbarHostState = remember { SnackbarHostState() }
+    val recurringSavedMessage = stringResource(R.string.recurring_saved)
+    val recurringDeletedMessage = stringResource(R.string.recurring_deleted)
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is RecurringEvent.Error -> snackbarHostState.showSnackbar(event.message)
-                RecurringEvent.Saved -> snackbarHostState.showSnackbar("Recurring transaction saved")
-                RecurringEvent.Deleted -> snackbarHostState.showSnackbar("Recurring transaction deleted")
+                RecurringEvent.Saved -> snackbarHostState.showSnackbar(recurringSavedMessage)
+                RecurringEvent.Deleted -> snackbarHostState.showSnackbar(recurringDeletedMessage)
             }
         }
     }
@@ -107,7 +109,7 @@ fun RecurringScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = "Add recurring")
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_recurring))
             }
         },
         containerColor = MaterialTheme.colorScheme.background,
@@ -172,13 +174,13 @@ private fun RecurringCard(
                 Text(item.description ?: item.type.name, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Medium)
                 Text(item.frequency.name.lowercase().replaceFirstChar { it.uppercase() }, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 val nextDate = LocalDate.ofEpochDay(item.nextOccurrenceEpochDay).format(DateTimeFormatter.ofPattern("MMM dd, yyyy"))
-                Text("Next: $nextDate", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(stringResource(R.string.next_occurrence_format, nextDate), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
             Column(horizontalAlignment = androidx.compose.ui.Alignment.End) {
                 AmountText(amountMinor = item.amountMinor, currencyCode = currencyCode, tint = if (item.type == TransactionType.EXPENSE) AmountTint.EXPENSE else AmountTint.INCOME)
                 Row {
-                    TextButton(onClick = onToggle) { Text(if (item.active) "Pause" else "Resume") }
-                    IconButton(onClick = onDelete, modifier = Modifier.padding(0.dp)) { Icon(Icons.Filled.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error) }
+                    TextButton(onClick = onToggle) { Text(if (item.active) stringResource(R.string.pause) else stringResource(R.string.resume)) }
+                    IconButton(onClick = onDelete, modifier = Modifier.padding(0.dp)) { Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete), tint = MaterialTheme.colorScheme.error) }
                 }
             }
         }

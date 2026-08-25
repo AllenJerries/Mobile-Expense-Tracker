@@ -66,13 +66,15 @@ fun GoalsScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
     val snackbarHostState = remember { SnackbarHostState() }
+    val goalSavedMessage = stringResource(R.string.goal_saved)
+    val goalDeletedMessage = stringResource(R.string.goal_deleted)
 
     LaunchedEffect(Unit) {
         viewModel.events.collect { event ->
             when (event) {
                 is GoalEvent.Error -> snackbarHostState.showSnackbar(event.message)
-                GoalEvent.Saved -> snackbarHostState.showSnackbar("Goal saved")
-                GoalEvent.Deleted -> snackbarHostState.showSnackbar("Goal deleted")
+                GoalEvent.Saved -> snackbarHostState.showSnackbar(goalSavedMessage)
+                GoalEvent.Deleted -> snackbarHostState.showSnackbar(goalDeletedMessage)
             }
         }
     }
@@ -105,7 +107,7 @@ fun GoalsScreen(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButton(onClick = { viewModel.onShowForm(true) }) {
-                Icon(Icons.Filled.Add, contentDescription = "Add goal")
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_goal))
             }
         },
         containerColor = MaterialTheme.colorScheme.background,
@@ -136,7 +138,7 @@ fun GoalsScreen(
                     }
                 }
                 if (state.completedGoals.isNotEmpty()) {
-                    item { SectionHeader("Completed") }
+                    item { SectionHeader(stringResource(R.string.label_completed)) }
                     items(state.completedGoals, key = { it.id }) { goal ->
                         GoalCard(
                             goal = goal,
@@ -180,9 +182,9 @@ private fun GoalCard(
                 }
                 Row {
                     if (!goal.completed) {
-                        IconButton(onClick = onEdit, modifier = Modifier.size(32.dp)) { Icon(Icons.Filled.Edit, contentDescription = "Edit", modifier = Modifier.size(18.dp)) }
+                        IconButton(onClick = onEdit, modifier = Modifier.size(32.dp)) { Icon(Icons.Filled.Edit, contentDescription = stringResource(R.string.edit), modifier = Modifier.size(18.dp)) }
                     }
-                    IconButton(onClick = onDelete, modifier = Modifier.size(32.dp)) { Icon(Icons.Filled.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(18.dp)) }
+                    IconButton(onClick = onDelete, modifier = Modifier.size(32.dp)) { Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete), tint = MaterialTheme.colorScheme.error, modifier = Modifier.size(18.dp)) }
                 }
             }
             Spacer(Modifier.height(spacing.small))
