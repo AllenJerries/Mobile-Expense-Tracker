@@ -105,7 +105,9 @@ fun AppNavHost(
             ReportsScreen()
         }
         composable<BackupRoute> {
-            BackupScreen()
+            BackupScreen(
+                onNavigateUp = navController::navigateUp,
+            )
         }
         composable<SecurityRoute> {
             SecurityScreen(

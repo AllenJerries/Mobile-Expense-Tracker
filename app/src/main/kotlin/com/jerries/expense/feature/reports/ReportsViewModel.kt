@@ -237,6 +237,7 @@ class ReportsViewModel @Inject constructor(
 
         sb.appendLine("Report Type: ${state.reportType.name}")
         sb.appendLine("Period: ${state.monthLabel}")
+        sb.appendLine("Generated: ${java.time.Instant.ofEpochMilli(System.currentTimeMillis())}")
         sb.appendLine()
 
         when (state.reportType) {
@@ -310,7 +311,7 @@ class ReportsViewModel @Inject constructor(
                     val status = if (b.exceeded) "Exceeded" else "On Track"
                     sb.appendLine(
                         "$name,${CurrencyFormatter.formatMinorUnits(b.spentMinor, currencyCode)}," +
-                            "${CurrencyFormatter.formatMinorUnits(b.limitMinor, currencyCode)},$status"
+                            "${CurrencyFormatter.formatMinorUnits(b.limitMinor, currencyCode)},$status",
                     )
                 }
             }
@@ -322,12 +323,91 @@ class ReportsViewModel @Inject constructor(
                     val progress = "${(g.progress * 100).toInt()}%"
                     sb.appendLine(
                         "${g.name},${CurrencyFormatter.formatMinorUnits(g.targetMinor, currencyCode)}," +
-                            "${CurrencyFormatter.formatMinorUnits(g.savedMinor, currencyCode)},$progress"
+                            "${CurrencyFormatter.formatMinorUnits(g.savedMinor, currencyCode)},$progress",
                     )
                 }
             }
         }
 
+        return sb.toString()
+    }
+
+    fun generateJson(): String {
+        val state = _uiState.value
+        val currencyCode = state.currencyCode
+
+        val sb = StringBuilder()
+        sb.appendLine("{")
+        sb.appendLine("  \"reportType\": \"${state.reportType.name}\",")
+        sb.appendLine("  \"period\": \"${state.monthLabel}\",")
+        sb.appendLine("  \"generatedAtEpochMillis\": ${System.currentTimeMillis()},")
+        sb.appendLine("  \"currencyCode\": \"$currencyCode\",")
+        sb.appendLine("  \"summary\": {")
+        sb.appendLine("    \"income\": \"${CurrencyFormatter.formatMinorUnits(state.income, currencyCode)}\",")
+        sb.appendLine("    \"incomeMinor\": ${state.income},")
+        sb.appendLine("    \"expenses\": \"${CurrencyFormatter.formatMinorUnits(state.expenses, currencyCode)}\",")
+        sb.appendLine("    \"expensesMinor\": ${state.expenses},")
+        sb.appendLine("    \"savings\": \"${CurrencyFormatter.formatMinorUnits(state.savings, currencyCode)}\",")
+        sb.appendLine("    \"savingsMinor\": ${state.savings}")
+        sb.appendLine("  },")
+
+        if (state.categoryBreakdown.isNotEmpty()) {
+            sb.appendLine("  \"expenseCategoryBreakdown\": [")
+            state.categoryBreakdown.forEachIndexed { index, cat ->
+                val pct = if (state.expenses > 0) {
+                    ((cat.totalMinor.toDouble() / state.expenses.coerceAtLeast(1).toDouble()) * 100).toInt()
+                } else 0
+                val comma = if (index < state.categoryBreakdown.size - 1) "," else ""
+                sb.appendLine("    {\"category\": \"${cat.categoryName}\", \"amount\": \"${CurrencyFormatter.formatMinorUnits(cat.totalMinor, currencyCode)}\", \"amountMinor\": ${cat.totalMinor}, \"percentage\": \"$pct%\"}$comma")
+            }
+            sb.appendLine("  ],")
+        }
+
+        if (state.incomeCategoryBreakdown.isNotEmpty()) {
+            sb.appendLine("  \"incomeCategoryBreakdown\": [")
+            state.incomeCategoryBreakdown.forEachIndexed { index, cat ->
+                val comma = if (index < state.incomeCategoryBreakdown.size - 1) "," else ""
+                sb.appendLine("    {\"category\": \"${cat.categoryName}\", \"amount\": \"${CurrencyFormatter.formatMinorUnits(cat.totalMinor, currencyCode)}\", \"amountMinor\": ${cat.totalMinor}}$comma")
+            }
+            sb.appendLine("  ],")
+        }
+
+        if (state.budgetSpendings.isNotEmpty()) {
+            sb.appendLine("  \"budgetSummary\": [")
+            state.budgetSpendings.forEachIndexed { index, b ->
+                val name = b.budget.categoryId ?: "Overall"
+                val pct = (b.percentage * 100).toInt()
+                val comma = if (index < state.budgetSpendings.size - 1) "," else ""
+                sb.appendLine("    {\"budgetName\": \"$name\", \"spent\": \"${CurrencyFormatter.formatMinorUnits(b.spentMinor, currencyCode)}\", \"limit\": \"${CurrencyFormatter.formatMinorUnits(b.limitMinor, currencyCode)}\", \"percentage\": \"$pct%\", \"exceeded\": ${b.exceeded}}$comma")
+            }
+            sb.appendLine("  ],")
+        }
+
+        if (state.goals.isNotEmpty()) {
+            sb.appendLine("  \"savingsGoals\": [")
+            state.goals.forEachIndexed { index, g ->
+                val pct = (g.progress * 100).toInt()
+                val comma = if (index < state.goals.size - 1) "," else ""
+                sb.appendLine("    {\"name\": \"${g.name}\", \"target\": \"${CurrencyFormatter.formatMinorUnits(g.targetMinor, currencyCode)}\", \"saved\": \"${CurrencyFormatter.formatMinorUnits(g.savedMinor, currencyCode)}\", \"progress\": \"$pct%\", \"completed\": ${g.completed}}$comma")
+            }
+            sb.appendLine("  ],")
+        }
+
+        if (state.accounts.isNotEmpty()) {
+            sb.appendLine("  \"accounts\": [")
+            state.accounts.forEachIndexed { index, acc ->
+                val comma = if (index < state.accounts.size - 1) "," else ""
+                sb.appendLine("    {\"name\": \"${acc.name}\", \"balance\": \"${CurrencyFormatter.formatMinorUnits(acc.initialBalanceMinor, acc.currencyCode)}\"}$comma")
+            }
+            sb.appendLine("  ]")
+        } else {
+            sb.setLength(sb.length - 1)
+            if (sb.endsWith(",")) {
+                sb.setLength(sb.length - 1)
+            }
+        }
+
+        sb.appendLine("}")
         return sb.toString()
     }
 }

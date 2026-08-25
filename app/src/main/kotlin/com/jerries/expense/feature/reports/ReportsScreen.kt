@@ -19,7 +19,10 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.FileDownload
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -35,8 +38,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -73,6 +78,7 @@ fun ReportsScreen(
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
+    var showExportMenu by remember { mutableStateOf(false) }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -83,18 +89,57 @@ fun ReportsScreen(
                     containerColor = MaterialTheme.colorScheme.surface,
                 ),
                 actions = {
-                    IconButton(onClick = {
-                        scope.launch {
-                            val csv = viewModel.generateCsv()
-                            shareCsv(context, csv)
-                            snackbarHostState.showSnackbar(
-                                context.getString(R.string.reports_exported)
-                            )
-                        }
-                    }) {
+                    IconButton(onClick = { showExportMenu = true }) {
                         Icon(
                             imageVector = Icons.Filled.Share,
-                            contentDescription = stringResource(R.string.reports_export_csv),
+                            contentDescription = stringResource(R.string.reports_export_share),
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = showExportMenu,
+                        onDismissRequest = { showExportMenu = false },
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.reports_export_csv)) },
+                            onClick = {
+                                showExportMenu = false
+                                scope.launch {
+                                    try {
+                                        val csv = viewModel.generateCsv()
+                                        shareTextFile(context, csv, "expense_report.csv", "text/csv")
+                                        snackbarHostState.showSnackbar(context.getString(R.string.reports_exported))
+                                    } catch (e: Exception) {
+                                        snackbarHostState.showSnackbar(e.message ?: context.getString(R.string.error_generic_title))
+                                    }
+                                }
+                            },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Filled.Description,
+                                    contentDescription = null,
+                                )
+                            },
+                        )
+                        DropdownMenuItem(
+                            text = { Text(stringResource(R.string.reports_export_json)) },
+                            onClick = {
+                                showExportMenu = false
+                                scope.launch {
+                                    try {
+                                        val json = viewModel.generateJson()
+                                        shareTextFile(context, json, "expense_report.json", "application/json")
+                                        snackbarHostState.showSnackbar(context.getString(R.string.reports_exported))
+                                    } catch (e: Exception) {
+                                        snackbarHostState.showSnackbar(e.message ?: context.getString(R.string.error_generic_title))
+                                    }
+                                }
+                            },
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Filled.FileDownload,
+                                    contentDescription = null,
+                                )
+                            },
                         )
                     }
                 },
@@ -215,11 +260,13 @@ private fun DateRangeHeader(
             )
         }
 
+        val dateLabel = if (reportType == ReportType.YEARLY) {
+            currentYear.toString()
+        } else {
+            currentMonth.format(DateTimeFormatter.ofPattern("MMMM yyyy"))
+        }
         Text(
-            text = when (reportType) {
-                ReportType.YEARLY -> currentYear.toString()
-                else -> currentMonth.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
-            },
+            text = dateLabel,
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(horizontal = spacing.small),
@@ -714,21 +761,24 @@ private fun GoalRow(
     }
 }
 
-private suspend fun shareCsv(context: Context, csvContent: String) {
+private suspend fun shareTextFile(context: Context, content: String, fileName: String, mimeType: String) {
     withContext(Dispatchers.IO) {
-        val file = java.io.File(context.cacheDir, "expense_report.csv").apply {
-            writeText(csvContent)
+        try {
+            val file = java.io.File(context.cacheDir, fileName).apply {
+                writeText(content)
+            }
+            val uri = androidx.core.content.FileProvider.getUriForFile(
+                context,
+                "${context.packageName}.fileprovider",
+                file,
+            )
+            val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                type = mimeType
+                putExtra(Intent.EXTRA_STREAM, uri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+            context.startActivity(Intent.createChooser(sendIntent, null))
+        } catch (_: Exception) {
         }
-        val uri = androidx.core.content.FileProvider.getUriForFile(
-            context,
-            "${context.packageName}.fileprovider",
-            file,
-        )
-        val sendIntent = Intent(Intent.ACTION_SEND).apply {
-            type = "text/csv"
-            putExtra(Intent.EXTRA_STREAM, uri)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        }
-        context.startActivity(Intent.createChooser(sendIntent, null))
     }
 }

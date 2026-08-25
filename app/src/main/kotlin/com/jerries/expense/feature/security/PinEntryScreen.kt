@@ -60,6 +60,9 @@ fun PinEntryScreen(
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val spacing = LocalSpacing.current
     val focusRequester = remember { FocusRequester() }
+    val activityContext = androidx.compose.ui.platform.LocalContext.current
+    val canUseBiometric = state.authState == com.jerries.expense.core.security.AuthState.LOCKED &&
+        BiometricHelper.canAuthenticate(activityContext)
 
     LaunchedEffect(state.authState) {
         if (state.authState == com.jerries.expense.core.security.AuthState.UNLOCKED) {
@@ -139,20 +142,17 @@ fun PinEntryScreen(
 
             Spacer(modifier = Modifier.height(spacing.medium))
 
-            if (state.authState == com.jerries.expense.core.security.AuthState.LOCKED &&
-                BiometricHelper.canAuthenticate(
-                    androidx.compose.ui.platform.LocalContext.current,
-                )
-            ) {
+            if (canUseBiometric) {
+                val biometricTitle = stringResource(R.string.pin_use_biometric)
+                val cancelText = stringResource(R.string.cancel)
                 TextButton(
                     onClick = {
-                        val activity = androidx.compose.ui.platform.LocalContext.current
-                        if (activity is androidx.fragment.app.FragmentActivity) {
+                        if (activityContext is androidx.fragment.app.FragmentActivity) {
                             BiometricHelper.authenticate(
-                                activity = activity,
-                                title = stringResource(R.string.pin_use_biometric),
+                                activity = activityContext,
+                                title = biometricTitle,
                                 subtitle = "",
-                                negativeButtonText = stringResource(R.string.cancel),
+                                negativeButtonText = cancelText,
                                 onSuccess = { viewModel.unlock() },
                                 onError = {},
                             )

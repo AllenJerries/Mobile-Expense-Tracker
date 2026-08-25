@@ -51,6 +51,12 @@ class OfflineFirstTransactionRepository @Inject constructor(
         transactionDao.deleteTransactionSoft(id)
     }
 
+    override fun observeSpendingForBudget(categoryId: String, startEpochDay: Long, endEpochDay: Long): Flow<Long> =
+        transactionDao.observeSpendingForBudget(categoryId, startEpochDay, endEpochDay)
+
+    override fun observeSpendingForBudgetByAccount(accountId: String, startEpochDay: Long, endEpochDay: Long): Flow<Long> =
+        transactionDao.observeSpendingForBudgetByAccount(accountId, startEpochDay, endEpochDay)
+
     override suspend fun getDueRecurringTransactions(todayEpochDay: Long): List<Transaction> {
         return emptyList()
     }

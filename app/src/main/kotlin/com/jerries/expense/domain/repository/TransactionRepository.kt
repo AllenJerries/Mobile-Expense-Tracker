@@ -10,6 +10,10 @@ interface TransactionRepository {
 
     fun observeByDateRange(startEpochDay: Long, endEpochDay: Long): Flow<List<Transaction>>
 
+    fun observeSpendingForBudget(categoryId: String, startEpochDay: Long, endEpochDay: Long): Flow<Long>
+
+    fun observeSpendingForBudgetByAccount(accountId: String, startEpochDay: Long, endEpochDay: Long): Flow<Long>
+
     suspend fun getById(id: String): Transaction?
 
     suspend fun add(transaction: Transaction)

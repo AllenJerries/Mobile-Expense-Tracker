@@ -115,6 +115,8 @@
     <string name="search_transactions_hint">Search transactions…</string>
     <string name="start_date">Start date</string>
     <string name="end_date">End date</string>
+
+    <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_theme_system">Follow system</string>
@@ -124,23 +126,141 @@
     <string name="settings_dynamic_colors_description">Use wallpaper-based colors on Android 12+</string>
     <string name="settings_general">General</string>
     <string name="settings_currency">Currency</string>
+    <string name="settings_first_day_of_week">First day of week</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_notification_budget_warnings">Budget warnings</string>
+    <string name="settings_notification_budget_warnings_desc">Alert when approaching budget limits</string>
+    <string name="settings_notification_recurring">Recurring reminders</string>
+    <string name="settings_notification_recurring_desc">Reminders for upcoming recurring transactions</string>
+    <string name="settings_notification_savings">Savings reminders</string>
+    <string name="settings_notification_savings_desc">Periodic savings goal reminders</string>
+    <string name="settings_data">Data</string>
+    <string name="settings_security">Security</string>
+    <string name="settings_export">Export</string>
+    <string name="settings_export_csv">Export transactions as CSV</string>
+    <string name="settings_exported">Export complete</string>
     <string name="settings_about">About</string>
     <string name="settings_about_description">JERRIES EXPENSE is an offline-first personal finance app. Your data never leaves this device.</string>
     <string name="settings_version">Version 1.0.0</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_description">All data is stored locally on your device. No data is collected, transmitted, or shared with third parties. No internet permission is required.</string>
+
+    <!-- Backup -->
     <string name="backup_title">Backup &amp; restore</string>
-    <string name="backup_description">Export all of your data — transactions, accounts, categories, budgets and goals — into a single portable file, or restore it on another device. Backups are created locally; no internet connection is required.</string>
-    <string name="backup_coming_soon">Backup and restore arrive in Phase 2.</string>
+    <string name="backup_description">Export all of your data — transactions, accounts, categories, budgets and goals — into a single portable file, or restore from a backup.</string>
+    <string name="backup_export">Export backup</string>
+    <string name="backup_import">Import backup</string>
+    <string name="backup_export_description">Save a complete backup to a file</string>
+    <string name="backup_import_description">Restore data from a backup file</string>
+    <string name="backup_exporting">Creating backup…</string>
+    <string name="backup_importing">Restoring backup…</string>
+    <string name="backup_success">Backup created successfully</string>
+    <string name="backup_restore_success">Backup restored successfully</string>
+    <string name="backup_error_export">Failed to create backup</string>
+    <string name="backup_error_import">Failed to restore backup</string>
+    <string name="backup_error_invalid_file">This is not a valid backup file</string>
+    <string name="backup_error_corrupted">Backup file is corrupted or unreadable</string>
+    <string name="backup_error_version">Backup format is not supported by this version</string>
+    <string name="backup_confirm_restore">Restore this backup?</string>
+    <string name="backup_confirm_restore_message">This will replace all existing data. This action cannot be undone.</string>
+    <string name="backup_last_backup">Last backup: %1$s</string>
+    <string name="backup_no_backup">No backup created yet</string>
+    <string name="backup_records">%1$d accounts, %2$d categories, %3$d transactions</string>
+
+    <!-- Notifications -->
+    <string name="notification_budget_warning_title">Budget warning</string>
+    <string name="notification_budget_warning_body">You have spent %1$s of your %2$s %3$s budget.</string>
+    <string name="notification_savings_reminder_title">Savings reminder</string>
+    <string name="notification_savings_reminder_body">Don\'t forget to add to your savings goal: %1$s</string>
+    <string name="notification_recurring_title">Recurring transaction</string>
+    <string name="notification_recurring_body">A recurring transaction is due: %1$s</string>
+    <string name="notification_channel_budget">Budget warnings</string>
+    <string name="notification_channel_savings">Savings reminders</string>
+    <string name="notification_channel_recurring">Recurring reminders</string>
+
+    <!-- Recurring -->
     <string name="recurring_title">Recurring</string>
     <string name="recurring_empty_message">Recurring transactions will be managed here.</string>
+    <string name="recurring_description_label">Description</string>
+    <string name="recurring_frequency_label">Frequency</string>
+    <string name="recurring_next_date_label">Next occurrence</string>
+    <string name="recurring_end_date_label">End date (optional)</string>
+    <string name="recurring_daily">Daily</string>
+    <string name="recurring_weekly">Weekly</string>
+    <string name="recurring_biweekly">Biweekly</string>
+    <string name="recurring_monthly">Monthly</string>
+    <string name="recurring_quarterly">Quarterly</string>
+    <string name="recurring_yearly">Yearly</string>
+    <string name="recurring_upcoming">Upcoming</string>
+    <string name="recurring_active">Active</string>
+    <string name="recurring_inactive">Inactive</string>
+    <string name="recurring_saved">Recurring saved</string>
+    <string name="recurring_deleted">Recurring deleted</string>
+    <string name="add_recurring">Add recurring</string>
+
+    <!-- Insights -->
     <string name="insights_title">Insights</string>
     <string name="insights_empty_message">Personal spending insights will appear here.</string>
+    <string name="insight_budget_warning">If your current spending continues, you may exceed your %1$s budget.</string>
+    <string name="insight_higher_spending">Your spending is %1$s%% higher than last month.</string>
+    <string name="insight_highest_category">Your highest spending category is %1$s.</string>
+    <string name="insight_savings_improved">You saved more this month than last month.</string>
+    <string name="insight_avg_daily">Your average daily spending is %1$s.</string>
+    <string name="insight_lower_spending">Your spending is %1$s%% lower than last month. Great job!</string>
+    <string name="insight_savings_declined">Your savings decreased compared to last month.</string>
+    <string name="insight_no_data">Start tracking expenses to see insights.</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analytics</string>
+    <string name="analytics_daily_spending">Daily spending</string>
+    <string name="analytics_weekly_spending">Weekly spending</string>
+    <string name="analytics_monthly_spending">Monthly spending</string>
+    <string name="analytics_income_vs_expenses">Income vs Expenses</string>
+    <string name="analytics_category_breakdown">Category breakdown</string>
+    <string name="analytics_account_spending">Account spending</string>
+    <string name="analytics_spending_trends">Spending trends</string>
+    <string name="analytics_avg_daily">Average daily spending</string>
+    <string name="analytics_highest_category">Highest spending category</string>
+    <string name="analytics_highest_transaction">Highest spending transaction</string>
+    <string name="analytics_mom_comparison">Month-over-month</string>
+    <string name="analytics_savings_rate">Savings rate</string>
+    <string name="analytics_this_month">This month</string>
+    <string name="analytics_last_month">Last month</string>
+    <string name="analytics_overview">Overview</string>
+    <string name="analytics_charts">Charts</string>
+    <string name="analytics_empty_message">Charts and trends will appear here once you have data.</string>
+
+    <!-- Reports -->
     <string name="reports_title">Reports</string>
     <string name="reports_empty_message">Detailed reports will appear here.</string>
-    <string name="analytics_empty_message">Charts and trends will appear here once you have data.</string>
+    <string name="reports_monthly">Monthly</string>
+    <string name="reports_yearly">Yearly</string>
+    <string name="reports_income">Income</string>
+    <string name="reports_expense">Expense</string>
+    <string name="reports_category">Category</string>
+    <string name="reports_budget">Budget</string>
+    <string name="reports_savings">Savings</string>
+    <string name="reports_total_income">Total income</string>
+    <string name="reports_total_expenses">Total expenses</string>
+    <string name="reports_total_savings">Total savings</string>
+    <string name="reports_date_range">Date range</string>
+    <string name="reports_account_summary">Account summary</string>
+    <string name="reports_budget_summary">Budget summary</string>
+    <string name="reports_export_csv">Export CSV</string>
+    <string name="reports_export_json">Export JSON</string>
+    <string name="reports_exported">Report exported</string>
+    <string name="reports_export_share">Share report</string>
+    <string name="reports_period_format">%1$s – %2$s</string>
+    <string name="reports_no_data">No data for this period</string>
+    <string name="reports_savings_goals">Savings goals</string>
+    <string name="reports_category_breakdown">Category breakdown</string>
+    <string name="reports_budget_name">Budget</string>
+    <string name="reports_spent">Spent</string>
+    <string name="reports_limit">Limit</string>
+    <string name="reports_progress">Progress</string>
+
+    <!-- Budgets -->
     <string name="budgets_empty_message">Budget progress will appear here.</string>
-    <string name="percent_format">%1$d%%</string>
-    <string name="amount_format">%1$s</string>
-    <string name="vs_last_month_format">%1$s vs last month</string>
     <string name="add_budget">Add budget</string>
     <string name="edit_budget">Edit budget</string>
     <string name="budget_name_label">Budget name</string>
@@ -162,6 +282,8 @@
     <string name="budget_exceeded">Over budget</string>
     <string name="budget_saved">Budget saved</string>
     <string name="budget_deleted">Budget deleted</string>
+
+    <!-- Goals -->
     <string name="add_goal">Add goal</string>
     <string name="edit_goal">Edit goal</string>
     <string name="goal_name_label">Goal name</string>
@@ -175,72 +297,6 @@
     <string name="goal_completed">Goal completed!</string>
     <string name="goal_saved">Goal saved</string>
     <string name="goal_deleted">Goal deleted</string>
-    <string name="add_recurring">Add recurring</string>
-    <string name="recurring_description_label">Description</string>
-    <string name="recurring_frequency_label">Frequency</string>
-    <string name="recurring_next_date_label">Next occurrence</string>
-    <string name="recurring_end_date_label">End date (optional)</string>
-    <string name="recurring_daily">Daily</string>
-    <string name="recurring_weekly">Weekly</string>
-    <string name="recurring_biweekly">Biweekly</string>
-    <string name="recurring_monthly">Monthly</string>
-    <string name="recurring_quarterly">Quarterly</string>
-    <string name="recurring_yearly">Yearly</string>
-    <string name="recurring_upcoming">Upcoming</string>
-    <string name="recurring_active">Active</string>
-    <string name="recurring_inactive">Inactive</string>
-    <string name="recurring_saved">Recurring saved</string>
-    <string name="recurring_deleted">Recurring deleted</string>
-    <string name="analytics_title">Analytics</string>
-    <string name="analytics_daily_spending">Daily spending</string>
-    <string name="analytics_weekly_spending">Weekly spending</string>
-    <string name="analytics_monthly_spending">Monthly spending</string>
-    <string name="analytics_income_vs_expenses">Income vs Expenses</string>
-    <string name="analytics_category_breakdown">Category breakdown</string>
-    <string name="analytics_account_spending">Account spending</string>
-    <string name="analytics_spending_trends">Spending trends</string>
-    <string name="analytics_avg_daily">Average daily spending</string>
-    <string name="analytics_highest_category">Highest spending category</string>
-    <string name="analytics_highest_transaction">Highest spending transaction</string>
-    <string name="analytics_mom_comparison">Month-over-month</string>
-    <string name="analytics_savings_rate">Savings rate</string>
-    <string name="analytics_this_month">This month</string>
-    <string name="analytics_last_month">Last month</string>
-    <string name="analytics_overview">Overview</string>
-    <string name="analytics_charts">Charts</string>
-    <string name="insight_budget_warning">If your current spending continues, you may exceed your %1$s budget.</string>
-    <string name="insight_higher_spending">Your spending is %1$s%% higher than last month.</string>
-    <string name="insight_highest_category">Your highest spending category is %1$s.</string>
-    <string name="insight_savings_improved">You saved more this month than last month.</string>
-    <string name="insight_avg_daily">Your average daily spending is %1$s.</string>
-    <string name="insight_lower_spending">Your spending is %1$s%% lower than last month. Great job!</string>
-    <string name="insight_savings_declined">Your savings decreased compared to last month.</string>
-    <string name="insight_no_data">Start tracking expenses to see insights.</string>
-
-    <!-- Reports -->
-    <string name="reports_monthly">Monthly</string>
-    <string name="reports_yearly">Yearly</string>
-    <string name="reports_income">Income</string>
-    <string name="reports_expense">Expense</string>
-    <string name="reports_category">Category</string>
-    <string name="reports_budget">Budget</string>
-    <string name="reports_savings">Savings</string>
-    <string name="reports_total_income">Total income</string>
-    <string name="reports_total_expenses">Total expenses</string>
-    <string name="reports_total_savings">Total savings</string>
-    <string name="reports_date_range">Date range</string>
-    <string name="reports_account_summary">Account summary</string>
-    <string name="reports_budget_summary">Budget summary</string>
-    <string name="reports_export_csv">Export CSV</string>
-    <string name="reports_exported">Report exported</string>
-    <string name="reports_period_format">%1$s – %2$s</string>
-    <string name="reports_no_data">No data for this period</string>
-    <string name="reports_savings_goals">Savings goals</string>
-    <string name="reports_category_breakdown">Category breakdown</string>
-    <string name="reports_budget_name">Budget</string>
-    <string name="reports_spent">Spent</string>
-    <string name="reports_limit">Limit</string>
-    <string name="reports_progress">Progress</string>
 
     <!-- Security -->
     <string name="pin_setup_title">Set up PIN</string>
@@ -250,6 +306,7 @@
     <string name="pin_verify_error">Wrong PIN</string>
     <string name="pin_use_biometric">Use biometrics</string>
     <string name="pin_use_device_credentials">Use device credentials</string>
+    <string name="pin_lockout_message">Too many attempts. Please try again later.</string>
     <string name="security_title">Security</string>
     <string name="security_pin_lock">PIN lock</string>
     <string name="security_pin_lock_description">Require PIN to open the app</string>
@@ -264,6 +321,19 @@
     <string name="security_timeout_15">15 minutes</string>
     <string name="security_timeout_30">30 minutes</string>
     <string name="security_biometric_not_available">Biometrics not available on this device</string>
+    <string name="security_disable_pin_title">Disable PIN lock?</string>
+    <string name="security_disable_pin_message">You will no longer need to enter a PIN to open the app.</string>
+    <string name="security_disable">Disable</string>
     <string name="pin_success">PIN set successfully</string>
     <string name="pin_removed">PIN removed</string>
+
+    <!-- Formats -->
+    <string name="percent_format">%1$d%%</string>
+    <string name="amount_format">%1$s</string>
+    <string name="vs_last_month_format">%1$s vs last month</string>
+
+    <!-- First day of week -->
+    <string name="first_day_sunday">Sunday</string>
+    <string name="first_day_monday">Monday</string>
+    <string name="first_day_saturday">Saturday</string>
 </resources>
