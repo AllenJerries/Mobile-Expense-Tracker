@@ -6,7 +6,6 @@ import com.jerries.expense.core.common.TimeProvider
 import com.jerries.expense.core.designsystem.component.TransactionRowModel
 import com.jerries.expense.core.designsystem.icon.JeIcons
 import com.jerries.expense.domain.model.Category
-import com.jerries.expense.domain.model.SpendingByCategory
 import com.jerries.expense.domain.model.Transaction
 import com.jerries.expense.domain.usecase.BudgetSpending
 import com.jerries.expense.domain.usecase.ObserveBudgetSpendingUseCase
@@ -23,8 +22,9 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import java.time.YearMonth
 
 data class CategorySpending(
@@ -72,8 +72,7 @@ class DashboardViewModel @Inject constructor(
     observeCategories: ObserveCategoriesUseCase,
     observeUserPreferences: ObserveUserPreferencesUseCase,
     private val observeMonthlyTotals: ObserveMonthlyTotalsUseCase,
-    private val observeExpensesByCategory: ObserveExpensesByCategoryUseCase,
-    private val observeBudgetSpending: ObserveBudgetSpendingUseCase,
+    observeBudgetSpending: ObserveBudgetSpendingUseCase,
     private val timeProvider: TimeProvider,
 ) : ViewModel() {
 
@@ -84,6 +83,9 @@ class DashboardViewModel @Inject constructor(
     val uiState: StateFlow<DashboardUiState> = _uiState.asStateFlow()
 
     init {
+        val today = timeProvider.today()
+        val currentMonth = YearMonth.from(today)
+
         viewModelScope.launch {
             combine(
                 observeTotalBalance(),
@@ -91,21 +93,18 @@ class DashboardViewModel @Inject constructor(
                 observeCategories(),
                 observeUserPreferences(),
             ) { balance, transactions, categories, prefs ->
-                val currentMonth = _selectedMonth.value
-                val prevMonth = currentMonth.minusMonths(1)
-
+                val byId = categories.associateBy(Category::id)
                 DashboardUiState(
                     isLoading = false,
                     totalBalanceMinor = balance,
                     currencyCode = prefs.currencyCode,
-                    todayEpochDay = timeProvider.today().toEpochDay(),
+                    todayEpochDay = today.toEpochDay(),
                     currentMonth = currentMonth,
-                    recentTransactions = transactions.map {
-                        it.toRowModel(categoriesById(categories))
-                    },
+                    recentTransactions = transactions.map { t -> t.toRowModel(byId) },
                 )
             }.collect { baseState ->
                 _uiState.value = baseState
+                loadMonthData(baseState.currentMonth)
             }
         }
 
@@ -113,6 +112,36 @@ class DashboardViewModel @Inject constructor(
             _selectedMonth.collect { month ->
                 loadMonthData(month)
             }
+        }
+    }
+
+    private suspend fun loadMonthData(month: YearMonth) {
+        val prevMonth = month.minusMonths(1)
+
+        // Current month income/expenses
+        var incomeThisMonth = 0L
+        var expensesThisMonth = 0L
+        observeMonthlyTotals(month).collect { pair ->
+            incomeThisMonth = pair.first
+            expensesThisMonth = pair.second
+        }
+
+        // Previous month income/expenses
+        var incomeLastMonth = 0L
+        var expensesLastMonth = 0L
+        observeMonthlyTotals(prevMonth).collect { pair ->
+            incomeLastMonth = pair.first
+            expensesLastMonth = pair.second
+        }
+
+        _uiState.update {
+            it.copy(
+                incomeThisMonth = incomeThisMonth,
+                expensesThisMonth = expensesThisMonth,
+                savingsThisMonth = incomeThisMonth - expensesThisMonth,
+                incomeLastMonth = incomeLastMonth,
+                expensesLastMonth = expensesLastMonth,
+            )
         }
     }
 
@@ -126,23 +155,6 @@ class DashboardViewModel @Inject constructor(
 
     fun onNextMonth() {
         _selectedMonth.value = _selectedMonth.value.plusMonths(1)
-    }
-
-    private suspend fun loadMonthData(month: YearMonth) {
-        val prevMonth = month.minusMonths(1)
-        val startEpochDay = month.atDay(1).toEpochDay()
-        val endEpochDay = month.atEndOfMonth().toEpochDay()
-        val prevStartEpochDay = prevMonth.atDay(1).toEpochDay()
-        val prevEndEpochDay = prevMonth.atEndOfMonth().toEpochDay()
-
-        // Current month income/expenses
-        observeMonthlyTotals(month).collect { (income, expenses) ->
-            _uiState.value = _uiState.value.copy(
-                incomeThisMonth = income,
-                expensesThisMonth = expenses,
-                savingsThisMonth = income - expenses,
-            )
-        }
     }
 
     private fun categoriesById(categories: List<Category>) =
@@ -168,7 +180,6 @@ class DashboardViewModel @Inject constructor(
     }
 
     companion object {
-        private const val STOP_TIMEOUT_MILLIS = 5_000L
         private const val RECENT_LIMIT = 5
     }
 }

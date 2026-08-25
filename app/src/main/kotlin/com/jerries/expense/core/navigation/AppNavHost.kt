@@ -12,11 +12,13 @@ import com.jerries.expense.feature.backup.BackupScreen
 import com.jerries.expense.feature.budgets.BudgetsScreen
 import com.jerries.expense.feature.categories.CategoriesScreen
 import com.jerries.expense.feature.dashboard.DashboardScreen
+import com.jerries.expense.feature.edittransaction.EditTransactionScreen
 import com.jerries.expense.feature.goals.GoalsScreen
 import com.jerries.expense.feature.insights.InsightsScreen
 import com.jerries.expense.feature.recurring.RecurringScreen
 import com.jerries.expense.feature.reports.ReportsScreen
 import com.jerries.expense.feature.settings.SettingsScreen
+import com.jerries.expense.feature.transactiondetail.TransactionDetailScreen
 import com.jerries.expense.feature.transactions.TransactionsScreen
 
 /**
@@ -34,13 +36,47 @@ fun AppNavHost(
         modifier = modifier,
     ) {
         composable<DashboardRoute> {
-            DashboardScreen()
+            DashboardScreen(
+                onNavigateToAddExpense = {
+                    navController.navigate(AddTransactionRoute)
+                },
+                onNavigateToAddIncome = {
+                    navController.navigate(AddTransactionRoute)
+                },
+                onNavigateToTransfer = {
+                    navController.navigate(AddTransactionRoute)
+                },
+                onNavigateToBudgets = {
+                    navController.navigate(BudgetsRoute)
+                },
+                onNavigateToTransactions = {
+                    navController.navigate(TransactionsRoute)
+                },
+                onNavigateToTransactionDetail = { id ->
+                    navController.navigate(TransactionDetailRoute(id))
+                },
+            )
         }
         composable<TransactionsRoute> {
-            TransactionsScreen()
+            TransactionsScreen(
+                onNavigateToDetail = { id ->
+                    navController.navigate(TransactionDetailRoute(id))
+                },
+            )
         }
         composable<AddTransactionRoute> {
             AddTransactionScreen(onNavigateUp = navController::navigateUp)
+        }
+        composable<EditTransactionRoute> {
+            EditTransactionScreen(onNavigateUp = navController::navigateUp)
+        }
+        composable<TransactionDetailRoute> {
+            TransactionDetailScreen(
+                onNavigateUp = navController::navigateUp,
+                onNavigateToEdit = { id ->
+                    navController.navigate(EditTransactionRoute(id))
+                },
+            )
         }
         composable<BudgetsRoute> {
             BudgetsScreen()

@@ -194,6 +194,10 @@ class EditTransactionViewModel @Inject constructor(
         it.copy(paymentMethod = method)
     }
 
+    fun onAttachmentChange(uri: String?) = _formState.update {
+        it.copy(attachmentUri = uri)
+    }
+
     fun save() {
         val current = uiState.value
         val amountMinor = current.amountInput.toMinorUnitsOrNull()
