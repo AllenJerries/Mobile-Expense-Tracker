@@ -1,5 +1,8 @@
 package com.jerries.expense.feature.goals
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
@@ -48,7 +52,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.component.staggeredListItemEntry
 import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.scaleOnPress
 import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
@@ -116,7 +122,7 @@ fun GoalsScreen(
                     verticalArrangement = Arrangement.spacedBy(spacing.small),
                 ) {
                     if (state.activeGoals.isNotEmpty()) {
-                        items(state.activeGoals, key = { it.id }) { goal ->
+                        itemsIndexed(state.activeGoals, key = { _, item -> item.id }) { index, goal ->
                             GoalCard(
                                 goal = goal,
                                 currencyCode = state.currencyCode,
@@ -124,12 +130,13 @@ fun GoalsScreen(
                                 onWithdraw = { viewModel.onShowContribution(goal.id, goal.name, true) },
                                 onEdit = { viewModel.onEditGoal(goal) },
                                 onDelete = { viewModel.onDeleteGoal(goal.id) },
+                                modifier = Modifier.staggeredListItemEntry(index),
                             )
                         }
                     }
                     if (state.completedGoals.isNotEmpty()) {
                         item { SectionHeader(stringResource(R.string.label_completed)) }
-                        items(state.completedGoals, key = { it.id }) { goal ->
+                        itemsIndexed(state.completedGoals, key = { _, item -> item.id }) { index, goal ->
                             GoalCard(
                                 goal = goal,
                                 currencyCode = state.currencyCode,
@@ -137,6 +144,7 @@ fun GoalsScreen(
                                 onWithdraw = {},
                                 onEdit = {},
                                 onDelete = { viewModel.onDeleteGoal(goal.id) },
+                                modifier = Modifier.staggeredListItemEntry(index),
                             )
                         }
                     }
@@ -145,7 +153,7 @@ fun GoalsScreen(
         }
         FloatingActionButton(
             onClick = { viewModel.onShowForm(true) },
-            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp).scaleOnPress(),
         ) {
             Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_goal))
         }
@@ -161,11 +169,20 @@ private fun GoalCard(
     onWithdraw: () -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
+    val animatedProgress by animateFloatAsState(
+        targetValue = goal.progress.toFloat(),
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioNoBouncy,
+            stiffness = Spring.StiffnessLow,
+        ),
+        label = "goalProgress",
+    )
 
     GlassCard(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding),
+        modifier = modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding),
     ) {
         Column(modifier = Modifier.padding(spacing.cardPadding)) {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
@@ -190,7 +207,7 @@ private fun GoalCard(
             }
             Spacer(Modifier.height(spacing.extraSmall))
             LinearProgressIndicator(
-                progress = { goal.progress.toFloat() },
+                progress = { animatedProgress },
                 modifier = Modifier.fillMaxWidth().height(8.dp).clip(MaterialTheme.shapes.extraSmall),
                 color = if (goal.completed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,

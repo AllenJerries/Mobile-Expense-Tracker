@@ -1,5 +1,15 @@
 package com.jerries.expense.core.navigation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -23,6 +33,48 @@ import com.jerries.expense.feature.settings.SettingsScreen
 import com.jerries.expense.feature.transactiondetail.TransactionDetailScreen
 import com.jerries.expense.feature.transactions.TransactionsScreen
 
+private const val TRANSITION_DURATION = 300
+
+private val slideInFromRight: EnterTransition =
+    slideInHorizontally(
+        animationSpec = tween(TRANSITION_DURATION),
+        initialOffsetX = { fullWidth -> fullWidth / 3 },
+    ) + fadeIn(
+        animationSpec = tween(TRANSITION_DURATION),
+    )
+
+private val slideOutToRight: ExitTransition =
+    slideOutHorizontally(
+        animationSpec = tween(TRANSITION_DURATION),
+        targetOffsetX = { fullWidth -> fullWidth / 3 },
+    ) + fadeOut(
+        animationSpec = tween(TRANSITION_DURATION),
+    )
+
+private val slideInFromLeft: EnterTransition =
+    slideInHorizontally(
+        animationSpec = tween(TRANSITION_DURATION),
+        initialOffsetX = { fullWidth -> -fullWidth / 3 },
+    ) + fadeIn(
+        animationSpec = tween(TRANSITION_DURATION),
+    )
+
+private val slideOutToLeft: ExitTransition =
+    slideOutHorizontally(
+        animationSpec = tween(TRANSITION_DURATION),
+        targetOffsetX = { fullWidth -> -fullWidth / 3 },
+    ) + fadeOut(
+        animationSpec = tween(TRANSITION_DURATION),
+    )
+
+private val fadeInOnly: EnterTransition = fadeIn(
+    animationSpec = tween(TRANSITION_DURATION),
+)
+
+private val fadeOutOnly: ExitTransition = fadeOut(
+    animationSpec = tween(TRANSITION_DURATION),
+)
+
 /**
  * Single navigation graph for the app. Each feature owns its screen; this
  * file only wires destinations and cross-screen callbacks.
@@ -36,6 +88,10 @@ fun AppNavHost(
         navController = navController,
         startDestination = DashboardRoute,
         modifier = modifier,
+        enterTransition = { slideInFromRight },
+        exitTransition = { slideOutToLeft },
+        popEnterTransition = { slideInFromLeft },
+        popExitTransition = { slideOutToRight },
     ) {
         composable<DashboardRoute> {
             DashboardScreen(

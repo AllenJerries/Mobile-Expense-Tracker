@@ -1,6 +1,9 @@
 package com.jerries.expense.feature.budgets
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +18,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -50,7 +54,9 @@ import com.jerries.expense.R
 import com.jerries.expense.core.designsystem.component.AmountText
 import com.jerries.expense.core.designsystem.component.AmountTint
 import com.jerries.expense.core.designsystem.component.EmptyContent
+import com.jerries.expense.core.designsystem.component.staggeredListItemEntry
 import com.jerries.expense.core.designsystem.component.GlassCard
+import com.jerries.expense.core.designsystem.component.scaleOnPress
 import com.jerries.expense.core.designsystem.component.GlassTopBar
 import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
@@ -109,12 +115,13 @@ fun BudgetsScreen(
                     contentPadding = PaddingValues(bottom = 80.dp),
                     verticalArrangement = Arrangement.spacedBy(spacing.small),
                 ) {
-                    items(state.budgetSpendings, key = { it.budget.id }) { spending ->
+                    itemsIndexed(state.budgetSpendings, key = { _, item -> item.budget.id }) { index, spending ->
                         BudgetCard(
                             spending = spending,
                             currencyCode = state.currencyCode,
                             onEdit = { viewModel.onEditBudget(spending.budget) },
                             onDelete = { viewModel.onDeleteBudget(spending.budget.id) },
+                            modifier = Modifier.staggeredListItemEntry(index),
                         )
                     }
                 }
@@ -122,7 +129,7 @@ fun BudgetsScreen(
         }
         FloatingActionButton(
             onClick = { viewModel.onShowForm(true) },
-            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp),
+            modifier = Modifier.align(Alignment.BottomEnd).padding(16.dp).scaleOnPress(),
         ) {
             Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_budget))
         }
@@ -136,13 +143,22 @@ private fun BudgetCard(
     currencyCode: String,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val spacing = LocalSpacing.current
     val progress = spending.percentage.coerceIn(0.0, 1.5).toFloat()
     val isExceeded = spending.percentage > 1.0
     val isApproaching = spending.percentage >= 0.8 && !isExceeded
+    val animatedProgress by animateFloatAsState(
+        targetValue = progress,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioNoBouncy,
+            stiffness = Spring.StiffnessLow,
+        ),
+        label = "budgetProgress",
+    )
 
-    GlassCard(modifier = Modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
+    GlassCard(modifier = modifier.fillMaxWidth().padding(horizontal = spacing.screenPadding)) {
         Column(modifier = Modifier.padding(spacing.cardPadding).animateContentSize()) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -171,7 +187,7 @@ private fun BudgetCard(
             }
             Spacer(Modifier.height(spacing.small))
             LinearProgressIndicator(
-                progress = { progress },
+                progress = { animatedProgress },
                 modifier = Modifier.fillMaxWidth().height(8.dp).clip(MaterialTheme.shapes.extraSmall),
                 color = when {
                     isExceeded -> MaterialTheme.colorScheme.error

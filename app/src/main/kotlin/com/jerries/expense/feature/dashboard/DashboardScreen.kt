@@ -1,10 +1,15 @@
 package com.jerries.expense.feature.dashboard
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,6 +26,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalance
 import androidx.compose.material.icons.filled.ChevronLeft
@@ -64,6 +70,7 @@ import com.jerries.expense.core.designsystem.component.LoadingContent
 import com.jerries.expense.core.designsystem.component.SectionHeader
 import com.jerries.expense.core.designsystem.component.TransactionRow
 import com.jerries.expense.core.designsystem.component.glassConfig
+import com.jerries.expense.core.designsystem.component.staggeredListItemEntry
 import com.jerries.expense.core.designsystem.icon.JeIcons
 import com.jerries.expense.core.designsystem.theme.GlassColors
 import com.jerries.expense.core.designsystem.theme.LocalSpacing
@@ -212,14 +219,16 @@ fun DashboardScreen(
                         )
                     }
                 } else {
-                    items(state.recentTransactions, key = { it.id }) { row ->
+                    itemsIndexed(state.recentTransactions, key = { _, item -> item.id }) { index, row ->
                         TransactionRow(
                             model = row,
                             currencyCode = state.currencyCode,
                             todayEpochDay = state.todayEpochDay,
-                            modifier = Modifier.clickable {
-                                onNavigateToTransactionDetail(row.id)
-                            },
+                            modifier = Modifier
+                                .clickable {
+                                    onNavigateToTransactionDetail(row.id)
+                                }
+                                .staggeredListItemEntry(index),
                         )
                     }
                 }
@@ -295,11 +304,25 @@ private fun MonthSelector(
                 contentDescription = stringResource(R.string.previous_month),
             )
         }
-        Text(
-            text = month.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.SemiBold,
-        )
+        AnimatedContent(
+            targetState = month,
+            transitionSpec = {
+                fadeIn(animationSpec = tween(220)) + slideInVertically(
+                    animationSpec = tween(220),
+                    initialOffsetY = { height -> height / 4 },
+                ) togetherWith fadeOut(animationSpec = tween(120)) + slideOutVertically(
+                    animationSpec = tween(120),
+                    targetOffsetY = { height -> -height / 4 },
+                )
+            },
+            label = "monthText",
+        ) { targetMonth ->
+            Text(
+                text = targetMonth.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+        }
         IconButton(onClick = onNext) {
             Icon(
                 imageVector = Icons.Filled.ChevronRight,

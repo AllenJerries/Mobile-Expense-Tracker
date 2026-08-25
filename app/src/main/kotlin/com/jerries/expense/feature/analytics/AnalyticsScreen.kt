@@ -1,5 +1,12 @@
 package com.jerries.expense.feature.analytics
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -168,11 +175,25 @@ private fun MonthSelector(
         IconButton(onClick = onPrevious) {
             Icon(Icons.Filled.ChevronLeft, contentDescription = stringResource(R.string.previous_month))
         }
-        Text(
-            text = month.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.SemiBold,
-        )
+        AnimatedContent(
+            targetState = month,
+            transitionSpec = {
+                fadeIn(animationSpec = tween(220)) + slideInVertically(
+                    animationSpec = tween(220),
+                    initialOffsetY = { height -> height / 4 },
+                ) togetherWith fadeOut(animationSpec = tween(120)) + slideOutVertically(
+                    animationSpec = tween(120),
+                    targetOffsetY = { height -> -height / 4 },
+                )
+            },
+            label = "monthText",
+        ) { targetMonth ->
+            Text(
+                text = targetMonth.format(DateTimeFormatter.ofPattern("MMMM yyyy")),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+            )
+        }
         IconButton(onClick = onNext) {
             Icon(Icons.Filled.ChevronRight, contentDescription = stringResource(R.string.next_month))
         }
